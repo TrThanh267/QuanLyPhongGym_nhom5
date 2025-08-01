@@ -16,39 +16,25 @@ namespace QuanLyPhongGym.GUI
     public partial class UserControlQuanLyNhanVien : UserControl
     {
         QlGymContext _db = new QlGymContext();
-        QuanLyNhanVien _NhanVienDal;
+        QuanLyNhanVien_DAL _NhanVienDal;
         public UserControlQuanLyNhanVien()
         {
             InitializeComponent();
-            _NhanVienDal = new QuanLyNhanVien(_db);
+            _NhanVienDal = new QuanLyNhanVien_DAL(_db);
             LoadData();
             VaiTro();
         }
-        public void LoadData()
+        public void LoadData() 
         {
-            var list = _db.NhanViens
-        .Include(nv => nv.TenTaiKhoanNavigation)
-            .ThenInclude(tk => tk.MaVaiTroNavigation)
-        .Select(nv => new
-        {
-            nv.TenNhanVien,
-            nv.Sdt,
-            nv.Email,
-            nv.DiaChi,
-            nv.NgayVaoLam,
-            nv.Luong,
-            VaiTro = nv.TenTaiKhoanNavigation.MaVaiTroNavigation.TenVaiTro // Thêm cột VaiTrò hiển thị
-        })
-        .ToList();
-
-            dataGridViewNV.DataSource = list;
+            var listNhanVien = _NhanVienDal.GetNhanVienWithVaiTro();
+            dataGridViewNV.DataSource = listNhanVien;
             dataGridViewNV.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
         public void VaiTro()
         {
-            comboBoxVaiTro.DataSource = _db.VaiTros.ToList();
-            comboBoxVaiTro.DisplayMember = "TenVaiTro";
-            comboBoxVaiTro.ValueMember = "MaVaiTro";
+            comboBoxVaiTro.DataSource = _db.TaiKhoans.ToList();
+            comboBoxVaiTro.DisplayMember = "MaVaitro"; // Hiển thị tên vai trò
+            comboBoxVaiTro.ValueMember = "TenTaiKhoan"; // Lấy giá trị từ tên tài khoản
         }
 
         private void guna2ButtonThem_Click(object sender, EventArgs e)
@@ -124,9 +110,10 @@ namespace QuanLyPhongGym.GUI
         {
             try
             {
+                
                 NhanVien nhanVien = new NhanVien
                 {
-                    MaNv = int.Parse(dataGridViewNV.SelectedRows[0].Cells[0].Value.ToString()),
+                    MaNv = int.Parse(textBoxMaNV.Text),
                     TenNhanVien = textBoxTenNhanVien.Text,
                     TenTaiKhoan = comboBoxVaiTro.SelectedValue.ToString(),
                     DiaChi = textBoxDiaChi.Text,
@@ -134,7 +121,7 @@ namespace QuanLyPhongGym.GUI
                     NgayVaoLam = DateOnly.FromDateTime(dateTimePickerNgayVaoLam.Value),
                     Sdt = textBoxSDT.Text,
                     Luong = decimal.TryParse(textBoxLuong.Text, out decimal luong) ? luong : (decimal?)null
-                };
+                }; ;
                 if (_NhanVienDal.sua(nhanVien))
                 {
                     MessageBox.Show("Cập nhật nhân viên thành công!");
@@ -171,7 +158,7 @@ namespace QuanLyPhongGym.GUI
             if (e.RowIndex >= 0)
             {
                 var row = dataGridViewNV.Rows[e.RowIndex];
-
+                textBoxMaNV.Text = row.Cells["MaNv"].Value?.ToString();
                 textBoxTenNhanVien.Text = row.Cells["TenNhanVien"].Value?.ToString();
                 textBoxSDT.Text = row.Cells["Sdt"].Value?.ToString();
                 textBoxEmail.Text = row.Cells["Email"].Value?.ToString();
@@ -183,7 +170,7 @@ namespace QuanLyPhongGym.GUI
                     dateTimePickerNgayVaoLam.Value = ngay;
                 }
 
-                comboBoxVaiTro.Text = row.Cells["VaiTro"].Value?.ToString();
+                comboBoxVaiTro.Text = row.Cells["TenVaiTro"].Value?.ToString();
             }
         }
 

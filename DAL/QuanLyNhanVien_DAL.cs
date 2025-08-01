@@ -8,10 +8,10 @@ using QuanLyPhongGym_nhom5.Models;
 
 namespace QuanLyPhongGym.DAL
 {
-    internal class QuanLyNhanVien
+    internal class QuanLyNhanVien_DAL
     {
         QlGymContext _context;
-        public QuanLyNhanVien(QlGymContext context)
+        public QuanLyNhanVien_DAL(QlGymContext context)
         {
             _context = context;
         }
@@ -22,13 +22,13 @@ namespace QuanLyPhongGym.DAL
                 .ThenInclude(tk => tk.MaVaiTroNavigation)
                 .Select(nv => new
                 {
+                    nv.MaNv,
                     nv.TenNhanVien,
                     nv.Sdt,
                     nv.Email,
                     nv.DiaChi,
                     nv.NgayVaoLam,
                     nv.Luong,
-                    TenTaiKhoan = nv.TenTaiKhoan,
                     TenVaiTro = nv.TenTaiKhoanNavigation.MaVaiTroNavigation.TenVaiTro
                 })
                 .ToList<object>();
@@ -74,17 +74,19 @@ namespace QuanLyPhongGym.DAL
             try
             {
                 var nv = _context.NhanViens.FirstOrDefault(x => x.MaNv == nhanVien.MaNv);
-                if(nv != null)
+                if (nv != null)
                 {
-                    nv.TenNhanVien = nhanVien.TenNhanVien;
-                    nv.NgayVaoLam = nhanVien.NgayVaoLam;
-                    nv.DiaChi = nhanVien.DiaChi;
-                    nv.Email = nhanVien.Email;
-                    nv.Sdt = nhanVien.Sdt;
-                    nv.Luong = nhanVien.Luong;
-                    nv.TenTaiKhoanNavigation.MaVaiTro = nhanVien.TenTaiKhoanNavigation.MaVaiTro;
+                    nv.TenNhanVien = nhanVien.TenNhanVien==null?nv.TenNhanVien:nhanVien.TenNhanVien;
+                    nv.NgayVaoLam = nhanVien.NgayVaoLam == null ? nv.NgayVaoLam : nhanVien.NgayVaoLam;
+                    nv.DiaChi = nhanVien.DiaChi == null ? nv.DiaChi : nhanVien.DiaChi;
+                    nv.Email = nhanVien.Email == null ? nv.Email : nhanVien.Email;
+                    nv.Sdt = nhanVien.Sdt == null ? nv.Sdt : nhanVien.Sdt;
+                    nv.Luong = nhanVien.Luong == null ? nv.Luong : nhanVien.Luong;
+                    nv.TenTaiKhoan = nhanVien.TenTaiKhoan == null ? nv.TenTaiKhoan : nhanVien.TenTaiKhoan;
                 }
+                _context.SaveChanges();
                 return true;
+
             }
             catch
             {
