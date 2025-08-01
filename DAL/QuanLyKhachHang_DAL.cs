@@ -83,14 +83,14 @@ namespace QuanLyPhongGym_nhom5.DAL
                 var kh = _context.KhachHangs.FirstOrDefault(x => x.MaKh == khachHang.MaKh);
                 if (kh != null)
                 {
-                    kh.HoTen = khachHang.HoTen;
-                    kh.Sdt = khachHang.Sdt;
-                    kh.Email = khachHang.Email;
-                    kh.DiaChi = khachHang.DiaChi;
-                    kh.NgayDangKy = khachHang.NgayDangKy;
-                    kh.NgayHetHan = khachHang.NgayHetHan;
-                    kh.TrangThai = khachHang.TrangThai;
-                    kh.GioiTinh = khachHang.GioiTinh;
+                    kh.HoTen = khachHang.HoTen==null?kh.HoTen:khachHang.HoTen;
+                    kh.Sdt = khachHang.Sdt==null?kh.Sdt:khachHang.Sdt;
+                    kh.Email = khachHang.Email == null ? kh.Email : khachHang.Email;
+                    kh.DiaChi = khachHang.DiaChi == null ? kh.DiaChi : khachHang.DiaChi;
+                    kh.NgayDangKy = khachHang.NgayDangKy == null ? kh.NgayDangKy : khachHang.NgayDangKy;
+                    kh.NgayHetHan = khachHang.NgayHetHan == null ? kh.NgayHetHan : khachHang.NgayHetHan;
+                    kh.TrangThai = khachHang.TrangThai == null ? kh.TrangThai : khachHang.TrangThai;
+                    kh.GioiTinh = khachHang.GioiTinh == null ? kh.GioiTinh : khachHang.GioiTinh;
                     _context.SaveChanges();
                     return true;
                 }

@@ -39,7 +39,7 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             label1 = new Label();
-            dataGridView1 = new DataGridView();
+            dataGridViewKH = new DataGridView();
             textBoxTenKH = new TextBox();
             radioButtonNam = new RadioButton();
             dateTimePickerDangKi = new DateTimePicker();
@@ -56,8 +56,6 @@
             textBoxEmail = new TextBox();
             dateTimePickerHetHan = new DateTimePicker();
             radioButtonNu = new RadioButton();
-            radioButtonHD = new RadioButton();
-            radioButtonKoHD = new RadioButton();
             label10 = new Label();
             guna2ButtonThem = new Guna.UI2.WinForms.Guna2Button();
             una2ButtonXoa = new Guna.UI2.WinForms.Guna2Button();
@@ -65,7 +63,9 @@
             una2ButtonSua = new Guna.UI2.WinForms.Guna2Button();
             textBoxTK = new TextBox();
             guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(components);
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            checkBoxHD = new CheckBox();
+            checkBoxoffline = new CheckBox();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewKH).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -78,14 +78,20 @@
             label1.TabIndex = 0;
             label1.Text = "Tên Khách Hàng";
             // 
-            // dataGridView1
+            // dataGridViewKH
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(15, 79);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(524, 361);
-            dataGridView1.TabIndex = 1;
+            dataGridViewKH.AllowUserToAddRows = false;
+            dataGridViewKH.AllowUserToDeleteRows = false;
+            dataGridViewKH.AllowUserToResizeColumns = false;
+            dataGridViewKH.AllowUserToResizeRows = false;
+            dataGridViewKH.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewKH.Location = new Point(15, 79);
+            dataGridViewKH.Name = "dataGridViewKH";
+            dataGridViewKH.ReadOnly = true;
+            dataGridViewKH.RowHeadersWidth = 51;
+            dataGridViewKH.Size = new Size(524, 361);
+            dataGridViewKH.TabIndex = 1;
+            dataGridViewKH.CellClick += dataGridViewKH_CellClick;
             // 
             // textBoxTenKH
             // 
@@ -229,28 +235,6 @@
             radioButtonNu.Text = "Nữ";
             radioButtonNu.UseVisualStyleBackColor = true;
             // 
-            // radioButtonHD
-            // 
-            radioButtonHD.AutoSize = true;
-            radioButtonHD.Location = new Point(794, 399);
-            radioButtonHD.Name = "radioButtonHD";
-            radioButtonHD.Size = new Size(92, 24);
-            radioButtonHD.TabIndex = 19;
-            radioButtonHD.TabStop = true;
-            radioButtonHD.Text = "Đang HD";
-            radioButtonHD.UseVisualStyleBackColor = true;
-            // 
-            // radioButtonKoHD
-            // 
-            radioButtonKoHD.AutoSize = true;
-            radioButtonKoHD.Location = new Point(892, 399);
-            radioButtonKoHD.Name = "radioButtonKoHD";
-            radioButtonKoHD.Size = new Size(102, 24);
-            radioButtonKoHD.TabIndex = 20;
-            radioButtonKoHD.TabStop = true;
-            radioButtonKoHD.Text = "Ngừng HD";
-            radioButtonKoHD.UseVisualStyleBackColor = true;
-            // 
             // label10
             // 
             label10.AutoSize = true;
@@ -280,6 +264,7 @@
             guna2ButtonThem.Size = new Size(130, 48);
             guna2ButtonThem.TabIndex = 22;
             guna2ButtonThem.Text = "Thêm";
+            guna2ButtonThem.Click += guna2ButtonThem_Click;
             // 
             // una2ButtonXoa
             // 
@@ -299,6 +284,7 @@
             una2ButtonXoa.Size = new Size(130, 48);
             una2ButtonXoa.TabIndex = 23;
             una2ButtonXoa.Text = "Xóa";
+            una2ButtonXoa.Click += una2ButtonXoa_Click;
             // 
             // guna2ButtonTk
             // 
@@ -318,6 +304,7 @@
             guna2ButtonTk.Size = new Size(130, 48);
             guna2ButtonTk.TabIndex = 24;
             guna2ButtonTk.Text = "Tìm Kiếm";
+            guna2ButtonTk.Click += guna2ButtonTk_Click;
             // 
             // una2ButtonSua
             // 
@@ -337,6 +324,7 @@
             una2ButtonSua.Size = new Size(130, 48);
             una2ButtonSua.TabIndex = 25;
             una2ButtonSua.Text = "Sửa";
+            una2ButtonSua.Click += una2ButtonSua_Click;
             // 
             // textBoxTK
             // 
@@ -353,18 +341,38 @@
             guna2Elipse1.BorderRadius = 18;
             guna2Elipse1.TargetControl = this;
             // 
+            // checkBoxHD
+            // 
+            checkBoxHD.AutoSize = true;
+            checkBoxHD.Location = new Point(794, 396);
+            checkBoxHD.Name = "checkBoxHD";
+            checkBoxHD.Size = new Size(72, 24);
+            checkBoxHD.TabIndex = 27;
+            checkBoxHD.Text = "online";
+            checkBoxHD.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxoffline
+            // 
+            checkBoxoffline.AutoSize = true;
+            checkBoxoffline.Location = new Point(892, 396);
+            checkBoxoffline.Name = "checkBoxoffline";
+            checkBoxoffline.Size = new Size(74, 24);
+            checkBoxoffline.TabIndex = 28;
+            checkBoxoffline.Text = "offline";
+            checkBoxoffline.UseVisualStyleBackColor = true;
+            // 
             // UserControlQuanLyKhachHang
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(checkBoxoffline);
+            Controls.Add(checkBoxHD);
             Controls.Add(textBoxTK);
             Controls.Add(una2ButtonSua);
             Controls.Add(guna2ButtonTk);
             Controls.Add(una2ButtonXoa);
             Controls.Add(guna2ButtonThem);
             Controls.Add(label10);
-            Controls.Add(radioButtonKoHD);
-            Controls.Add(radioButtonHD);
             Controls.Add(radioButtonNu);
             Controls.Add(dateTimePickerHetHan);
             Controls.Add(textBoxEmail);
@@ -381,11 +389,11 @@
             Controls.Add(dateTimePickerDangKi);
             Controls.Add(radioButtonNam);
             Controls.Add(textBoxTenKH);
-            Controls.Add(dataGridView1);
+            Controls.Add(dataGridViewKH);
             Controls.Add(label1);
             Name = "UserControlQuanLyKhachHang";
             Size = new Size(1019, 552);
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewKH).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -393,7 +401,7 @@
         #endregion
 
         private Label label1;
-        private DataGridView dataGridView1;
+        private DataGridView dataGridViewKH;
         private TextBox textBoxTenKH;
         private RadioButton radioButtonNam;
         private DateTimePicker dateTimePickerDangKi;
@@ -410,8 +418,6 @@
         private TextBox textBoxEmail;
         private DateTimePicker dateTimePickerHetHan;
         private RadioButton radioButtonNu;
-        private RadioButton radioButtonHD;
-        private RadioButton radioButtonKoHD;
         private Label label10;
         private Guna.UI2.WinForms.Guna2Button guna2ButtonThem;
         private Guna.UI2.WinForms.Guna2Button una2ButtonXoa;
@@ -419,5 +425,7 @@
         private Guna.UI2.WinForms.Guna2Button una2ButtonSua;
         private TextBox textBoxTK;
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
+        private CheckBox checkBoxoffline;
+        private CheckBox checkBoxHD;
     }
 }
