@@ -29,65 +29,61 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges17 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserControlQuanLyHoaDon));
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges18 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges19 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges20 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges21 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges22 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges23 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges24 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges25 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges26 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges27 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges28 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges29 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges30 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges31 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges32 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             tabControl1 = new TabControl();
             tabPageQLHD = new TabPage();
-            tabPageQLCTHD = new TabPage();
-            dataGridViewHD = new DataGridView();
-            label1 = new Label();
-            label2 = new Label();
-            label3 = new Label();
-            label4 = new Label();
-            comboBoxmaKH = new ComboBox();
-            comboBoxMaNV = new ComboBox();
-            dateTimePickerNgayTao = new DateTimePicker();
-            textBoxHinhThucTT = new TextBox();
+            label5 = new Label();
             textBoxTKHD = new TextBox();
             una2ButtonSuaHD = new Guna.UI2.WinForms.Guna2Button();
             guna2ButtonTkHD = new Guna.UI2.WinForms.Guna2Button();
             una2ButtonXoaHD = new Guna.UI2.WinForms.Guna2Button();
             guna2ButtonThemHD = new Guna.UI2.WinForms.Guna2Button();
-            label5 = new Label();
-            dataGridViewCTHD = new DataGridView();
-            label6 = new Label();
+            textBoxHinhThucTT = new TextBox();
+            dateTimePickerNgayTao = new DateTimePicker();
+            comboBoxMaNV = new ComboBox();
+            comboBoxmaKH = new ComboBox();
+            label4 = new Label();
+            label3 = new Label();
+            label2 = new Label();
+            label1 = new Label();
+            dataGridViewHD = new DataGridView();
+            tabPageQLCTHD = new TabPage();
+            textBoxSoLuong = new TextBox();
+            comboBoxmaDichVu = new ComboBox();
+            comboBoxMaGoiTap = new ComboBox();
+            comboBoxMaHD = new ComboBox();
+            label10 = new Label();
+            label9 = new Label();
+            label8 = new Label();
+            label7 = new Label();
             textBoxTKCTHD = new TextBox();
             una2ButtonSuaCTHD = new Guna.UI2.WinForms.Guna2Button();
             guna2ButtonTkCTHD = new Guna.UI2.WinForms.Guna2Button();
             una2ButtonXoaCTHD = new Guna.UI2.WinForms.Guna2Button();
             guna2ButtonThemCTHD = new Guna.UI2.WinForms.Guna2Button();
-            label7 = new Label();
-            label8 = new Label();
-            label9 = new Label();
-            label10 = new Label();
-            label11 = new Label();
-            label12 = new Label();
-            comboBoxMaHD = new ComboBox();
-            comboBoxMaGoiTap = new ComboBox();
-            comboBoxmaDichVu = new ComboBox();
-            textBoxSoLuong = new TextBox();
-            textBoxDonGia = new TextBox();
-            textBoxThanhTien = new TextBox();
+            label6 = new Label();
+            dataGridViewCTHD = new DataGridView();
             guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(components);
             tabControl1.SuspendLayout();
             tabPageQLHD.SuspendLayout();
-            tabPageQLCTHD.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewHD).BeginInit();
+            tabPageQLCTHD.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewCTHD).BeginInit();
             SuspendLayout();
             // 
@@ -126,16 +122,194 @@
             tabPageQLHD.Text = "Quản Lý Hóa Đơn";
             tabPageQLHD.UseVisualStyleBackColor = true;
             // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Sylfaen", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label5.Location = new Point(3, 11);
+            label5.Name = "label5";
+            label5.Size = new Size(257, 39);
+            label5.TabIndex = 32;
+            label5.Text = "Quản Lý Hóa Đơn";
+            // 
+            // textBoxTKHD
+            // 
+            textBoxTKHD.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 163);
+            textBoxTKHD.Location = new Point(664, 445);
+            textBoxTKHD.Multiline = true;
+            textBoxTKHD.Name = "textBoxTKHD";
+            textBoxTKHD.PlaceholderText = "Enter Name";
+            textBoxTKHD.Size = new Size(301, 45);
+            textBoxTKHD.TabIndex = 31;
+            // 
+            // una2ButtonSuaHD
+            // 
+            una2ButtonSuaHD.BorderRadius = 18;
+            una2ButtonSuaHD.CustomizableEdges = customizableEdges1;
+            una2ButtonSuaHD.DisabledState.BorderColor = Color.DarkGray;
+            una2ButtonSuaHD.DisabledState.CustomBorderColor = Color.DarkGray;
+            una2ButtonSuaHD.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            una2ButtonSuaHD.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            una2ButtonSuaHD.FillColor = Color.Gray;
+            una2ButtonSuaHD.Font = new Font("Segoe UI", 9F);
+            una2ButtonSuaHD.ForeColor = Color.White;
+            una2ButtonSuaHD.Image = (Image)resources.GetObject("una2ButtonSuaHD.Image");
+            una2ButtonSuaHD.Location = new Point(340, 445);
+            una2ButtonSuaHD.Name = "una2ButtonSuaHD";
+            una2ButtonSuaHD.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            una2ButtonSuaHD.Size = new Size(130, 48);
+            una2ButtonSuaHD.TabIndex = 30;
+            una2ButtonSuaHD.Text = "Sửa";
+            una2ButtonSuaHD.Click += una2ButtonSuaHD_Click;
+            // 
+            // guna2ButtonTkHD
+            // 
+            guna2ButtonTkHD.BorderRadius = 18;
+            guna2ButtonTkHD.CustomizableEdges = customizableEdges3;
+            guna2ButtonTkHD.DisabledState.BorderColor = Color.DarkGray;
+            guna2ButtonTkHD.DisabledState.CustomBorderColor = Color.DarkGray;
+            guna2ButtonTkHD.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            guna2ButtonTkHD.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            guna2ButtonTkHD.FillColor = Color.Gray;
+            guna2ButtonTkHD.Font = new Font("Segoe UI", 9F);
+            guna2ButtonTkHD.ForeColor = Color.White;
+            guna2ButtonTkHD.Image = (Image)resources.GetObject("guna2ButtonTkHD.Image");
+            guna2ButtonTkHD.Location = new Point(506, 445);
+            guna2ButtonTkHD.Name = "guna2ButtonTkHD";
+            guna2ButtonTkHD.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            guna2ButtonTkHD.Size = new Size(130, 48);
+            guna2ButtonTkHD.TabIndex = 29;
+            guna2ButtonTkHD.Text = "Tìm Kiếm";
+            guna2ButtonTkHD.Click += guna2ButtonTkHD_Click;
+            // 
+            // una2ButtonXoaHD
+            // 
+            una2ButtonXoaHD.BorderRadius = 18;
+            una2ButtonXoaHD.CustomizableEdges = customizableEdges5;
+            una2ButtonXoaHD.DisabledState.BorderColor = Color.DarkGray;
+            una2ButtonXoaHD.DisabledState.CustomBorderColor = Color.DarkGray;
+            una2ButtonXoaHD.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            una2ButtonXoaHD.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            una2ButtonXoaHD.FillColor = Color.Gray;
+            una2ButtonXoaHD.Font = new Font("Segoe UI", 9F);
+            una2ButtonXoaHD.ForeColor = Color.White;
+            una2ButtonXoaHD.Image = (Image)resources.GetObject("una2ButtonXoaHD.Image");
+            una2ButtonXoaHD.Location = new Point(170, 445);
+            una2ButtonXoaHD.Name = "una2ButtonXoaHD";
+            una2ButtonXoaHD.ShadowDecoration.CustomizableEdges = customizableEdges6;
+            una2ButtonXoaHD.Size = new Size(130, 48);
+            una2ButtonXoaHD.TabIndex = 28;
+            una2ButtonXoaHD.Text = "Xóa";
+            una2ButtonXoaHD.Click += una2ButtonXoaHD_Click;
+            // 
+            // guna2ButtonThemHD
+            // 
+            guna2ButtonThemHD.BackColor = SystemColors.ControlLightLight;
+            guna2ButtonThemHD.BorderRadius = 18;
+            guna2ButtonThemHD.CustomizableEdges = customizableEdges7;
+            guna2ButtonThemHD.DisabledState.BorderColor = Color.DarkGray;
+            guna2ButtonThemHD.DisabledState.CustomBorderColor = Color.DarkGray;
+            guna2ButtonThemHD.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            guna2ButtonThemHD.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            guna2ButtonThemHD.FillColor = Color.Gray;
+            guna2ButtonThemHD.Font = new Font("Segoe UI", 9F);
+            guna2ButtonThemHD.ForeColor = Color.White;
+            guna2ButtonThemHD.Image = (Image)resources.GetObject("guna2ButtonThemHD.Image");
+            guna2ButtonThemHD.Location = new Point(7, 445);
+            guna2ButtonThemHD.Name = "guna2ButtonThemHD";
+            guna2ButtonThemHD.ShadowDecoration.CustomizableEdges = customizableEdges8;
+            guna2ButtonThemHD.Size = new Size(130, 48);
+            guna2ButtonThemHD.TabIndex = 27;
+            guna2ButtonThemHD.Text = "Thêm";
+            guna2ButtonThemHD.Click += guna2ButtonThemHD_Click;
+            // 
+            // textBoxHinhThucTT
+            // 
+            textBoxHinhThucTT.Location = new Point(670, 383);
+            textBoxHinhThucTT.Name = "textBoxHinhThucTT";
+            textBoxHinhThucTT.Size = new Size(194, 27);
+            textBoxHinhThucTT.TabIndex = 9;
+            // 
+            // dateTimePickerNgayTao
+            // 
+            dateTimePickerNgayTao.Location = new Point(670, 276);
+            dateTimePickerNgayTao.Name = "dateTimePickerNgayTao";
+            dateTimePickerNgayTao.Size = new Size(194, 27);
+            dateTimePickerNgayTao.TabIndex = 8;
+            // 
+            // comboBoxMaNV
+            // 
+            comboBoxMaNV.FormattingEnabled = true;
+            comboBoxMaNV.Location = new Point(670, 170);
+            comboBoxMaNV.Name = "comboBoxMaNV";
+            comboBoxMaNV.Size = new Size(182, 28);
+            comboBoxMaNV.TabIndex = 7;
+            // 
+            // comboBoxmaKH
+            // 
+            comboBoxmaKH.FormattingEnabled = true;
+            comboBoxmaKH.Location = new Point(670, 65);
+            comboBoxmaKH.Name = "comboBoxmaKH";
+            comboBoxmaKH.Size = new Size(182, 28);
+            comboBoxmaKH.TabIndex = 6;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Goudy Old Style", 10.2F);
+            label4.Location = new Point(670, 360);
+            label4.Name = "label4";
+            label4.Size = new Size(171, 21);
+            label4.TabIndex = 5;
+            label4.Text = "Hình Thức Thanh Toán";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Goudy Old Style", 10.2F);
+            label3.Location = new Point(670, 253);
+            label3.Name = "label3";
+            label3.Size = new Size(76, 21);
+            label3.TabIndex = 4;
+            label3.Text = "Ngày Tạo";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Goudy Old Style", 10.2F);
+            label2.Location = new Point(670, 147);
+            label2.Name = "label2";
+            label2.Size = new Size(113, 21);
+            label2.TabIndex = 3;
+            label2.Text = "Tên Nhân Viên";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Goudy Old Style", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.Location = new Point(670, 42);
+            label1.Name = "label1";
+            label1.Size = new Size(123, 21);
+            label1.TabIndex = 2;
+            label1.Text = "Tên Khách Hàng";
+            // 
+            // dataGridViewHD
+            // 
+            dataGridViewHD.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewHD.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewHD.Location = new Point(0, 53);
+            dataGridViewHD.Name = "dataGridViewHD";
+            dataGridViewHD.RowHeadersWidth = 51;
+            dataGridViewHD.Size = new Size(618, 368);
+            dataGridViewHD.TabIndex = 0;
+            dataGridViewHD.CellClick += dataGridViewHD_CellClick;
+            // 
             // tabPageQLCTHD
             // 
-            tabPageQLCTHD.Controls.Add(textBoxThanhTien);
-            tabPageQLCTHD.Controls.Add(textBoxDonGia);
             tabPageQLCTHD.Controls.Add(textBoxSoLuong);
             tabPageQLCTHD.Controls.Add(comboBoxmaDichVu);
             tabPageQLCTHD.Controls.Add(comboBoxMaGoiTap);
             tabPageQLCTHD.Controls.Add(comboBoxMaHD);
-            tabPageQLCTHD.Controls.Add(label12);
-            tabPageQLCTHD.Controls.Add(label11);
             tabPageQLCTHD.Controls.Add(label10);
             tabPageQLCTHD.Controls.Add(label9);
             tabPageQLCTHD.Controls.Add(label8);
@@ -155,200 +329,76 @@
             tabPageQLCTHD.Text = "Quản Lý Chi Tiết Hóa Đơn";
             tabPageQLCTHD.UseVisualStyleBackColor = true;
             // 
-            // dataGridViewHD
+            // textBoxSoLuong
             // 
-            dataGridViewHD.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewHD.Location = new Point(0, 53);
-            dataGridViewHD.Name = "dataGridViewHD";
-            dataGridViewHD.RowHeadersWidth = 51;
-            dataGridViewHD.Size = new Size(618, 368);
-            dataGridViewHD.TabIndex = 0;
+            textBoxSoLuong.Location = new Point(827, 96);
+            textBoxSoLuong.Name = "textBoxSoLuong";
+            textBoxSoLuong.Size = new Size(138, 27);
+            textBoxSoLuong.TabIndex = 48;
             // 
-            // label1
+            // comboBoxmaDichVu
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Goudy Old Style", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(670, 42);
-            label1.Name = "label1";
-            label1.Size = new Size(123, 21);
-            label1.TabIndex = 2;
-            label1.Text = "Tên Khách Hàng";
+            comboBoxmaDichVu.FormattingEnabled = true;
+            comboBoxmaDichVu.Location = new Point(655, 360);
+            comboBoxmaDichVu.Name = "comboBoxmaDichVu";
+            comboBoxmaDichVu.Size = new Size(151, 28);
+            comboBoxmaDichVu.TabIndex = 47;
             // 
-            // label2
+            // comboBoxMaGoiTap
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Goudy Old Style", 10.2F);
-            label2.Location = new Point(670, 147);
-            label2.Name = "label2";
-            label2.Size = new Size(113, 21);
-            label2.TabIndex = 3;
-            label2.Text = "Tên Nhân Viên";
+            comboBoxMaGoiTap.FormattingEnabled = true;
+            comboBoxMaGoiTap.Location = new Point(655, 225);
+            comboBoxMaGoiTap.Name = "comboBoxMaGoiTap";
+            comboBoxMaGoiTap.Size = new Size(151, 28);
+            comboBoxMaGoiTap.TabIndex = 46;
             // 
-            // label3
+            // comboBoxMaHD
             // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Goudy Old Style", 10.2F);
-            label3.Location = new Point(670, 253);
-            label3.Name = "label3";
-            label3.Size = new Size(76, 21);
-            label3.TabIndex = 4;
-            label3.Text = "Ngày Tạo";
+            comboBoxMaHD.FormattingEnabled = true;
+            comboBoxMaHD.Location = new Point(655, 95);
+            comboBoxMaHD.Name = "comboBoxMaHD";
+            comboBoxMaHD.Size = new Size(151, 28);
+            comboBoxMaHD.TabIndex = 45;
             // 
-            // label4
+            // label10
             // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Goudy Old Style", 10.2F);
-            label4.Location = new Point(670, 360);
-            label4.Name = "label4";
-            label4.Size = new Size(171, 21);
-            label4.TabIndex = 5;
-            label4.Text = "Hình Thức Thanh Toán";
+            label10.AutoSize = true;
+            label10.Font = new Font("Goudy Old Style", 10.2F);
+            label10.Location = new Point(827, 72);
+            label10.Name = "label10";
+            label10.Size = new Size(75, 21);
+            label10.TabIndex = 42;
+            label10.Text = "Số Lượng";
             // 
-            // comboBoxmaKH
+            // label9
             // 
-            comboBoxmaKH.FormattingEnabled = true;
-            comboBoxmaKH.Location = new Point(670, 65);
-            comboBoxmaKH.Name = "comboBoxmaKH";
-            comboBoxmaKH.Size = new Size(182, 28);
-            comboBoxmaKH.TabIndex = 6;
+            label9.AutoSize = true;
+            label9.Font = new Font("Goudy Old Style", 10.2F);
+            label9.Location = new Point(655, 337);
+            label9.Name = "label9";
+            label9.Size = new Size(97, 21);
+            label9.TabIndex = 41;
+            label9.Text = "Tên Dịch Vụ";
             // 
-            // comboBoxMaNV
+            // label8
             // 
-            comboBoxMaNV.FormattingEnabled = true;
-            comboBoxMaNV.Location = new Point(670, 170);
-            comboBoxMaNV.Name = "comboBoxMaNV";
-            comboBoxMaNV.Size = new Size(182, 28);
-            comboBoxMaNV.TabIndex = 7;
+            label8.AutoSize = true;
+            label8.Font = new Font("Goudy Old Style", 10.2F);
+            label8.Location = new Point(655, 202);
+            label8.Name = "label8";
+            label8.Size = new Size(98, 21);
+            label8.TabIndex = 40;
+            label8.Text = "Tên Gói Tập";
             // 
-            // dateTimePickerNgayTao
+            // label7
             // 
-            dateTimePickerNgayTao.Location = new Point(670, 276);
-            dateTimePickerNgayTao.Name = "dateTimePickerNgayTao";
-            dateTimePickerNgayTao.Size = new Size(194, 27);
-            dateTimePickerNgayTao.TabIndex = 8;
-            // 
-            // textBoxHinhThucTT
-            // 
-            textBoxHinhThucTT.Location = new Point(670, 383);
-            textBoxHinhThucTT.Name = "textBoxHinhThucTT";
-            textBoxHinhThucTT.Size = new Size(194, 27);
-            textBoxHinhThucTT.TabIndex = 9;
-            // 
-            // textBoxTKHD
-            // 
-            textBoxTKHD.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 163);
-            textBoxTKHD.Location = new Point(664, 445);
-            textBoxTKHD.Multiline = true;
-            textBoxTKHD.Name = "textBoxTKHD";
-            textBoxTKHD.PlaceholderText = "Enter Name";
-            textBoxTKHD.Size = new Size(301, 45);
-            textBoxTKHD.TabIndex = 31;
-            // 
-            // una2ButtonSuaHD
-            // 
-            una2ButtonSuaHD.BorderRadius = 18;
-            una2ButtonSuaHD.CustomizableEdges = customizableEdges17;
-            una2ButtonSuaHD.DisabledState.BorderColor = Color.DarkGray;
-            una2ButtonSuaHD.DisabledState.CustomBorderColor = Color.DarkGray;
-            una2ButtonSuaHD.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            una2ButtonSuaHD.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            una2ButtonSuaHD.FillColor = Color.Gray;
-            una2ButtonSuaHD.Font = new Font("Segoe UI", 9F);
-            una2ButtonSuaHD.ForeColor = Color.White;
-            una2ButtonSuaHD.Image = (Image)resources.GetObject("una2ButtonSuaHD.Image");
-            una2ButtonSuaHD.Location = new Point(340, 445);
-            una2ButtonSuaHD.Name = "una2ButtonSuaHD";
-            una2ButtonSuaHD.ShadowDecoration.CustomizableEdges = customizableEdges18;
-            una2ButtonSuaHD.Size = new Size(130, 48);
-            una2ButtonSuaHD.TabIndex = 30;
-            una2ButtonSuaHD.Text = "Sửa";
-            // 
-            // guna2ButtonTkHD
-            // 
-            guna2ButtonTkHD.BorderRadius = 18;
-            guna2ButtonTkHD.CustomizableEdges = customizableEdges19;
-            guna2ButtonTkHD.DisabledState.BorderColor = Color.DarkGray;
-            guna2ButtonTkHD.DisabledState.CustomBorderColor = Color.DarkGray;
-            guna2ButtonTkHD.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            guna2ButtonTkHD.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            guna2ButtonTkHD.FillColor = Color.Gray;
-            guna2ButtonTkHD.Font = new Font("Segoe UI", 9F);
-            guna2ButtonTkHD.ForeColor = Color.White;
-            guna2ButtonTkHD.Image = (Image)resources.GetObject("guna2ButtonTkHD.Image");
-            guna2ButtonTkHD.Location = new Point(506, 445);
-            guna2ButtonTkHD.Name = "guna2ButtonTkHD";
-            guna2ButtonTkHD.ShadowDecoration.CustomizableEdges = customizableEdges20;
-            guna2ButtonTkHD.Size = new Size(130, 48);
-            guna2ButtonTkHD.TabIndex = 29;
-            guna2ButtonTkHD.Text = "Tìm Kiếm";
-            // 
-            // una2ButtonXoaHD
-            // 
-            una2ButtonXoaHD.BorderRadius = 18;
-            una2ButtonXoaHD.CustomizableEdges = customizableEdges21;
-            una2ButtonXoaHD.DisabledState.BorderColor = Color.DarkGray;
-            una2ButtonXoaHD.DisabledState.CustomBorderColor = Color.DarkGray;
-            una2ButtonXoaHD.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            una2ButtonXoaHD.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            una2ButtonXoaHD.FillColor = Color.Gray;
-            una2ButtonXoaHD.Font = new Font("Segoe UI", 9F);
-            una2ButtonXoaHD.ForeColor = Color.White;
-            una2ButtonXoaHD.Image = (Image)resources.GetObject("una2ButtonXoaHD.Image");
-            una2ButtonXoaHD.Location = new Point(170, 445);
-            una2ButtonXoaHD.Name = "una2ButtonXoaHD";
-            una2ButtonXoaHD.ShadowDecoration.CustomizableEdges = customizableEdges22;
-            una2ButtonXoaHD.Size = new Size(130, 48);
-            una2ButtonXoaHD.TabIndex = 28;
-            una2ButtonXoaHD.Text = "Xóa";
-            // 
-            // guna2ButtonThemHD
-            // 
-            guna2ButtonThemHD.BackColor = SystemColors.ControlLightLight;
-            guna2ButtonThemHD.BorderRadius = 18;
-            guna2ButtonThemHD.CustomizableEdges = customizableEdges23;
-            guna2ButtonThemHD.DisabledState.BorderColor = Color.DarkGray;
-            guna2ButtonThemHD.DisabledState.CustomBorderColor = Color.DarkGray;
-            guna2ButtonThemHD.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            guna2ButtonThemHD.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            guna2ButtonThemHD.FillColor = Color.Gray;
-            guna2ButtonThemHD.Font = new Font("Segoe UI", 9F);
-            guna2ButtonThemHD.ForeColor = Color.White;
-            guna2ButtonThemHD.Image = (Image)resources.GetObject("guna2ButtonThemHD.Image");
-            guna2ButtonThemHD.Location = new Point(7, 445);
-            guna2ButtonThemHD.Name = "guna2ButtonThemHD";
-            guna2ButtonThemHD.ShadowDecoration.CustomizableEdges = customizableEdges24;
-            guna2ButtonThemHD.Size = new Size(130, 48);
-            guna2ButtonThemHD.TabIndex = 27;
-            guna2ButtonThemHD.Text = "Thêm";
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Sylfaen", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label5.Location = new Point(3, 11);
-            label5.Name = "label5";
-            label5.Size = new Size(257, 39);
-            label5.TabIndex = 32;
-            label5.Text = "Quản Lý Hóa Đơn";
-            // 
-            // dataGridViewCTHD
-            // 
-            dataGridViewCTHD.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCTHD.Location = new Point(6, 55);
-            dataGridViewCTHD.Name = "dataGridViewCTHD";
-            dataGridViewCTHD.RowHeadersWidth = 51;
-            dataGridViewCTHD.Size = new Size(628, 376);
-            dataGridViewCTHD.TabIndex = 0;
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Font = new Font("Sylfaen", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label6.Location = new Point(6, 13);
-            label6.Name = "label6";
-            label6.Size = new Size(372, 39);
-            label6.TabIndex = 33;
-            label6.Text = "Quản Lý Chi Tiết Hóa Đơn";
+            label7.AutoSize = true;
+            label7.Font = new Font("Goudy Old Style", 10.2F);
+            label7.Location = new Point(655, 72);
+            label7.Name = "label7";
+            label7.Size = new Size(99, 21);
+            label7.TabIndex = 39;
+            label7.Text = "Mã Hóa Đơn";
             // 
             // textBoxTKCTHD
             // 
@@ -363,7 +413,7 @@
             // una2ButtonSuaCTHD
             // 
             una2ButtonSuaCTHD.BorderRadius = 18;
-            una2ButtonSuaCTHD.CustomizableEdges = customizableEdges25;
+            una2ButtonSuaCTHD.CustomizableEdges = customizableEdges9;
             una2ButtonSuaCTHD.DisabledState.BorderColor = Color.DarkGray;
             una2ButtonSuaCTHD.DisabledState.CustomBorderColor = Color.DarkGray;
             una2ButtonSuaCTHD.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -374,15 +424,16 @@
             una2ButtonSuaCTHD.Image = (Image)resources.GetObject("una2ButtonSuaCTHD.Image");
             una2ButtonSuaCTHD.Location = new Point(340, 449);
             una2ButtonSuaCTHD.Name = "una2ButtonSuaCTHD";
-            una2ButtonSuaCTHD.ShadowDecoration.CustomizableEdges = customizableEdges26;
+            una2ButtonSuaCTHD.ShadowDecoration.CustomizableEdges = customizableEdges10;
             una2ButtonSuaCTHD.Size = new Size(130, 48);
             una2ButtonSuaCTHD.TabIndex = 37;
             una2ButtonSuaCTHD.Text = "Sửa";
+            una2ButtonSuaCTHD.Click += una2ButtonSuaCTHD_Click;
             // 
             // guna2ButtonTkCTHD
             // 
             guna2ButtonTkCTHD.BorderRadius = 18;
-            guna2ButtonTkCTHD.CustomizableEdges = customizableEdges27;
+            guna2ButtonTkCTHD.CustomizableEdges = customizableEdges11;
             guna2ButtonTkCTHD.DisabledState.BorderColor = Color.DarkGray;
             guna2ButtonTkCTHD.DisabledState.CustomBorderColor = Color.DarkGray;
             guna2ButtonTkCTHD.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -393,15 +444,16 @@
             guna2ButtonTkCTHD.Image = (Image)resources.GetObject("guna2ButtonTkCTHD.Image");
             guna2ButtonTkCTHD.Location = new Point(506, 449);
             guna2ButtonTkCTHD.Name = "guna2ButtonTkCTHD";
-            guna2ButtonTkCTHD.ShadowDecoration.CustomizableEdges = customizableEdges28;
+            guna2ButtonTkCTHD.ShadowDecoration.CustomizableEdges = customizableEdges12;
             guna2ButtonTkCTHD.Size = new Size(130, 48);
             guna2ButtonTkCTHD.TabIndex = 36;
             guna2ButtonTkCTHD.Text = "Tìm Kiếm";
+            guna2ButtonTkCTHD.Click += guna2ButtonTkCTHD_Click;
             // 
             // una2ButtonXoaCTHD
             // 
             una2ButtonXoaCTHD.BorderRadius = 18;
-            una2ButtonXoaCTHD.CustomizableEdges = customizableEdges29;
+            una2ButtonXoaCTHD.CustomizableEdges = customizableEdges13;
             una2ButtonXoaCTHD.DisabledState.BorderColor = Color.DarkGray;
             una2ButtonXoaCTHD.DisabledState.CustomBorderColor = Color.DarkGray;
             una2ButtonXoaCTHD.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -412,16 +464,17 @@
             una2ButtonXoaCTHD.Image = (Image)resources.GetObject("una2ButtonXoaCTHD.Image");
             una2ButtonXoaCTHD.Location = new Point(170, 449);
             una2ButtonXoaCTHD.Name = "una2ButtonXoaCTHD";
-            una2ButtonXoaCTHD.ShadowDecoration.CustomizableEdges = customizableEdges30;
+            una2ButtonXoaCTHD.ShadowDecoration.CustomizableEdges = customizableEdges14;
             una2ButtonXoaCTHD.Size = new Size(130, 48);
             una2ButtonXoaCTHD.TabIndex = 35;
             una2ButtonXoaCTHD.Text = "Xóa";
+            una2ButtonXoaCTHD.Click += una2ButtonXoaCTHD_Click;
             // 
             // guna2ButtonThemCTHD
             // 
             guna2ButtonThemCTHD.BackColor = SystemColors.ControlLightLight;
             guna2ButtonThemCTHD.BorderRadius = 18;
-            guna2ButtonThemCTHD.CustomizableEdges = customizableEdges31;
+            guna2ButtonThemCTHD.CustomizableEdges = customizableEdges15;
             guna2ButtonThemCTHD.DisabledState.BorderColor = Color.DarkGray;
             guna2ButtonThemCTHD.DisabledState.CustomBorderColor = Color.DarkGray;
             guna2ButtonThemCTHD.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -432,115 +485,32 @@
             guna2ButtonThemCTHD.Image = (Image)resources.GetObject("guna2ButtonThemCTHD.Image");
             guna2ButtonThemCTHD.Location = new Point(7, 449);
             guna2ButtonThemCTHD.Name = "guna2ButtonThemCTHD";
-            guna2ButtonThemCTHD.ShadowDecoration.CustomizableEdges = customizableEdges32;
+            guna2ButtonThemCTHD.ShadowDecoration.CustomizableEdges = customizableEdges16;
             guna2ButtonThemCTHD.Size = new Size(130, 48);
             guna2ButtonThemCTHD.TabIndex = 34;
             guna2ButtonThemCTHD.Text = "Thêm";
+            guna2ButtonThemCTHD.Click += guna2ButtonThemCTHD_Click;
             // 
-            // label7
+            // label6
             // 
-            label7.AutoSize = true;
-            label7.Font = new Font("Goudy Old Style", 10.2F);
-            label7.Location = new Point(655, 72);
-            label7.Name = "label7";
-            label7.Size = new Size(99, 21);
-            label7.TabIndex = 39;
-            label7.Text = "Mã Hóa Đơn";
+            label6.AutoSize = true;
+            label6.Font = new Font("Sylfaen", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label6.Location = new Point(6, 13);
+            label6.Name = "label6";
+            label6.Size = new Size(372, 39);
+            label6.TabIndex = 33;
+            label6.Text = "Quản Lý Chi Tiết Hóa Đơn";
             // 
-            // label8
+            // dataGridViewCTHD
             // 
-            label8.AutoSize = true;
-            label8.Font = new Font("Goudy Old Style", 10.2F);
-            label8.Location = new Point(655, 202);
-            label8.Name = "label8";
-            label8.Size = new Size(98, 21);
-            label8.TabIndex = 40;
-            label8.Text = "Tên Gói Tập";
-            // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.Font = new Font("Goudy Old Style", 10.2F);
-            label9.Location = new Point(655, 337);
-            label9.Name = "label9";
-            label9.Size = new Size(97, 21);
-            label9.TabIndex = 41;
-            label9.Text = "Tên Dịch Vụ";
-            // 
-            // label10
-            // 
-            label10.AutoSize = true;
-            label10.Font = new Font("Goudy Old Style", 10.2F);
-            label10.Location = new Point(827, 72);
-            label10.Name = "label10";
-            label10.Size = new Size(75, 21);
-            label10.TabIndex = 42;
-            label10.Text = "Số Lượng";
-            // 
-            // label11
-            // 
-            label11.AutoSize = true;
-            label11.Font = new Font("Goudy Old Style", 10.2F);
-            label11.Location = new Point(827, 202);
-            label11.Name = "label11";
-            label11.Size = new Size(68, 21);
-            label11.TabIndex = 43;
-            label11.Text = "Đơn Giá";
-            // 
-            // label12
-            // 
-            label12.AutoSize = true;
-            label12.Font = new Font("Goudy Old Style", 10.2F);
-            label12.Location = new Point(827, 338);
-            label12.Name = "label12";
-            label12.Size = new Size(90, 21);
-            label12.TabIndex = 44;
-            label12.Text = "Thành Tiền";
-            // 
-            // comboBoxMaHD
-            // 
-            comboBoxMaHD.FormattingEnabled = true;
-            comboBoxMaHD.Location = new Point(655, 95);
-            comboBoxMaHD.Name = "comboBoxMaHD";
-            comboBoxMaHD.Size = new Size(151, 28);
-            comboBoxMaHD.TabIndex = 45;
-            // 
-            // comboBoxMaGoiTap
-            // 
-            comboBoxMaGoiTap.FormattingEnabled = true;
-            comboBoxMaGoiTap.Location = new Point(655, 225);
-            comboBoxMaGoiTap.Name = "comboBoxMaGoiTap";
-            comboBoxMaGoiTap.Size = new Size(151, 28);
-            comboBoxMaGoiTap.TabIndex = 46;
-            // 
-            // comboBoxmaDichVu
-            // 
-            comboBoxmaDichVu.FormattingEnabled = true;
-            comboBoxmaDichVu.Location = new Point(655, 360);
-            comboBoxmaDichVu.Name = "comboBoxmaDichVu";
-            comboBoxmaDichVu.Size = new Size(151, 28);
-            comboBoxmaDichVu.TabIndex = 47;
-            // 
-            // textBoxSoLuong
-            // 
-            textBoxSoLuong.Location = new Point(827, 96);
-            textBoxSoLuong.Name = "textBoxSoLuong";
-            textBoxSoLuong.Size = new Size(138, 27);
-            textBoxSoLuong.TabIndex = 48;
-            // 
-            // textBoxDonGia
-            // 
-            textBoxDonGia.Location = new Point(827, 225);
-            textBoxDonGia.Name = "textBoxDonGia";
-            textBoxDonGia.Size = new Size(138, 27);
-            textBoxDonGia.TabIndex = 49;
-            // 
-            // textBoxThanhTien
-            // 
-            textBoxThanhTien.Location = new Point(827, 361);
-            textBoxThanhTien.Name = "textBoxThanhTien";
-            textBoxThanhTien.Size = new Size(138, 27);
-            textBoxThanhTien.TabIndex = 50;
+            dataGridViewCTHD.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCTHD.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCTHD.Location = new Point(6, 55);
+            dataGridViewCTHD.Name = "dataGridViewCTHD";
+            dataGridViewCTHD.RowHeadersWidth = 51;
+            dataGridViewCTHD.Size = new Size(628, 376);
+            dataGridViewCTHD.TabIndex = 0;
+            dataGridViewCTHD.CellClick += dataGridViewCTHD_CellClick;
             // 
             // guna2Elipse1
             // 
@@ -556,9 +526,9 @@
             tabControl1.ResumeLayout(false);
             tabPageQLHD.ResumeLayout(false);
             tabPageQLHD.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewHD).EndInit();
             tabPageQLCTHD.ResumeLayout(false);
             tabPageQLCTHD.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridViewHD).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridViewCTHD).EndInit();
             ResumeLayout(false);
         }
@@ -592,14 +562,10 @@
         private Guna.UI2.WinForms.Guna2Button guna2ButtonTkCTHD;
         private Guna.UI2.WinForms.Guna2Button una2ButtonXoaCTHD;
         private Guna.UI2.WinForms.Guna2Button guna2ButtonThemCTHD;
-        private TextBox textBoxThanhTien;
-        private TextBox textBoxDonGia;
         private TextBox textBoxSoLuong;
         private ComboBox comboBoxmaDichVu;
         private ComboBox comboBoxMaGoiTap;
         private ComboBox comboBoxMaHD;
-        private Label label12;
-        private Label label11;
         private Label label10;
         private Label label9;
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;

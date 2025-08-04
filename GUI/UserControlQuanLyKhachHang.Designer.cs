@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserControlQuanLyKhachHang));
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             label1 = new Label();
             dataGridViewKH = new DataGridView();
             textBoxTenKH = new TextBox();
@@ -84,6 +84,7 @@
             dataGridViewKH.AllowUserToDeleteRows = false;
             dataGridViewKH.AllowUserToResizeColumns = false;
             dataGridViewKH.AllowUserToResizeRows = false;
+            dataGridViewKH.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewKH.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewKH.Location = new Point(15, 79);
             dataGridViewKH.Name = "dataGridViewKH";
@@ -249,7 +250,7 @@
             // 
             guna2ButtonThem.BackColor = SystemColors.ControlLightLight;
             guna2ButtonThem.BorderRadius = 18;
-            guna2ButtonThem.CustomizableEdges = customizableEdges9;
+            guna2ButtonThem.CustomizableEdges = customizableEdges1;
             guna2ButtonThem.DisabledState.BorderColor = Color.DarkGray;
             guna2ButtonThem.DisabledState.CustomBorderColor = Color.DarkGray;
             guna2ButtonThem.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -260,7 +261,7 @@
             guna2ButtonThem.Image = (Image)resources.GetObject("guna2ButtonThem.Image");
             guna2ButtonThem.Location = new Point(15, 479);
             guna2ButtonThem.Name = "guna2ButtonThem";
-            guna2ButtonThem.ShadowDecoration.CustomizableEdges = customizableEdges10;
+            guna2ButtonThem.ShadowDecoration.CustomizableEdges = customizableEdges2;
             guna2ButtonThem.Size = new Size(130, 48);
             guna2ButtonThem.TabIndex = 22;
             guna2ButtonThem.Text = "Thêm";
@@ -269,7 +270,7 @@
             // una2ButtonXoa
             // 
             una2ButtonXoa.BorderRadius = 18;
-            una2ButtonXoa.CustomizableEdges = customizableEdges11;
+            una2ButtonXoa.CustomizableEdges = customizableEdges3;
             una2ButtonXoa.DisabledState.BorderColor = Color.DarkGray;
             una2ButtonXoa.DisabledState.CustomBorderColor = Color.DarkGray;
             una2ButtonXoa.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -280,7 +281,7 @@
             una2ButtonXoa.Image = (Image)resources.GetObject("una2ButtonXoa.Image");
             una2ButtonXoa.Location = new Point(178, 479);
             una2ButtonXoa.Name = "una2ButtonXoa";
-            una2ButtonXoa.ShadowDecoration.CustomizableEdges = customizableEdges12;
+            una2ButtonXoa.ShadowDecoration.CustomizableEdges = customizableEdges4;
             una2ButtonXoa.Size = new Size(130, 48);
             una2ButtonXoa.TabIndex = 23;
             una2ButtonXoa.Text = "Xóa";
@@ -289,7 +290,7 @@
             // guna2ButtonTk
             // 
             guna2ButtonTk.BorderRadius = 18;
-            guna2ButtonTk.CustomizableEdges = customizableEdges13;
+            guna2ButtonTk.CustomizableEdges = customizableEdges5;
             guna2ButtonTk.DisabledState.BorderColor = Color.DarkGray;
             guna2ButtonTk.DisabledState.CustomBorderColor = Color.DarkGray;
             guna2ButtonTk.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -300,7 +301,7 @@
             guna2ButtonTk.Image = (Image)resources.GetObject("guna2ButtonTk.Image");
             guna2ButtonTk.Location = new Point(514, 479);
             guna2ButtonTk.Name = "guna2ButtonTk";
-            guna2ButtonTk.ShadowDecoration.CustomizableEdges = customizableEdges14;
+            guna2ButtonTk.ShadowDecoration.CustomizableEdges = customizableEdges6;
             guna2ButtonTk.Size = new Size(130, 48);
             guna2ButtonTk.TabIndex = 24;
             guna2ButtonTk.Text = "Tìm Kiếm";
@@ -309,7 +310,7 @@
             // una2ButtonSua
             // 
             una2ButtonSua.BorderRadius = 18;
-            una2ButtonSua.CustomizableEdges = customizableEdges15;
+            una2ButtonSua.CustomizableEdges = customizableEdges7;
             una2ButtonSua.DisabledState.BorderColor = Color.DarkGray;
             una2ButtonSua.DisabledState.CustomBorderColor = Color.DarkGray;
             una2ButtonSua.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -320,7 +321,7 @@
             una2ButtonSua.Image = (Image)resources.GetObject("una2ButtonSua.Image");
             una2ButtonSua.Location = new Point(348, 479);
             una2ButtonSua.Name = "una2ButtonSua";
-            una2ButtonSua.ShadowDecoration.CustomizableEdges = customizableEdges16;
+            una2ButtonSua.ShadowDecoration.CustomizableEdges = customizableEdges8;
             una2ButtonSua.Size = new Size(130, 48);
             una2ButtonSua.TabIndex = 25;
             una2ButtonSua.Text = "Sửa";

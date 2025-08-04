@@ -221,7 +221,7 @@
             panel2.Controls.Add(userControlQuanLyHoaDon1);
             panel2.Controls.Add(userControlQuanLyKhachHang1);
             panel2.Controls.Add(userControlQuanLyNhanVien1);
-            panel2.Location = new Point(20, 107);
+            panel2.Location = new Point(30, 112);
             panel2.Name = "panel2";
             panel2.Size = new Size(1051, 561);
             panel2.TabIndex = 7;
@@ -231,7 +231,7 @@
             labelhienthi.AutoSize = true;
             labelhienthi.Font = new Font("Stencil", 36F, FontStyle.Regular, GraphicsUnit.Point, 0);
             labelhienthi.ForeColor = Color.White;
-            labelhienthi.Location = new Point(207, 207);
+            labelhienthi.Location = new Point(191, 238);
             labelhienthi.Name = "labelhienthi";
             labelhienthi.Size = new Size(716, 71);
             labelhienthi.TabIndex = 9;
@@ -298,7 +298,7 @@
             guna2CircleButtonX.ForeColor = Color.White;
             guna2CircleButtonX.Image = (Image)resources.GetObject("guna2CircleButtonX.Image");
             guna2CircleButtonX.ImageSize = new Size(45, 45);
-            guna2CircleButtonX.Location = new Point(1053, -4);
+            guna2CircleButtonX.Location = new Point(1053, 8);
             guna2CircleButtonX.Name = "guna2CircleButtonX";
             guna2CircleButtonX.ShadowDecoration.CustomizableEdges = customizableEdges15;
             guna2CircleButtonX.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;

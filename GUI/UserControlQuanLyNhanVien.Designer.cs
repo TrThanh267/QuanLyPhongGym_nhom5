@@ -72,6 +72,7 @@
             dataGridViewNV.AllowUserToDeleteRows = false;
             dataGridViewNV.AllowUserToResizeColumns = false;
             dataGridViewNV.AllowUserToResizeRows = false;
+            dataGridViewNV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewNV.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewNV.Location = new Point(17, 57);
             dataGridViewNV.Name = "dataGridViewNV";

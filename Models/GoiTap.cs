@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace QuanLyPhongGym_nhom5.Models;
 
@@ -12,8 +13,8 @@ public partial class GoiTap
     public int? ThoiHan { get; set; }
 
     public decimal? Gia { get; set; }
-
+    [Browsable(false)]
     public virtual ICollection<DangKyGoiTap> DangKyGoiTaps { get; set; } = new List<DangKyGoiTap>();
-
+    [Browsable(false)]
     public virtual ICollection<HoaDonChiTiet> HoaDonChiTiets { get; set; } = new List<HoaDonChiTiet>();
 }

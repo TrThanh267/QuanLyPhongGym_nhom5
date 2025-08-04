@@ -88,7 +88,7 @@
             label1 = new Label();
             textBoxGiaGT = new TextBox();
             tabControl1 = new TabControl();
-            tabPagePT = new TabPage();
+            tabPageDV = new TabPage();
             textBoxBuoiDkDV = new TextBox();
             textBoxTenDV = new TextBox();
             textBoxDonGiaDV = new TextBox();
@@ -102,7 +102,7 @@
             label11 = new Label();
             label14 = new Label();
             dataGridViewQLDV = new DataGridView();
-            tabPageThietBi = new TabPage();
+            tabPageGoiT = new TabPage();
             label12 = new Label();
             textBoxDonGiaGT = new TextBox();
             textBoxThoiHanGT = new TextBox();
@@ -120,9 +120,9 @@
             ((System.ComponentModel.ISupportInitialize)dataGridViewDV).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridGT).BeginInit();
             tabControl1.SuspendLayout();
-            tabPagePT.SuspendLayout();
+            tabPageDV.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewQLDV).BeginInit();
-            tabPageThietBi.SuspendLayout();
+            tabPageGoiT.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridGoiTap).BeginInit();
             SuspendLayout();
             // 
@@ -435,36 +435,36 @@
             // 
             // tabControl1
             // 
-            tabControl1.Controls.Add(tabPagePT);
-            tabControl1.Controls.Add(tabPageThietBi);
+            tabControl1.Controls.Add(tabPageDV);
+            tabControl1.Controls.Add(tabPageGoiT);
             tabControl1.Location = new Point(3, 3);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
             tabControl1.Size = new Size(1002, 543);
             tabControl1.TabIndex = 3;
             // 
-            // tabPagePT
+            // tabPageDV
             // 
-            tabPagePT.Controls.Add(textBoxBuoiDkDV);
-            tabPagePT.Controls.Add(textBoxTenDV);
-            tabPagePT.Controls.Add(textBoxDonGiaDV);
-            tabPagePT.Controls.Add(textBoxTimKiemDV);
-            tabPagePT.Controls.Add(label8);
-            tabPagePT.Controls.Add(ButtonSuaDV);
-            tabPagePT.Controls.Add(buttonTKDV);
-            tabPagePT.Controls.Add(ButtonXoaDV);
-            tabPagePT.Controls.Add(ButtonThemDV);
-            tabPagePT.Controls.Add(label9);
-            tabPagePT.Controls.Add(label11);
-            tabPagePT.Controls.Add(label14);
-            tabPagePT.Controls.Add(dataGridViewQLDV);
-            tabPagePT.Location = new Point(4, 29);
-            tabPagePT.Name = "tabPagePT";
-            tabPagePT.Padding = new Padding(3);
-            tabPagePT.Size = new Size(994, 510);
-            tabPagePT.TabIndex = 0;
-            tabPagePT.Text = "Quản Lý Phòng Tập";
-            tabPagePT.UseVisualStyleBackColor = true;
+            tabPageDV.Controls.Add(textBoxBuoiDkDV);
+            tabPageDV.Controls.Add(textBoxTenDV);
+            tabPageDV.Controls.Add(textBoxDonGiaDV);
+            tabPageDV.Controls.Add(textBoxTimKiemDV);
+            tabPageDV.Controls.Add(label8);
+            tabPageDV.Controls.Add(ButtonSuaDV);
+            tabPageDV.Controls.Add(buttonTKDV);
+            tabPageDV.Controls.Add(ButtonXoaDV);
+            tabPageDV.Controls.Add(ButtonThemDV);
+            tabPageDV.Controls.Add(label9);
+            tabPageDV.Controls.Add(label11);
+            tabPageDV.Controls.Add(label14);
+            tabPageDV.Controls.Add(dataGridViewQLDV);
+            tabPageDV.Location = new Point(4, 29);
+            tabPageDV.Name = "tabPageDV";
+            tabPageDV.Padding = new Padding(3);
+            tabPageDV.Size = new Size(994, 510);
+            tabPageDV.TabIndex = 0;
+            tabPageDV.Text = "Vụ Quản Lý Dịch ";
+            tabPageDV.UseVisualStyleBackColor = true;
             // 
             // textBoxBuoiDkDV
             // 
@@ -525,6 +525,7 @@
             ButtonSuaDV.Size = new Size(130, 48);
             ButtonSuaDV.TabIndex = 30;
             ButtonSuaDV.Text = "Sửa";
+            ButtonSuaDV.Click += ButtonSuaDV_Click;
             // 
             // buttonTKDV
             // 
@@ -544,6 +545,7 @@
             buttonTKDV.Size = new Size(130, 48);
             buttonTKDV.TabIndex = 29;
             buttonTKDV.Text = "Tìm Kiếm";
+            buttonTKDV.Click += buttonTKDV_Click;
             // 
             // ButtonXoaDV
             // 
@@ -563,6 +565,7 @@
             ButtonXoaDV.Size = new Size(130, 48);
             ButtonXoaDV.TabIndex = 28;
             ButtonXoaDV.Text = "Xóa";
+            ButtonXoaDV.Click += ButtonXoaDV_Click;
             // 
             // ButtonThemDV
             // 
@@ -617,35 +620,42 @@
             // 
             // dataGridViewQLDV
             // 
+            dataGridViewQLDV.AllowUserToAddRows = false;
+            dataGridViewQLDV.AllowUserToDeleteRows = false;
+            dataGridViewQLDV.AllowUserToResizeColumns = false;
+            dataGridViewQLDV.AllowUserToResizeRows = false;
+            dataGridViewQLDV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewQLDV.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewQLDV.Location = new Point(6, 56);
             dataGridViewQLDV.Name = "dataGridViewQLDV";
+            dataGridViewQLDV.ReadOnly = true;
             dataGridViewQLDV.RowHeadersWidth = 51;
             dataGridViewQLDV.Size = new Size(618, 368);
             dataGridViewQLDV.TabIndex = 0;
+            dataGridViewQLDV.CellClick += dataGridViewQLDV_CellClick;
             // 
-            // tabPageThietBi
+            // tabPageGoiT
             // 
-            tabPageThietBi.Controls.Add(label12);
-            tabPageThietBi.Controls.Add(textBoxDonGiaGT);
-            tabPageThietBi.Controls.Add(textBoxThoiHanGT);
-            tabPageThietBi.Controls.Add(textBoxTimKiemGT);
-            tabPageThietBi.Controls.Add(textBoxTenGT);
-            tabPageThietBi.Controls.Add(ButtonSuaGT);
-            tabPageThietBi.Controls.Add(ButtonTkGT);
-            tabPageThietBi.Controls.Add(ButtonXoaGT);
-            tabPageThietBi.Controls.Add(label15);
-            tabPageThietBi.Controls.Add(label16);
-            tabPageThietBi.Controls.Add(ButtonThemGT);
-            tabPageThietBi.Controls.Add(label17);
-            tabPageThietBi.Controls.Add(dataGridGoiTap);
-            tabPageThietBi.Location = new Point(4, 29);
-            tabPageThietBi.Name = "tabPageThietBi";
-            tabPageThietBi.Padding = new Padding(3);
-            tabPageThietBi.Size = new Size(994, 510);
-            tabPageThietBi.TabIndex = 1;
-            tabPageThietBi.Text = "Quản Lý Thiết Bị";
-            tabPageThietBi.UseVisualStyleBackColor = true;
+            tabPageGoiT.Controls.Add(label12);
+            tabPageGoiT.Controls.Add(textBoxDonGiaGT);
+            tabPageGoiT.Controls.Add(textBoxThoiHanGT);
+            tabPageGoiT.Controls.Add(textBoxTimKiemGT);
+            tabPageGoiT.Controls.Add(textBoxTenGT);
+            tabPageGoiT.Controls.Add(ButtonSuaGT);
+            tabPageGoiT.Controls.Add(ButtonTkGT);
+            tabPageGoiT.Controls.Add(ButtonXoaGT);
+            tabPageGoiT.Controls.Add(label15);
+            tabPageGoiT.Controls.Add(label16);
+            tabPageGoiT.Controls.Add(ButtonThemGT);
+            tabPageGoiT.Controls.Add(label17);
+            tabPageGoiT.Controls.Add(dataGridGoiTap);
+            tabPageGoiT.Location = new Point(4, 29);
+            tabPageGoiT.Name = "tabPageGoiT";
+            tabPageGoiT.Padding = new Padding(3);
+            tabPageGoiT.Size = new Size(994, 510);
+            tabPageGoiT.TabIndex = 1;
+            tabPageGoiT.Text = "Quản Lý Gói Tạp";
+            tabPageGoiT.UseVisualStyleBackColor = true;
             // 
             // label12
             // 
@@ -706,6 +716,7 @@
             ButtonSuaGT.Size = new Size(130, 48);
             ButtonSuaGT.TabIndex = 51;
             ButtonSuaGT.Text = "Sửa";
+            ButtonSuaGT.Click += ButtonSuaGT_Click;
             // 
             // ButtonTkGT
             // 
@@ -725,6 +736,7 @@
             ButtonTkGT.Size = new Size(130, 48);
             ButtonTkGT.TabIndex = 50;
             ButtonTkGT.Text = "Tìm Kiếm";
+            ButtonTkGT.Click += ButtonTkGT_Click;
             // 
             // ButtonXoaGT
             // 
@@ -744,6 +756,7 @@
             ButtonXoaGT.Size = new Size(130, 48);
             ButtonXoaGT.TabIndex = 49;
             ButtonXoaGT.Text = "Xóa";
+            ButtonXoaGT.Click += ButtonXoaGT_Click;
             // 
             // label15
             // 
@@ -784,6 +797,7 @@
             ButtonThemGT.Size = new Size(130, 48);
             ButtonThemGT.TabIndex = 34;
             ButtonThemGT.Text = "Thêm";
+            ButtonThemGT.Click += ButtonThemGT_Click;
             // 
             // label17
             // 
@@ -797,12 +811,19 @@
             // 
             // dataGridGoiTap
             // 
+            dataGridGoiTap.AllowUserToAddRows = false;
+            dataGridGoiTap.AllowUserToDeleteRows = false;
+            dataGridGoiTap.AllowUserToResizeColumns = false;
+            dataGridGoiTap.AllowUserToResizeRows = false;
+            dataGridGoiTap.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridGoiTap.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridGoiTap.Location = new Point(6, 55);
             dataGridGoiTap.Name = "dataGridGoiTap";
+            dataGridGoiTap.ReadOnly = true;
             dataGridGoiTap.RowHeadersWidth = 51;
             dataGridGoiTap.Size = new Size(628, 376);
             dataGridGoiTap.TabIndex = 0;
+            dataGridGoiTap.CellClick += dataGridGoiTap_CellClick;
             // 
             // guna2Elipse1
             // 
@@ -819,17 +840,17 @@
             ((System.ComponentModel.ISupportInitialize)dataGridViewDV).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridGT).EndInit();
             tabControl1.ResumeLayout(false);
-            tabPagePT.ResumeLayout(false);
-            tabPagePT.PerformLayout();
+            tabPageDV.ResumeLayout(false);
+            tabPageDV.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewQLDV).EndInit();
-            tabPageThietBi.ResumeLayout(false);
-            tabPageThietBi.PerformLayout();
+            tabPageGoiT.ResumeLayout(false);
+            tabPageGoiT.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridGoiTap).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
-        private TabPage tabPagePT;
+        private TabPage tabPageDV;
         private RadioButton adioButtonKohd;
         private RadioButton radioButtonhd;
         private Label label13;
@@ -847,7 +868,7 @@
         private Label label3;
         private Label label2;
         private DataGridView dataGridViewDV;
-        private TabPage tabPageThietBi;
+        private TabPage tabPageGoiT;
         private TextBox textBoxThoiHan;
         private TextBox textBoxTKGT;
         private Guna.UI2.WinForms.Guna2Button una2ButtonSuaGT;
