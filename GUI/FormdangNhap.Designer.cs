@@ -140,6 +140,7 @@
             ButtonQuenMK.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             ButtonQuenMK.Size = new Size(69, 61);
             ButtonQuenMK.TabIndex = 8;
+            ButtonQuenMK.Click += ButtonQuenMK_Click;
             // 
             // guna2PictureBox2
             // 

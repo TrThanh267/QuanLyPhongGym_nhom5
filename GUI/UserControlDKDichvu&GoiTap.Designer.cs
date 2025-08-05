@@ -29,14 +29,15 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserControlDKDichvu_GoiTap));
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             dataGridViewDKDV = new DataGridView();
             dataGridViewDKGT = new DataGridView();
             comboBoxMaGT = new ComboBox();
@@ -73,6 +74,7 @@
             dataGridViewDKDV.AllowUserToResizeColumns = false;
             dataGridViewDKDV.AllowUserToResizeRows = false;
             dataGridViewDKDV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewDKDV.BackgroundColor = SystemColors.ButtonHighlight;
             dataGridViewDKDV.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewDKDV.Location = new Point(17, 340);
             dataGridViewDKDV.Name = "dataGridViewDKDV";
@@ -89,6 +91,7 @@
             dataGridViewDKGT.AllowUserToResizeColumns = false;
             dataGridViewDKGT.AllowUserToResizeRows = false;
             dataGridViewDKGT.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewDKGT.BackgroundColor = SystemColors.ButtonHighlight;
             dataGridViewDKGT.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewDKGT.Location = new Point(17, 51);
             dataGridViewDKGT.Name = "dataGridViewDKGT";
@@ -161,37 +164,41 @@
             // guna2ButtonMuaGoi
             // 
             guna2ButtonMuaGoi.BorderRadius = 18;
-            guna2ButtonMuaGoi.CustomizableEdges = customizableEdges9;
+            guna2ButtonMuaGoi.CustomizableEdges = customizableEdges1;
             guna2ButtonMuaGoi.DisabledState.BorderColor = Color.DarkGray;
             guna2ButtonMuaGoi.DisabledState.CustomBorderColor = Color.DarkGray;
             guna2ButtonMuaGoi.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             guna2ButtonMuaGoi.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            guna2ButtonMuaGoi.FillColor = Color.FromArgb(128, 128, 255);
             guna2ButtonMuaGoi.Font = new Font("Segoe UI", 9F);
             guna2ButtonMuaGoi.ForeColor = Color.White;
+            guna2ButtonMuaGoi.Image = (Image)resources.GetObject("guna2ButtonMuaGoi.Image");
             guna2ButtonMuaGoi.Location = new Point(586, 249);
             guna2ButtonMuaGoi.Name = "guna2ButtonMuaGoi";
-            guna2ButtonMuaGoi.ShadowDecoration.CustomizableEdges = customizableEdges10;
+            guna2ButtonMuaGoi.ShadowDecoration.CustomizableEdges = customizableEdges2;
             guna2ButtonMuaGoi.Size = new Size(109, 46);
             guna2ButtonMuaGoi.TabIndex = 14;
-            guna2ButtonMuaGoi.Text = "Mua Goi";
+            guna2ButtonMuaGoi.Text = "Mua";
             guna2ButtonMuaGoi.Click += guna2ButtonMuaGoi_Click;
             // 
             // guna2ButtonHuyGoi
             // 
             guna2ButtonHuyGoi.BorderRadius = 18;
-            guna2ButtonHuyGoi.CustomizableEdges = customizableEdges11;
+            guna2ButtonHuyGoi.CustomizableEdges = customizableEdges3;
             guna2ButtonHuyGoi.DisabledState.BorderColor = Color.DarkGray;
             guna2ButtonHuyGoi.DisabledState.CustomBorderColor = Color.DarkGray;
             guna2ButtonHuyGoi.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             guna2ButtonHuyGoi.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            guna2ButtonHuyGoi.FillColor = Color.FromArgb(128, 128, 255);
             guna2ButtonHuyGoi.Font = new Font("Segoe UI", 9F);
             guna2ButtonHuyGoi.ForeColor = Color.White;
+            guna2ButtonHuyGoi.Image = (Image)resources.GetObject("guna2ButtonHuyGoi.Image");
             guna2ButtonHuyGoi.Location = new Point(749, 249);
             guna2ButtonHuyGoi.Name = "guna2ButtonHuyGoi";
-            guna2ButtonHuyGoi.ShadowDecoration.CustomizableEdges = customizableEdges12;
+            guna2ButtonHuyGoi.ShadowDecoration.CustomizableEdges = customizableEdges4;
             guna2ButtonHuyGoi.Size = new Size(109, 46);
             guna2ButtonHuyGoi.TabIndex = 15;
-            guna2ButtonHuyGoi.Text = "Huy Goi";
+            guna2ButtonHuyGoi.Text = "Huy";
             guna2ButtonHuyGoi.Click += guna2ButtonHuyGoi_Click;
             // 
             // label1
@@ -269,37 +276,41 @@
             // guna2ButtonHuyDV
             // 
             guna2ButtonHuyDV.BorderRadius = 18;
-            guna2ButtonHuyDV.CustomizableEdges = customizableEdges13;
+            guna2ButtonHuyDV.CustomizableEdges = customizableEdges5;
             guna2ButtonHuyDV.DisabledState.BorderColor = Color.DarkGray;
             guna2ButtonHuyDV.DisabledState.CustomBorderColor = Color.DarkGray;
             guna2ButtonHuyDV.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             guna2ButtonHuyDV.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            guna2ButtonHuyDV.FillColor = Color.FromArgb(128, 128, 255);
             guna2ButtonHuyDV.Font = new Font("Segoe UI", 9F);
             guna2ButtonHuyDV.ForeColor = Color.White;
+            guna2ButtonHuyDV.Image = (Image)resources.GetObject("guna2ButtonHuyDV.Image");
             guna2ButtonHuyDV.Location = new Point(749, 537);
             guna2ButtonHuyDV.Name = "guna2ButtonHuyDV";
-            guna2ButtonHuyDV.ShadowDecoration.CustomizableEdges = customizableEdges14;
+            guna2ButtonHuyDV.ShadowDecoration.CustomizableEdges = customizableEdges6;
             guna2ButtonHuyDV.Size = new Size(109, 46);
             guna2ButtonHuyDV.TabIndex = 27;
-            guna2ButtonHuyDV.Text = "Huy Dich Vu";
+            guna2ButtonHuyDV.Text = "Huy";
             guna2ButtonHuyDV.Click += guna2ButtonHuyDV_Click;
             // 
             // guna2ButtonMuaDv
             // 
             guna2ButtonMuaDv.BorderRadius = 18;
-            guna2ButtonMuaDv.CustomizableEdges = customizableEdges15;
+            guna2ButtonMuaDv.CustomizableEdges = customizableEdges7;
             guna2ButtonMuaDv.DisabledState.BorderColor = Color.DarkGray;
             guna2ButtonMuaDv.DisabledState.CustomBorderColor = Color.DarkGray;
             guna2ButtonMuaDv.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             guna2ButtonMuaDv.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            guna2ButtonMuaDv.FillColor = Color.FromArgb(128, 128, 255);
             guna2ButtonMuaDv.Font = new Font("Segoe UI", 9F);
             guna2ButtonMuaDv.ForeColor = Color.White;
+            guna2ButtonMuaDv.Image = (Image)resources.GetObject("guna2ButtonMuaDv.Image");
             guna2ButtonMuaDv.Location = new Point(586, 537);
             guna2ButtonMuaDv.Name = "guna2ButtonMuaDv";
-            guna2ButtonMuaDv.ShadowDecoration.CustomizableEdges = customizableEdges16;
+            guna2ButtonMuaDv.ShadowDecoration.CustomizableEdges = customizableEdges8;
             guna2ButtonMuaDv.Size = new Size(109, 46);
             guna2ButtonMuaDv.TabIndex = 26;
-            guna2ButtonMuaDv.Text = "Mua Dich Vu";
+            guna2ButtonMuaDv.Text = "Mua";
             guna2ButtonMuaDv.Click += guna2ButtonMuaDv_Click;
             // 
             // label5
@@ -330,6 +341,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(192, 192, 255);
             Controls.Add(label10);
             Controls.Add(label5);
             Controls.Add(guna2ButtonHuyDV);

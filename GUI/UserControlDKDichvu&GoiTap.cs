@@ -166,9 +166,10 @@ namespace QuanLyPhongGym_nhom5.GUI
 
         private void dataGridViewDKDV_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dataGridViewDKDV.SelectedRows.Count > 0)
+            if (e.RowIndex >= 0)
             {
-                var row = dataGridViewDKDV.SelectedRows[e.RowIndex];
+                var row = dataGridViewDKDV.Rows[e.RowIndex];
+
                 comboBoxMaKHDV.SelectedValue = row.Cells["MaKh"].Value;
                 comboBoxMaDV.SelectedValue = row.Cells["MaDv"].Value;
                 dateTimePickerBDDV.Value = DateTime.Parse(row.Cells["NgayBatDau"].Value.ToString());

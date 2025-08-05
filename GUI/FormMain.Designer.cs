@@ -103,8 +103,11 @@
             buttonTaiKhoan.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             buttonTaiKhoan.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             buttonTaiKhoan.FillColor = Color.Transparent;
-            buttonTaiKhoan.Font = new Font("Segoe UI", 9F);
+            buttonTaiKhoan.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             buttonTaiKhoan.ForeColor = Color.White;
+            buttonTaiKhoan.Image = (Image)resources.GetObject("buttonTaiKhoan.Image");
+            buttonTaiKhoan.ImageAlign = HorizontalAlignment.Left;
+            buttonTaiKhoan.ImageSize = new Size(40, 40);
             buttonTaiKhoan.Location = new Point(627, 15);
             buttonTaiKhoan.Name = "buttonTaiKhoan";
             buttonTaiKhoan.ShadowDecoration.CustomizableEdges = customizableEdges4;
@@ -129,8 +132,11 @@
             ButtonQLKhachHang.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             ButtonQLKhachHang.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             ButtonQLKhachHang.FillColor = Color.Transparent;
-            ButtonQLKhachHang.Font = new Font("Segoe UI", 9F);
+            ButtonQLKhachHang.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             ButtonQLKhachHang.ForeColor = Color.White;
+            ButtonQLKhachHang.Image = (Image)resources.GetObject("ButtonQLKhachHang.Image");
+            ButtonQLKhachHang.ImageAlign = HorizontalAlignment.Left;
+            ButtonQLKhachHang.ImageSize = new Size(40, 40);
             ButtonQLKhachHang.Location = new Point(159, 15);
             ButtonQLKhachHang.Name = "ButtonQLKhachHang";
             ButtonQLKhachHang.ShadowDecoration.CustomizableEdges = customizableEdges6;
@@ -155,8 +161,11 @@
             guna2ButtonHD.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             guna2ButtonHD.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             guna2ButtonHD.FillColor = Color.Transparent;
-            guna2ButtonHD.Font = new Font("Segoe UI", 9F);
+            guna2ButtonHD.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             guna2ButtonHD.ForeColor = Color.White;
+            guna2ButtonHD.Image = (Image)resources.GetObject("guna2ButtonHD.Image");
+            guna2ButtonHD.ImageAlign = HorizontalAlignment.Left;
+            guna2ButtonHD.ImageSize = new Size(40, 40);
             guna2ButtonHD.Location = new Point(315, 15);
             guna2ButtonHD.Name = "guna2ButtonHD";
             guna2ButtonHD.PressedColor = Color.White;
@@ -181,8 +190,11 @@
             guna2ButtonQLNV.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             guna2ButtonQLNV.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             guna2ButtonQLNV.FillColor = Color.Transparent;
-            guna2ButtonQLNV.Font = new Font("Segoe UI", 9F);
+            guna2ButtonQLNV.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 163);
             guna2ButtonQLNV.ForeColor = Color.White;
+            guna2ButtonQLNV.Image = (Image)resources.GetObject("guna2ButtonQLNV.Image");
+            guna2ButtonQLNV.ImageAlign = HorizontalAlignment.Left;
+            guna2ButtonQLNV.ImageSize = new Size(40, 40);
             guna2ButtonQLNV.Location = new Point(3, 15);
             guna2ButtonQLNV.Name = "guna2ButtonQLNV";
             guna2ButtonQLNV.ShadowDecoration.CustomizableEdges = customizableEdges10;
@@ -207,8 +219,11 @@
             guna2Button5.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             guna2Button5.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             guna2Button5.FillColor = Color.Transparent;
-            guna2Button5.Font = new Font("Segoe UI", 9F);
+            guna2Button5.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             guna2Button5.ForeColor = Color.White;
+            guna2Button5.Image = (Image)resources.GetObject("guna2Button5.Image");
+            guna2Button5.ImageAlign = HorizontalAlignment.Left;
+            guna2Button5.ImageSize = new Size(40, 40);
             guna2Button5.Location = new Point(471, 15);
             guna2Button5.Name = "guna2Button5";
             guna2Button5.ShadowDecoration.CustomizableEdges = customizableEdges12;
@@ -219,8 +234,7 @@
             // 
             // panel1
             // 
-            panel1.BackColor = Color.FromArgb(0, 192, 192);
-            panel1.BackgroundImage = (Image)resources.GetObject("panel1.BackgroundImage");
+            panel1.BackColor = Color.FromArgb(128, 128, 255);
             panel1.BackgroundImageLayout = ImageLayout.Stretch;
             panel1.BorderStyle = BorderStyle.Fixed3D;
             panel1.Controls.Add(buttonmoving);
@@ -260,8 +274,11 @@
             guna2ButtonDV.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             guna2ButtonDV.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             guna2ButtonDV.FillColor = Color.Transparent;
-            guna2ButtonDV.Font = new Font("Segoe UI", 9F);
+            guna2ButtonDV.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             guna2ButtonDV.ForeColor = Color.White;
+            guna2ButtonDV.Image = (Image)resources.GetObject("guna2ButtonDV.Image");
+            guna2ButtonDV.ImageAlign = HorizontalAlignment.Left;
+            guna2ButtonDV.ImageSize = new Size(40, 40);
             guna2ButtonDV.Location = new Point(783, 15);
             guna2ButtonDV.Name = "guna2ButtonDV";
             guna2ButtonDV.ShadowDecoration.CustomizableEdges = customizableEdges16;
@@ -384,7 +401,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(192, 0, 192);
+            BackColor = Color.FromArgb(0, 0, 192);
             ClientSize = new Size(1138, 725);
             Controls.Add(guna2CircleButtonX);
             Controls.Add(panel2);

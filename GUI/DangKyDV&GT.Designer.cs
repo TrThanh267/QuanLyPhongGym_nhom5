@@ -34,9 +34,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DangKyDV_GT));
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            userControldkDichvu_GoiTap1 = new UserControlDKDichvu_GoiTap();
             guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(components);
             guna2CircleButtonhuy = new Guna.UI2.WinForms.Guna2CircleButton();
-            userControldkDichvu_GoiTap1 = new UserControlDKDichvu_GoiTap();
             guna2Panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -49,6 +49,13 @@
             guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges2;
             guna2Panel1.Size = new Size(912, 605);
             guna2Panel1.TabIndex = 0;
+            // 
+            // userControldkDichvu_GoiTap1
+            // 
+            userControldkDichvu_GoiTap1.Location = new Point(0, 0);
+            userControldkDichvu_GoiTap1.Name = "userControldkDichvu_GoiTap1";
+            userControldkDichvu_GoiTap1.Size = new Size(909, 602);
+            userControldkDichvu_GoiTap1.TabIndex = 0;
             // 
             // guna2Elipse1
             // 
@@ -74,17 +81,11 @@
             guna2CircleButtonhuy.TabIndex = 1;
             guna2CircleButtonhuy.Click += guna2CircleButtonhuy_Click;
             // 
-            // userControldkDichvu_GoiTap1
-            // 
-            userControldkDichvu_GoiTap1.Location = new Point(0, 0);
-            userControldkDichvu_GoiTap1.Name = "userControldkDichvu_GoiTap1";
-            userControldkDichvu_GoiTap1.Size = new Size(909, 602);
-            userControldkDichvu_GoiTap1.TabIndex = 0;
-            // 
             // DangKyDV_GT
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(180, 192, 255);
             ClientSize = new Size(992, 627);
             Controls.Add(guna2CircleButtonhuy);
             Controls.Add(guna2Panel1);
