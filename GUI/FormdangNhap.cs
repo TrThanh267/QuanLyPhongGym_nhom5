@@ -1,5 +1,6 @@
 ﻿using QuanLyPhongGym.DAL;
 using QuanLyPhongGym_nhom5;
+using QuanLyPhongGym_nhom5.GUI;
 using QuanLyPhongGym_nhom5.Models;
 using System;
 using System.Collections.Generic;
@@ -28,6 +29,7 @@ namespace QuanLyPhongGym.GUI
             labelhienthi.Visible = false;
         }
 
+
         private void guna2Buttondangnnhap_Click(object sender, EventArgs e)
         {
             string taiKhoan = guna2TextBoxTaiKhoan.Text.Trim();
@@ -38,13 +40,22 @@ namespace QuanLyPhongGym.GUI
                 return;
             }
             var taiKhoans = _DAL.login(taiKhoan, matKhau);
-            if(taiKhoans != null)
+            if (taiKhoans != null)
             {
-                
+
                 NguoiDung.nguoidunghientai = taiKhoans;
-                FormMain formMain = new FormMain();
-                formMain.Show();
-                this.Hide();
+                if (taiKhoans.MaVaiTroNavigation.TenVaiTro.Equals("KhachHang", StringComparison.OrdinalIgnoreCase))
+                {
+                    DangKyDV_GT dangKyDV_GT = new DangKyDV_GT();
+                    dangKyDV_GT.Show();
+                    this.Hide();
+                }
+                else
+                {
+                    FormMain formMain = new FormMain();
+                    formMain.Show();
+                    this.Hide();
+                }
             }
             else
             {

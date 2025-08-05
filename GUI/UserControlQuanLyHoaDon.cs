@@ -162,17 +162,36 @@ namespace QuanLyPhongGym_nhom5.GUI
 
         private void dataGridViewHD_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            var selectedRow = dataGridViewHD.SelectedRows[e.RowIndex];
-            if (selectedRow != null)
+            if (e.RowIndex >= 0)
             {
-                textBoxHinhThucTT.Text = selectedRow.Cells["HinhThucThanhToan"].Value.ToString();
+                DataGridViewRow selectedRow = dataGridViewHD.Rows[e.RowIndex];
+
+                textBoxHinhThucTT.Text = selectedRow.Cells["HinhThucThanhToan"].Value?.ToString();
                 comboBoxmaKH.SelectedValue = selectedRow.Cells["MaKh"].Value;
                 comboBoxMaNV.SelectedValue = selectedRow.Cells["MaNv"].Value;
-                dateTimePickerNgayTao.Value = DateTime.Parse(selectedRow.Cells["NgayTao"].Value.ToString());
+
+                var cellValue = selectedRow.Cells["NgayTao"].Value;
+                DateTime minDate = dateTimePickerNgayTao.MinDate;
+
+                if (cellValue is DateOnly dateOnly)
+                {
+                    var dt = dateOnly.ToDateTime(TimeOnly.MinValue);
+                    if (dt >= minDate && dt <= dateTimePickerNgayTao.MaxDate)
+                    {
+                        dateTimePickerNgayTao.Value = dt;
+                    }
+                }
+                else if (cellValue is DateTime dateTime)
+                {
+                    if (dateTime >= minDate && dateTime <= dateTimePickerNgayTao.MaxDate)
+                    {
+                        dateTimePickerNgayTao.Value = dateTime;
+                    }
+                }
             }
             else
             {
-                MessageBox.Show("Vui lòng chọn một hóa đơn để xem chi tiết.");
+                MessageBox.Show("Vui lòng chọn một hóa đơn hợp lệ.");
             }
         }
 
@@ -263,13 +282,13 @@ namespace QuanLyPhongGym_nhom5.GUI
 
         private void dataGridViewCTHD_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            var selectedRow = dataGridViewCTHD.SelectedRows[e.RowIndex];
+            var selectedRow = dataGridViewCTHD.Rows[e.RowIndex];
             if (selectedRow != null)
             {
                 comboBoxMaHD.SelectedValue = selectedRow.Cells["MaHd"].Value;
                 comboBoxmaDichVu.SelectedValue = selectedRow.Cells["MaDv"].Value;
                 comboBoxMaGoiTap.SelectedValue = selectedRow.Cells["MaGoiTap"].Value;
-                textBoxSoLuong.Text = selectedRow.Cells["SoLuong"].Value.ToString();
+                textBoxSoLuong.Text = selectedRow.Cells["SoLuong"].Value?.ToString() ?? "";
             }
             else
             {

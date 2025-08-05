@@ -254,6 +254,7 @@
             dataGridThietBi.AllowUserToResizeColumns = false;
             dataGridThietBi.AllowUserToResizeRows = false;
             dataGridThietBi.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridThietBi.BackgroundColor = SystemColors.ButtonHighlight;
             dataGridThietBi.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridThietBi.Location = new Point(6, 55);
             dataGridThietBi.Name = "dataGridThietBi";
@@ -502,6 +503,7 @@
             dataGridViewPT.AllowUserToResizeColumns = false;
             dataGridViewPT.AllowUserToResizeRows = false;
             dataGridViewPT.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewPT.BackgroundColor = SystemColors.ButtonHighlight;
             dataGridViewPT.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewPT.Location = new Point(0, 53);
             dataGridViewPT.Name = "dataGridViewPT";

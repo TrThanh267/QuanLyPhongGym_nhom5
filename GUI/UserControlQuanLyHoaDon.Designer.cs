@@ -295,10 +295,16 @@
             // 
             // dataGridViewHD
             // 
+            dataGridViewHD.AllowUserToAddRows = false;
+            dataGridViewHD.AllowUserToDeleteRows = false;
+            dataGridViewHD.AllowUserToResizeColumns = false;
+            dataGridViewHD.AllowUserToResizeRows = false;
             dataGridViewHD.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewHD.BackgroundColor = SystemColors.ButtonHighlight;
             dataGridViewHD.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewHD.Location = new Point(0, 53);
             dataGridViewHD.Name = "dataGridViewHD";
+            dataGridViewHD.ReadOnly = true;
             dataGridViewHD.RowHeadersWidth = 51;
             dataGridViewHD.Size = new Size(618, 368);
             dataGridViewHD.TabIndex = 0;
@@ -503,10 +509,16 @@
             // 
             // dataGridViewCTHD
             // 
+            dataGridViewCTHD.AllowUserToAddRows = false;
+            dataGridViewCTHD.AllowUserToDeleteRows = false;
+            dataGridViewCTHD.AllowUserToResizeColumns = false;
+            dataGridViewCTHD.AllowUserToResizeRows = false;
             dataGridViewCTHD.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCTHD.BackgroundColor = SystemColors.ButtonHighlight;
             dataGridViewCTHD.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCTHD.Location = new Point(6, 55);
             dataGridViewCTHD.Name = "dataGridViewCTHD";
+            dataGridViewCTHD.ReadOnly = true;
             dataGridViewCTHD.RowHeadersWidth = 51;
             dataGridViewCTHD.Size = new Size(628, 376);
             dataGridViewCTHD.TabIndex = 0;

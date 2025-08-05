@@ -192,10 +192,16 @@
             // 
             // dataGridTaiKhoan
             // 
+            dataGridTaiKhoan.AllowUserToAddRows = false;
+            dataGridTaiKhoan.AllowUserToDeleteRows = false;
+            dataGridTaiKhoan.AllowUserToResizeColumns = false;
+            dataGridTaiKhoan.AllowUserToResizeRows = false;
             dataGridTaiKhoan.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridTaiKhoan.BackgroundColor = SystemColors.ButtonHighlight;
             dataGridTaiKhoan.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridTaiKhoan.Location = new Point(14, 57);
             dataGridTaiKhoan.Name = "dataGridTaiKhoan";
+            dataGridTaiKhoan.ReadOnly = true;
             dataGridTaiKhoan.RowHeadersWidth = 51;
             dataGridTaiKhoan.Size = new Size(628, 376);
             dataGridTaiKhoan.TabIndex = 54;
@@ -228,6 +234,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.Transparent;
             Controls.Add(label1);
             Controls.Add(comboBoxVaiTro);
             Controls.Add(textBoxMK);

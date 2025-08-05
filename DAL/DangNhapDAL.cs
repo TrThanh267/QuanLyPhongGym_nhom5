@@ -1,4 +1,5 @@
-﻿using QuanLyPhongGym_nhom5.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using QuanLyPhongGym_nhom5.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,9 +16,12 @@ namespace QuanLyPhongGym.DAL
         {
             _context = context;
         }
-        public TaiKhoan login(string taiKhoan, string matKhau)
+        public TaiKhoan login(string tenTK, string matKhau)
         {
-            return _context.TaiKhoans.FirstOrDefault(x=>x.TenTaiKhoan.Trim()==taiKhoan&&x.MatKhau==matKhau);
+            return _context.TaiKhoans
+                .Include(tk => tk.MaVaiTroNavigation)
+                .FirstOrDefault(tk => tk.TenTaiKhoan == tenTK && tk.MatKhau == matKhau);
+
         }
 
     }

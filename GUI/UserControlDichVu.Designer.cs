@@ -625,6 +625,7 @@
             dataGridViewQLDV.AllowUserToResizeColumns = false;
             dataGridViewQLDV.AllowUserToResizeRows = false;
             dataGridViewQLDV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewQLDV.BackgroundColor = SystemColors.ButtonHighlight;
             dataGridViewQLDV.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewQLDV.Location = new Point(6, 56);
             dataGridViewQLDV.Name = "dataGridViewQLDV";
@@ -816,6 +817,7 @@
             dataGridGoiTap.AllowUserToResizeColumns = false;
             dataGridGoiTap.AllowUserToResizeRows = false;
             dataGridGoiTap.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridGoiTap.BackgroundColor = SystemColors.ButtonHighlight;
             dataGridGoiTap.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridGoiTap.Location = new Point(6, 55);
             dataGridGoiTap.Name = "dataGridGoiTap";
@@ -827,7 +829,6 @@
             // 
             // guna2Elipse1
             // 
-            guna2Elipse1.BorderRadius = 18;
             guna2Elipse1.TargetControl = this;
             // 
             // UserControlDichVu

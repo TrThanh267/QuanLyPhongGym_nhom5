@@ -26,6 +26,7 @@ namespace QuanLyPhongGym_nhom5.GUI
         {
             var listTaiKhoan = _QuanLyTaiKhoan_DAL.GetAllTaiKhoans();
             dataGridTaiKhoan.DataSource = listTaiKhoan;
+            dataGridTaiKhoan.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
             comboBoxVaiTro.DataSource = _db.VaiTros.ToList();
             comboBoxVaiTro.DisplayMember = "TenVaiTro";

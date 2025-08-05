@@ -85,6 +85,7 @@
             dataGridViewKH.AllowUserToResizeColumns = false;
             dataGridViewKH.AllowUserToResizeRows = false;
             dataGridViewKH.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewKH.BackgroundColor = SystemColors.ButtonHighlight;
             dataGridViewKH.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewKH.Location = new Point(15, 79);
             dataGridViewKH.Name = "dataGridViewKH";
