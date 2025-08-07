@@ -30,6 +30,7 @@ namespace QuanLyPhongGym_nhom5.DAL
                     NgayHetHan = kh.NgayHetHan,
                     TrangThai = kh.TrangThai,
                     GioiTinh = kh.GioiTinh,
+                    TenTaiKhoan = kh.TenTaiKhoan,
                 })
                 .ToList();
         }
@@ -52,11 +53,11 @@ namespace QuanLyPhongGym_nhom5.DAL
                 return false;
             }
         }
-        public bool XoaKhachHang(KhachHang khachHang)
+        public bool XoaKhachHang(int khachHang)
         {
             try
             {
-                var kh = _context.KhachHangs.FirstOrDefault(x => x.MaKh == khachHang.MaKh);
+                var kh = _context.KhachHangs.FirstOrDefault(x => x.MaKh == khachHang);
                 if (kh != null)
                 {
                     _context.KhachHangs.Remove(kh);
@@ -91,6 +92,7 @@ namespace QuanLyPhongGym_nhom5.DAL
                     kh.NgayHetHan = khachHang.NgayHetHan == null ? kh.NgayHetHan : khachHang.NgayHetHan;
                     kh.TrangThai = khachHang.TrangThai == null ? kh.TrangThai : khachHang.TrangThai;
                     kh.GioiTinh = khachHang.GioiTinh == null ? kh.GioiTinh : khachHang.GioiTinh;
+                    kh.TenTaiKhoan = khachHang.TenTaiKhoan == null ? kh.TenTaiKhoan : khachHang.TenTaiKhoan;
                     _context.SaveChanges();
                     return true;
                 }
@@ -110,9 +112,18 @@ namespace QuanLyPhongGym_nhom5.DAL
         public List<KhachHang> timkiemKH(string khachhang)
         {
             var nv = _context.KhachHangs
-                .Where(x => x.HoTen.Contains(khachhang) || x.Email.Contains(khachhang))
+                .Where(x => x.HoTen.Contains(khachhang) || x.Email.Contains(khachhang) || x.TenTaiKhoan.Contains(khachhang))
                 .ToList();
             return nv;
+        }
+        public bool taikhoandadung(string khachHang)
+        {
+            return _context.KhachHangs.Any(x=> x.TenTaiKhoan == khachHang);
+        }
+        public bool KiemTraTaiKhoanDaSuDungChoKhac(string tenTaiKhoan, int maKhachHang)
+        {
+            return _context.KhachHangs
+                .Any(kh => kh.TenTaiKhoan == tenTaiKhoan && kh.MaKh != maKhachHang);
         }
     }
 }

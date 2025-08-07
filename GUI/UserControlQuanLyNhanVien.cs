@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using QuanLyPhongGym.DAL;
+using QuanLyPhongGym_nhom5.BLL;
 using QuanLyPhongGym_nhom5.Models;
 using System;
 using System.Collections.Generic;
@@ -16,31 +17,31 @@ namespace QuanLyPhongGym.GUI
     public partial class UserControlQuanLyNhanVien : UserControl
     {
         QlGymContext _db = new QlGymContext();
-        QuanLyNhanVien_DAL _NhanVienDal;
+        NhanVien_BLL _NhanVienBll;
         public UserControlQuanLyNhanVien()
         {
             InitializeComponent();
-            _NhanVienDal = new QuanLyNhanVien_DAL(_db);
+            _NhanVienBll = new NhanVien_BLL(_db);
             LoadData();
             VaiTro();
         }
         public void LoadData() 
         {
-            var listNhanVien = _NhanVienDal.GetNhanVienWithVaiTro();
+            var listNhanVien = _NhanVienBll.GetNhanVienWithVaiTro();
             dataGridViewNV.DataSource = listNhanVien;
             dataGridViewNV.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
         public void VaiTro()
         {
-            comboBoxVaiTro.DataSource = _db.TaiKhoans.ToList();
-            comboBoxVaiTro.DisplayMember = "MaVaitro"; // Hiển thị tên vai trò
-            comboBoxVaiTro.ValueMember = "TenTaiKhoan"; // Lấy giá trị từ tên tài khoản
+            comboBoxVaiTro.DataSource = _db.TaiKhoans.ToList().Where(nv=>nv.MaVaiTro==3||nv.MaVaiTro==2).ToList();
+            comboBoxVaiTro.DisplayMember = "TenTaiKhoan"; // Hiển thị tên vai trò
+            comboBoxVaiTro.ValueMember ="TenTaiKhoan"; // Lấy giá trị từ tên tài khoản
         }
 
         private void guna2ButtonThem_Click(object sender, EventArgs e)
         {
             try
-            {
+            {   
                 if (string.IsNullOrEmpty(textBoxTenNhanVien.Text) || string.IsNullOrEmpty(textBoxSDT.Text) || string.IsNullOrEmpty(textBoxDiaChi.Text) || string.IsNullOrEmpty(textBoxEmail.Text) || string.IsNullOrEmpty(textBoxSDT.Text))
                 {
                     MessageBox.Show("Vui lòng điền đầy đủ thông tin!");
@@ -58,16 +59,28 @@ namespace QuanLyPhongGym.GUI
                         Sdt = textBoxSDT.Text,
                         Luong = decimal.TryParse(textBoxLuong.Text, out decimal luong) ? luong : (decimal?)null
                     };
-                    if (_NhanVienDal.them(nhanVien))
+                    _NhanVienBll.AddNhanVien(nhanVien);
+                    LoadData();
+                    string tenTaiKhoan = comboBoxVaiTro.SelectedValue.ToString().Trim();
+                    if(_NhanVienBll.KiemTraTaiKhoanDaSuDung(tenTaiKhoan))
                     {
-                        MessageBox.Show("Thêm nhân viên thành công!");
-                        LoadData();
+                        MessageBox.Show("Tài khoản đã được sử dụng, vui lòng chọn tài khoản khác!");
+                        return;
                     }
-                    else
+                    string email = textBoxEmail.Text.Trim();
+                    if (!email.EndsWith("@gmail.com") || !email.Contains("@") || email.StartsWith("@"))
                     {
-                        MessageBox.Show("Thêm nhân viên thất bại!");
+                        MessageBox.Show("Email phải có định dạng hợp lệ và kết thúc bằng @gmail.com!");
+                        return;
+                    }
+                    string sdt = textBoxSDT.Text.Trim();
+                    if (sdt.Length != 10 || !sdt.All(char.IsDigit))
+                    {
+                        MessageBox.Show("Số điện thoại phải có 10 chữ số và không chứa ký tự khác!");
+                        return;
                     }
                 }
+                    
             }
             catch (Exception ex)
             {
@@ -89,15 +102,9 @@ namespace QuanLyPhongGym.GUI
                     Sdt = textBoxSDT.Text,
                     Luong = decimal.TryParse(textBoxLuong.Text, out decimal luong) ? luong : (decimal?)null
                 };
-                if (_NhanVienDal.xoa(nhanVien))
-                {
-                    MessageBox.Show("Xóa nhân viên thành công!");
-                    LoadData();
-                }
-                else
-                {
-                    MessageBox.Show("Xóa nhân viên thất bại!");
-                }
+                _NhanVienBll.DeleteNhanVien(nhanVien);
+                LoadData();
+
             }
             catch (Exception ex)
             {
@@ -122,7 +129,7 @@ namespace QuanLyPhongGym.GUI
                     Sdt = textBoxSDT.Text,
                     Luong = decimal.TryParse(textBoxLuong.Text, out decimal luong) ? luong : (decimal?)null
                 }; ;
-                if (_NhanVienDal.sua(nhanVien))
+                if (_NhanVienBll.UpdateNhanVien(nhanVien))
                 {
                     MessageBox.Show("Cập nhật nhân viên thành công!");
                     LoadData();
@@ -130,6 +137,18 @@ namespace QuanLyPhongGym.GUI
                 else
                 {
                     MessageBox.Show("Cập nhật nhân viên thất bại!");
+                }
+                string email = textBoxEmail.Text.Trim();
+                if (!email.EndsWith("@gmail.com") || !email.Contains("@") || email.StartsWith("@"))
+                {
+                    MessageBox.Show("Email phải có định dạng hợp lệ và kết thúc bằng @gmail.com!");
+                    return;
+                }
+                string sdt = textBoxSDT.Text.Trim();
+                if (sdt.Length != 10 || !sdt.All(char.IsDigit))
+                {
+                    MessageBox.Show("Số điện thoại phải có 10 chữ số và không chứa ký tự khác!");
+                    return;
                 }
             }
             catch (Exception ex)
@@ -143,8 +162,7 @@ namespace QuanLyPhongGym.GUI
             string searchText = textBoxTK.Text.Trim();
             if (!string.IsNullOrEmpty(searchText))
             {
-                var ketQua = _NhanVienDal.timkiem(searchText);
-                dataGridViewNV.DataSource = _NhanVienDal.timkiem(searchText).Cast<object>().ToList();
+                var ketQua = _NhanVienBll.timkiem(searchText);
             }
             else
             {
@@ -170,7 +188,7 @@ namespace QuanLyPhongGym.GUI
                     dateTimePickerNgayVaoLam.Value = ngay;
                 }
 
-                comboBoxVaiTro.Text = row.Cells["TenVaiTro"].Value?.ToString();
+                comboBoxVaiTro.Text = row.Cells["TenTaiKhoan"].Value?.ToString();
             }
         }
 

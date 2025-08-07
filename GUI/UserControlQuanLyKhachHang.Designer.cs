@@ -65,6 +65,8 @@
             guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(components);
             checkBoxHD = new CheckBox();
             checkBoxoffline = new CheckBox();
+            comboBoxtaikhoan = new ComboBox();
+            label11 = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridViewKH).BeginInit();
             SuspendLayout();
             // 
@@ -124,7 +126,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Goudy Old Style", 10.2F);
-            label2.Location = new Point(582, 172);
+            label2.Location = new Point(582, 143);
             label2.Name = "label2";
             label2.Size = new Size(48, 21);
             label2.TabIndex = 6;
@@ -134,7 +136,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Goudy Old Style", 10.2F);
-            label3.Location = new Point(582, 268);
+            label3.Location = new Point(582, 215);
             label3.Name = "label3";
             label3.Size = new Size(42, 21);
             label3.TabIndex = 7;
@@ -144,7 +146,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Goudy Old Style", 10.2F);
-            label4.Location = new Point(582, 373);
+            label4.Location = new Point(582, 293);
             label4.Name = "label4";
             label4.Size = new Size(62, 21);
             label4.TabIndex = 8;
@@ -153,7 +155,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(582, 373);
+            label5.Location = new Point(582, 283);
             label5.Name = "label5";
             label5.Size = new Size(0, 20);
             label5.TabIndex = 9;
@@ -200,21 +202,21 @@
             // 
             // textBoxDiaChi
             // 
-            textBoxDiaChi.Location = new Point(582, 396);
+            textBoxDiaChi.Location = new Point(582, 316);
             textBoxDiaChi.Name = "textBoxDiaChi";
             textBoxDiaChi.Size = new Size(151, 27);
             textBoxDiaChi.TabIndex = 14;
             // 
             // textBoxSDT
             // 
-            textBoxSDT.Location = new Point(582, 291);
+            textBoxSDT.Location = new Point(582, 238);
             textBoxSDT.Name = "textBoxSDT";
             textBoxSDT.Size = new Size(151, 27);
             textBoxSDT.TabIndex = 15;
             // 
             // textBoxEmail
             // 
-            textBoxEmail.Location = new Point(582, 195);
+            textBoxEmail.Location = new Point(582, 166);
             textBoxEmail.Name = "textBoxEmail";
             textBoxEmail.Size = new Size(151, 27);
             textBoxEmail.TabIndex = 16;
@@ -363,10 +365,30 @@
             checkBoxoffline.Text = "offline";
             checkBoxoffline.UseVisualStyleBackColor = true;
             // 
+            // comboBoxtaikhoan
+            // 
+            comboBoxtaikhoan.FormattingEnabled = true;
+            comboBoxtaikhoan.Location = new Point(582, 396);
+            comboBoxtaikhoan.Name = "comboBoxtaikhoan";
+            comboBoxtaikhoan.Size = new Size(151, 28);
+            comboBoxtaikhoan.TabIndex = 29;
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Font = new Font("Goudy Old Style", 10.2F);
+            label11.Location = new Point(582, 372);
+            label11.Name = "label11";
+            label11.Size = new Size(82, 21);
+            label11.TabIndex = 30;
+            label11.Text = "Tài Khoản";
+            // 
             // UserControlQuanLyKhachHang
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(label11);
+            Controls.Add(comboBoxtaikhoan);
             Controls.Add(checkBoxoffline);
             Controls.Add(checkBoxHD);
             Controls.Add(textBoxTK);
@@ -429,5 +451,7 @@
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
         private CheckBox checkBoxoffline;
         private CheckBox checkBoxHD;
+        private Label label11;
+        private ComboBox comboBoxtaikhoan;
     }
 }

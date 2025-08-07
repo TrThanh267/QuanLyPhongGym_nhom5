@@ -1,4 +1,5 @@
-﻿using QuanLyPhongGym_nhom5.DAL;
+﻿using QuanLyPhongGym_nhom5.BLL;
+using QuanLyPhongGym_nhom5.DAL;
 using QuanLyPhongGym_nhom5.Models;
 using System;
 using System.Collections.Generic;
@@ -14,19 +15,23 @@ namespace QuanLyPhongGym_nhom5.GUI
 {
     public partial class UserControlQuanLyKhachHang : UserControl
     {
-        QuanLyKhachHang_DAL _DAL;
+        Khachhang_BLL _BLL;
         QlGymContext _context = new QlGymContext();
         public UserControlQuanLyKhachHang()
         {
             InitializeComponent();
-            _DAL = new QuanLyKhachHang_DAL(_context);
+            _BLL = new Khachhang_BLL(_context);
             loadData();
         }
         public void loadData()
         {
-            var khachHangs = _DAL.GetKhachHangWithGoiTap();
+            var khachHangs = _BLL.GetKhachHangWithGoiTap();
             dataGridViewKH.DataSource = khachHangs;
             dataGridViewKH.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+
+            comboBoxtaikhoan.DataSource = _context.TaiKhoans.ToList().Where(tk => tk.MaVaiTro == 1).ToList();
+            comboBoxtaikhoan.DisplayMember = "TenTaiKhoan"; // Hiển thị tên tài khoản
+            comboBoxtaikhoan.ValueMember = "TenTaiKhoan"; // Lấy giá trị từ tên tài khoản
         }
 
         private void guna2ButtonThem_Click(object sender, EventArgs e)
@@ -46,12 +51,26 @@ namespace QuanLyPhongGym_nhom5.GUI
                     Sdt = textBoxSDT.Text,
                     NgayDangKy = DateOnly.FromDateTime(dateTimePickerDangKi.Value),
                     NgayHetHan = DateOnly.FromDateTime(dateTimePickerHetHan.Value),
-
                     GioiTinh = radioButtonNam.Checked ? "Nam" : "Nữ",
+                    TrangThai = checkBoxHD.Checked ? true : false,
+                    TenTaiKhoan = comboBoxtaikhoan.SelectedValue.ToString()
                 };
-                _DAL.ThemKhachHang(khachHang);
+                _BLL.AddKhachHang(khachHang);
+                var tenTaiKhoan = comboBoxtaikhoan.SelectedValue.ToString();
+                if(_BLL.KiemTraTaiKhoanDaSuDung(tenTaiKhoan))
+                {
+                    MessageBox.Show("Tài khoản đã được sử dụng, vui lòng chọn tài khoản khác!");
+                    loadData();
+                    return;
+                    
+                }
+                string email = textBoxEmail.Text.Trim();
+                if (!email.EndsWith("@gmail.com") || !email.Contains("@") || email.StartsWith("@"))
+                {
+                    MessageBox.Show("Email phải có định dạng hợp lệ và kết thúc bằng @gmail.com!");
+                    return;
+                }
                 loadData();
-                MessageBox.Show("Thêm khách hàng thành công!");
             }
         }
 
@@ -67,9 +86,10 @@ namespace QuanLyPhongGym_nhom5.GUI
                 GioiTinh = radioButtonNam.Checked ? "Nam" : "Nữ",
                 NgayDangKy = DateOnly.FromDateTime(dateTimePickerDangKi.Value),
                 NgayHetHan = DateOnly.FromDateTime(dateTimePickerHetHan.Value),
-
+                TenTaiKhoan = comboBoxtaikhoan.SelectedValue.ToString(),
+                TrangThai = checkBoxHD.Checked ? true : false
             };
-            if (_DAL.XoaKhachHang(khachHang))
+            if (_BLL.DeleteKhachHang(khachHang.MaKh))
             {
                 loadData();
                 MessageBox.Show("Xóa khách hàng thành công!");
@@ -84,6 +104,12 @@ namespace QuanLyPhongGym_nhom5.GUI
         {
             if (dataGridViewKH.SelectedRows.Count > 0)
             {
+                var tenTaiKhoan = comboBoxtaikhoan.SelectedValue.ToString().Trim();
+                if (_BLL.KiemTraTaiKhoanDaSuDung(tenTaiKhoan))
+                {
+                    MessageBox.Show("Tài khoản đã được sử dụng, vui lòng chọn tài khoản khác!");
+                    return;
+                }
                 KhachHang khachHang = new KhachHang()
                 {
                     MaKh = int.Parse(dataGridViewKH.SelectedRows[0].Cells[0].Value.ToString()),
@@ -94,17 +120,25 @@ namespace QuanLyPhongGym_nhom5.GUI
                     GioiTinh = radioButtonNam.Checked ? "Nam" : "Nữ",
                     NgayDangKy = DateOnly.FromDateTime(dateTimePickerDangKi.Value),
                     NgayHetHan = DateOnly.FromDateTime(dateTimePickerHetHan.Value),
-                    TrangThai = checkBoxHD.Checked ? true : false
+                    TrangThai = checkBoxHD.Checked ? true : false,
+                    TenTaiKhoan = comboBoxtaikhoan.SelectedValue.ToString()
                 };
-                if (_DAL.SuaKhachHang(khachHang))
+                if (_BLL.UpdateKhachHang(khachHang))
                 {
                     loadData();
                     MessageBox.Show("Sửa khách hàng thành công!");
+                    
                 }
                 else
                 {
                     MessageBox.Show("Sửa khách hàng thất bại!");
                 }
+                if(_BLL.KiemTraTaiKhoanDaSuDungChoKhac(tenTaiKhoan, khachHang.MaKh))
+                {
+                    MessageBox.Show("Tài khoản đã được sử dụng bởi khách hàng khác, vui lòng chọn tài khoản khác!");
+                    return;
+                }
+
             }
             else
             {
@@ -122,7 +156,7 @@ namespace QuanLyPhongGym_nhom5.GUI
             }
             else
             {
-                var ketQua = _DAL.timkiemKH(searchText);
+                var ketQua = _BLL.TimKiem(searchText);
                 if (ketQua.Any())
                 {
                     dataGridViewKH.DataSource = ketQua;
@@ -163,6 +197,15 @@ namespace QuanLyPhongGym_nhom5.GUI
                 {
                     radioButtonNu.Checked = selectedRow.Cells["GioiTinh"].Value.ToString() == "Nữ";
                 }
+                if( selectedRow?.Cells["TenTaiKhoan"]?.Value != null)
+                {
+                    comboBoxtaikhoan.SelectedValue = selectedRow.Cells["TenTaiKhoan"].Value.ToString();
+                }
+                else
+                {
+                    comboBoxtaikhoan.SelectedIndex = -1; // Không có giá trị nào được chọn
+                }
+
             }
             else
             {

@@ -15,24 +15,23 @@ namespace QuanLyPhongGym.DAL
         {
             _context = context;
         }
-        public List<object> GetNhanVienWithVaiTro()
+        public List<NhanVien> GetNhanVienWithVaiTro()
         {
             return _context.NhanViens
                 .Include(nv => nv.TenTaiKhoanNavigation)
-                .ThenInclude(tk => tk.MaVaiTroNavigation)
-                .Select(nv => new
+                .Select(nv => new NhanVien
                 {
-                    nv.MaNv,
-                    nv.TenNhanVien,
-                    nv.Sdt,
-                    nv.Email,
-                    nv.DiaChi,
-                    nv.NgayVaoLam,
-                    nv.Luong,
-                    TenVaiTro = nv.TenTaiKhoanNavigation.MaVaiTroNavigation.TenVaiTro
-                })
-                .ToList<object>();
+                    MaNv = nv.MaNv,
+                    TenNhanVien = nv.TenNhanVien,
+                    Sdt = nv.Sdt,
+                    Email = nv.Email,
+                    DiaChi = nv.DiaChi,
+                    NgayVaoLam = nv.NgayVaoLam,
+                    Luong = nv.Luong,
+                    TenTaiKhoan = nv.TenTaiKhoan,
+                }).ToList();
         }
+
         public bool them(NhanVien nhanVien)
         {
             try
@@ -76,7 +75,7 @@ namespace QuanLyPhongGym.DAL
                 var nv = _context.NhanViens.FirstOrDefault(x => x.MaNv == nhanVien.MaNv);
                 if (nv != null)
                 {
-                    nv.TenNhanVien = nhanVien.TenNhanVien==null?nv.TenNhanVien:nhanVien.TenNhanVien;
+                    nv.TenNhanVien = nhanVien.TenNhanVien == null ? nv.TenNhanVien : nhanVien.TenNhanVien;
                     nv.NgayVaoLam = nhanVien.NgayVaoLam == null ? nv.NgayVaoLam : nhanVien.NgayVaoLam;
                     nv.DiaChi = nhanVien.DiaChi == null ? nv.DiaChi : nhanVien.DiaChi;
                     nv.Email = nhanVien.Email == null ? nv.Email : nhanVien.Email;
@@ -93,28 +92,13 @@ namespace QuanLyPhongGym.DAL
                 return false;
             }
         }
-        public List<object> timkiem(string searchText)
+        public List<NhanVien> timkiem(string searchText)
         {
-            var result = _context.NhanViens
-                .Include(nv => nv.TenTaiKhoanNavigation)
-                .ThenInclude(tk => tk.MaVaiTroNavigation)
-                .Where(nv => nv.TenNhanVien.Contains(searchText) || nv.TenTaiKhoan.Contains(searchText))
-                .Select(nv => new
-                {
-                    nv.TenNhanVien,
-                    nv.Sdt,
-                    nv.Email,
-                    nv.DiaChi,
-                    nv.NgayVaoLam,
-                    nv.Luong,
-                    nv.TenTaiKhoan,
-                    TenVaiTro = nv.TenTaiKhoanNavigation.MaVaiTroNavigation.TenVaiTro
-                })
-                .Cast<object>() // ép về object trước khi ToList
-                .ToList();
-
-            return result;
+            return _context.NhanViens.Where(nv => nv.TenNhanVien.Contains(searchText) || nv.Sdt.Contains(searchText) || nv.Email.Contains(searchText)).ToList();
         }
-
+        public bool kiemtrataikhoan(string taikhoan)
+        {
+            return _context.NhanViens.Any(x => x.TenTaiKhoan == taikhoan);
+        }
     }
 }

@@ -11,7 +11,7 @@ namespace QuanLyPhongGym_nhom5.DTO
 
             public int MaPhong { get; set; }
             public string? TenPhong { get; set; }
-
+            
             public int? MaNv { get; set; }
             public string? TenNhanVienHuongDan { get; set; }
 

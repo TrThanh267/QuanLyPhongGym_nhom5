@@ -23,7 +23,7 @@ public partial class KhachHang
     public DateOnly? NgayHetHan { get; set; }
 
     public bool? TrangThai { get; set; }
-    [Browsable(false)]
+    
     public string? TenTaiKhoan { get; set; }
     [Browsable(false)]
     public virtual ICollection<DangKyDichVu> DangKyDichVus { get; set; } = new List<DangKyDichVu>();

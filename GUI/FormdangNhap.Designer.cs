@@ -69,6 +69,8 @@
             guna2Buttondangnnhap.FillColor = Color.Lime;
             guna2Buttondangnnhap.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             guna2Buttondangnnhap.ForeColor = Color.White;
+            guna2Buttondangnnhap.HoverState.BorderColor = Color.Transparent;
+            guna2Buttondangnnhap.HoverState.FillColor = Color.FromArgb(0, 192, 0);
             guna2Buttondangnnhap.Location = new Point(466, 295);
             guna2Buttondangnnhap.Name = "guna2Buttondangnnhap";
             guna2Buttondangnnhap.ShadowDecoration.CustomizableEdges = customizableEdges2;

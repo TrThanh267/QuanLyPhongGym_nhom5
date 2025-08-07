@@ -66,7 +66,7 @@
             txtTenTaiKhoan.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtTenTaiKhoan.Font = new Font("Segoe UI", 9F);
             txtTenTaiKhoan.ForeColor = Color.Black;
-            txtTenTaiKhoan.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            txtTenTaiKhoan.HoverState.BorderColor = Color.Red;
             txtTenTaiKhoan.Location = new Point(299, 57);
             txtTenTaiKhoan.Margin = new Padding(3, 4, 3, 4);
             txtTenTaiKhoan.Name = "txtTenTaiKhoan";
@@ -90,7 +90,7 @@
             txtMatKhauCu.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
             txtMatKhauCu.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtMatKhauCu.Font = new Font("Segoe UI", 9F);
-            txtMatKhauCu.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            txtMatKhauCu.HoverState.BorderColor = Color.Red;
             txtMatKhauCu.Location = new Point(299, 127);
             txtMatKhauCu.Margin = new Padding(3, 4, 3, 4);
             txtMatKhauCu.Name = "txtMatKhauCu";
@@ -113,7 +113,7 @@
             txtMatKhauMoi.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
             txtMatKhauMoi.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtMatKhauMoi.Font = new Font("Segoe UI", 9F);
-            txtMatKhauMoi.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            txtMatKhauMoi.HoverState.BorderColor = Color.Red;
             txtMatKhauMoi.Location = new Point(299, 198);
             txtMatKhauMoi.Margin = new Padding(3, 4, 3, 4);
             txtMatKhauMoi.Name = "txtMatKhauMoi";
@@ -163,6 +163,8 @@
             btnDoiMatKhau.FillColor = Color.Lime;
             btnDoiMatKhau.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 163);
             btnDoiMatKhau.ForeColor = Color.White;
+            btnDoiMatKhau.HoverState.BorderColor = Color.Transparent;
+            btnDoiMatKhau.HoverState.FillColor = Color.FromArgb(0, 192, 0);
             btnDoiMatKhau.Location = new Point(308, 346);
             btnDoiMatKhau.Name = "btnDoiMatKhau";
             btnDoiMatKhau.ShadowDecoration.CustomizableEdges = customizableEdges9;
@@ -204,7 +206,7 @@
             txtNhapLaiMK.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
             txtNhapLaiMK.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtNhapLaiMK.Font = new Font("Segoe UI", 9F);
-            txtNhapLaiMK.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            txtNhapLaiMK.HoverState.BorderColor = Color.Red;
             txtNhapLaiMK.Location = new Point(299, 271);
             txtNhapLaiMK.Margin = new Padding(3, 4, 3, 4);
             txtNhapLaiMK.Name = "txtNhapLaiMK";

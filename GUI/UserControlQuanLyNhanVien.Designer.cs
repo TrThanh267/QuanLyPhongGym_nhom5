@@ -146,9 +146,9 @@
             label2.ForeColor = SystemColors.ControlText;
             label2.Location = new Point(661, 181);
             label2.Name = "label2";
-            label2.Size = new Size(61, 21);
+            label2.Size = new Size(82, 21);
             label2.TabIndex = 35;
-            label2.Text = "Vai Trò";
+            label2.Text = "Tài Khoản";
             // 
             // label1
             // 
