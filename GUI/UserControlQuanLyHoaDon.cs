@@ -1,4 +1,5 @@
-﻿using QuanLyPhongGym_nhom5.DAL;
+﻿using Microsoft.EntityFrameworkCore;
+using QuanLyPhongGym_nhom5.DAL;
 using QuanLyPhongGym_nhom5.Models;
 using System;
 using System.Collections.Generic;
@@ -31,6 +32,7 @@ namespace QuanLyPhongGym_nhom5.GUI
             dataGridViewHD.DataSource = listHoaDon;
             dataGridViewHD.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
+
             comboBoxmaKH.DataSource = _db.KhachHangs.ToList();
             comboBoxmaKH.DisplayMember = "HoTen";
             comboBoxmaKH.ValueMember = "MaKh";
@@ -62,28 +64,36 @@ namespace QuanLyPhongGym_nhom5.GUI
         {
             if (string.IsNullOrEmpty(textBoxHinhThucTT.Text) || comboBoxmaKH.SelectedItem == null || comboBoxMaNV.SelectedItem == null)
             {
-                MessageBox.Show("Vui lòng điền đầy đủ thông tin!");
+                MessageBox.Show("Vui lòng điền đầy đủ thông tin!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
+            }
+
+            var confirm = MessageBox.Show(
+                "Bạn có chắc chắn muốn thêm hóa đơn này?",
+                "Xác nhận",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question
+            );
+
+            if (confirm == DialogResult.No)
+                return;
+
+            HoaDon hoaDon = new HoaDon
+            {
+                MaKh = (int)comboBoxmaKH.SelectedValue,
+                MaNv = (int)comboBoxMaNV.SelectedValue,
+                NgayTao = DateOnly.FromDateTime(dateTimePickerNgayTao.Value),
+                HinhThucThanhToan = textBoxHinhThucTT.Text,
+            };
+
+            if (QuanLyHoaDon_DAL.ThemHoaDon(hoaDon))
+            {
+                MessageBox.Show("Thêm hóa đơn thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                laodtable();
             }
             else
             {
-                HoaDon hoaDon = new HoaDon
-                {
-                    MaKh = (int)comboBoxmaKH.SelectedValue,
-                    MaNv = (int)comboBoxMaNV.SelectedValue,
-                    NgayTao = DateOnly.FromDateTime(dateTimePickerNgayTao.Value),
-                    HinhThucThanhToan = textBoxHinhThucTT.Text,
-                };
-                if (QuanLyHoaDon_DAL.ThemHoaDon(hoaDon))
-                {
-                    MessageBox.Show("Thêm hóa đơn thành công!");
-                    laodtable();
-                }
-                else
-                {
-                    MessageBox.Show("Thêm hóa đơn thất bại!");
-                }
-
+                MessageBox.Show("Thêm hóa đơn thất bại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -91,28 +101,37 @@ namespace QuanLyPhongGym_nhom5.GUI
         {
             if (dataGridViewHD.SelectedRows.Count == 0)
             {
-                MessageBox.Show("Vui lòng chọn hóa đơn để xóa!");
+                MessageBox.Show("Vui lòng chọn hóa đơn để xóa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
+            }
+
+            var confirm = MessageBox.Show(
+                "Bạn có chắc chắn muốn xóa hóa đơn này?",
+                "Xác nhận",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning
+            );
+
+            if (confirm == DialogResult.No)
+                return;
+
+            HoaDon hoaDon = new HoaDon
+            {
+                MaHd = int.Parse(dataGridViewHD.SelectedRows[0].Cells[0].Value.ToString()),
+                MaKh = (int)comboBoxmaKH.SelectedValue,
+                MaNv = (int)comboBoxMaNV.SelectedValue,
+                NgayTao = DateOnly.FromDateTime(dateTimePickerNgayTao.Value),
+                HinhThucThanhToan = textBoxHinhThucTT.Text,
+            };
+
+            if (QuanLyHoaDon_DAL.XoaHoaDon(hoaDon))
+            {
+                MessageBox.Show("Xóa hóa đơn thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                laodtable();
             }
             else
             {
-                HoaDon hoaDon = new HoaDon
-                {
-                    MaHd = int.Parse(dataGridViewHD.SelectedRows[0].Cells[0].Value.ToString()),
-                    MaKh = (int)comboBoxmaKH.SelectedValue,
-                    MaNv = (int)comboBoxMaNV.SelectedValue,
-                    NgayTao = DateOnly.FromDateTime(dateTimePickerNgayTao.Value),
-                    HinhThucThanhToan = textBoxHinhThucTT.Text,
-                };
-                if (QuanLyHoaDon_DAL.XoaHoaDon(hoaDon))
-                {
-                    MessageBox.Show("Xóa hóa đơn thành công!");
-                    laodtable();
-                }
-                else
-                {
-                    MessageBox.Show("Xóa hóa đơn thất bại!");
-                }
+                MessageBox.Show("Xóa hóa đơn thất bại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -120,35 +139,45 @@ namespace QuanLyPhongGym_nhom5.GUI
         {
             if (dataGridViewHD.SelectedRows.Count == 0)
             {
-                MessageBox.Show("Vui lòng chọn hóa đơn để sửa!");
+                MessageBox.Show("Vui lòng chọn hóa đơn để sửa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             else if (string.IsNullOrEmpty(textBoxHinhThucTT.Text) || comboBoxmaKH.SelectedItem == null || comboBoxMaNV.SelectedItem == null)
             {
-                MessageBox.Show("Vui lòng điền đầy đủ thông tin!");
+                MessageBox.Show("Vui lòng điền đầy đủ thông tin!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
+            }
+
+            var confirm = MessageBox.Show(
+                "Bạn có chắc chắn muốn cập nhật hóa đơn này?",
+                "Xác nhận",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question
+            );
+
+            if (confirm == DialogResult.No)
+                return;
+
+            HoaDon hoaDon = new HoaDon
+            {
+                MaHd = int.Parse(dataGridViewHD.SelectedRows[0].Cells[0].Value.ToString()),
+                MaKh = (int)comboBoxmaKH.SelectedValue,
+                MaNv = (int)comboBoxMaNV.SelectedValue,
+                NgayTao = DateOnly.FromDateTime(dateTimePickerNgayTao.Value),
+                HinhThucThanhToan = textBoxHinhThucTT.Text,
+            };
+
+            if (QuanLyHoaDon_DAL.SuaHoaDon(hoaDon))
+            {
+                MessageBox.Show("Sửa hóa đơn thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                laodtable();
             }
             else
             {
-                HoaDon hoaDon = new HoaDon
-                {
-                    MaHd = int.Parse(dataGridViewHD.SelectedRows[0].Cells[0].Value.ToString()),
-                    MaKh = (int)comboBoxmaKH.SelectedValue,
-                    MaNv = (int)comboBoxMaNV.SelectedValue,
-                    NgayTao = DateOnly.FromDateTime(dateTimePickerNgayTao.Value),
-                    HinhThucThanhToan = textBoxHinhThucTT.Text,
-                };
-                if (QuanLyHoaDon_DAL.SuaHoaDon(hoaDon))
-                {
-                    MessageBox.Show("Sửa hóa đơn thành công!");
-                    laodtable();
-                }
-                else
-                {
-                    MessageBox.Show("Sửa hóa đơn thất bại!");
-                }
+                MessageBox.Show("Sửa hóa đơn thất bại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
 
         private void guna2ButtonTkHD_Click(object sender, EventArgs e)
         {
@@ -197,29 +226,41 @@ namespace QuanLyPhongGym_nhom5.GUI
 
         private void guna2ButtonThemCTHD_Click(object sender, EventArgs e)
         {
-            if ((comboBoxMaHD.SelectedIndex == null) && (comboBoxmaDichVu.SelectedIndex == null) || (comboBoxMaGoiTap.SelectedItem == null) || string.IsNullOrEmpty(textBoxSoLuong.Text))
+            if (comboBoxMaHD.SelectedItem == null
+                || comboBoxmaDichVu.SelectedItem == null
+                || comboBoxMaGoiTap.SelectedItem == null
+                || string.IsNullOrEmpty(textBoxSoLuong.Text))
             {
-                MessageBox.Show("Vui lòng điền đầy đủ thông tin!");
+                MessageBox.Show("Vui lòng điền đầy đủ thông tin!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
+            }
+
+            var confirm = MessageBox.Show(
+                "Bạn có chắc chắn muốn thêm chi tiết hóa đơn này?",
+                "Xác nhận",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question
+            );
+
+            if (confirm == DialogResult.No)
+                return;
+
+            HoaDonChiTiet hoaDonChiTiet = new HoaDonChiTiet
+            {
+                MaHd = (int?)comboBoxMaHD.SelectedValue,
+                MaGoiTap = (int?)comboBoxMaGoiTap.SelectedValue,
+                MaDv = (int?)comboBoxmaDichVu.SelectedValue,
+                SoLuong = int.TryParse(textBoxSoLuong.Text, out int soLuong) ? soLuong : (int?)null,
+            };
+
+            if (QuanLyChiTietHoaDon_DAL.AddChiTietHoaDon(hoaDonChiTiet))
+            {
+                MessageBox.Show("Thêm chi tiết hóa đơn thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                loadtableCTHD();
             }
             else
             {
-                HoaDonChiTiet hoaDonChiTiet = new HoaDonChiTiet
-                {
-                    MaHd = (int?)comboBoxMaHD.SelectedValue,
-                    MaGoiTap = (int?)comboBoxMaGoiTap.SelectedValue,
-                    MaDv = (int?)comboBoxmaDichVu.SelectedValue,
-                    SoLuong = int.TryParse(textBoxSoLuong.Text, out int soLuong) ? soLuong : (int?)null,
-                };
-                if (QuanLyChiTietHoaDon_DAL.AddChiTietHoaDon(hoaDonChiTiet))
-                {
-                    MessageBox.Show("Thêm chi tiết hóa đơn thành công!");
-                    loadtableCTHD();
-                }
-                else
-                {
-                    MessageBox.Show("Thêm chi tiết hóa đơn thất bại!");
-                }
+                MessageBox.Show("Thêm chi tiết hóa đơn thất bại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -227,58 +268,78 @@ namespace QuanLyPhongGym_nhom5.GUI
         {
             if (dataGridViewCTHD.SelectedRows.Count == 0)
             {
-                MessageBox.Show("Vui lòng chọn chi tiết hóa đơn để xóa!");
+                MessageBox.Show("Vui lòng chọn chi tiết hóa đơn để xóa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
+            }
+
+            var confirm = MessageBox.Show(
+                "Bạn có chắc chắn muốn xóa chi tiết hóa đơn này?",
+                "Xác nhận",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning
+            );
+
+            if (confirm == DialogResult.No)
+                return;
+
+            HoaDonChiTiet hoaDonChiTiet = new HoaDonChiTiet
+            {
+                MaHdct = int.Parse(dataGridViewCTHD.SelectedRows[0].Cells[0].Value.ToString()),
+                MaHd = (int?)comboBoxMaHD.SelectedValue,
+                MaGoiTap = (int?)comboBoxMaGoiTap.SelectedValue,
+                MaDv = (int?)comboBoxmaDichVu.SelectedValue,
+                SoLuong = int.TryParse(textBoxSoLuong.Text, out int soLuong) ? soLuong : (int?)null,
+            };
+
+            if (QuanLyChiTietHoaDon_DAL.DeleteChiTietHoaDon(hoaDonChiTiet))
+            {
+                MessageBox.Show("Xóa chi tiết hóa đơn thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                loadtableCTHD();
             }
             else
             {
-                HoaDonChiTiet hoaDonChiTiet = new HoaDonChiTiet
-                {
-                    MaHdct = int.Parse(dataGridViewCTHD.SelectedRows[0].Cells[0].Value.ToString()),
-                    MaHd = (int?)comboBoxMaHD.SelectedValue,
-                    MaGoiTap = (int?)comboBoxMaGoiTap.SelectedValue,
-                    MaDv = (int?)comboBoxmaDichVu.SelectedValue,
-                    SoLuong = int.TryParse(textBoxSoLuong.Text, out int soLuong) ? soLuong : (int?)null,
-                };
-                if (QuanLyChiTietHoaDon_DAL.DeleteChiTietHoaDon(hoaDonChiTiet))
-                {
-                    MessageBox.Show("Xóa chi tiết hóa đơn thành công!");
-                    loadtableCTHD();
-                }
-                else
-                {
-                    MessageBox.Show("Xóa chi tiết hóa đơn thất bại!");
-                }
+                MessageBox.Show("Xóa chi tiết hóa đơn thất bại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void una2ButtonSuaCTHD_Click(object sender, EventArgs e)
         {
-            if (dataGridViewCTHD.Rows.Count == 0)
+            if (dataGridViewCTHD.SelectedRows.Count == 0)
             {
-                MessageBox.Show("Vui lòng chọn chi tiết hóa đơn để sửa!");
+                MessageBox.Show("Vui lòng chọn chi tiết hóa đơn để sửa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            var confirm = MessageBox.Show(
+                "Bạn có chắc chắn muốn cập nhật chi tiết hóa đơn này?",
+                "Xác nhận",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question
+            );
+
+            if (confirm == DialogResult.No)
+                return;
+
+            HoaDonChiTiet hoaDonChiTiet = new HoaDonChiTiet
+            {
+                MaHdct = int.Parse(dataGridViewCTHD.SelectedRows[0].Cells[0].Value.ToString()),
+                MaHd = (int?)comboBoxMaHD.SelectedValue,
+                MaGoiTap = (int?)comboBoxMaGoiTap.SelectedValue,
+                MaDv = (int?)comboBoxmaDichVu.SelectedValue,
+                SoLuong = int.TryParse(textBoxSoLuong.Text, out int soLuong) ? soLuong : (int?)null,
+            };
+
+            if (QuanLyChiTietHoaDon_DAL.UpdateChiTietHoaDon(hoaDonChiTiet))
+            {
+                MessageBox.Show("Sửa chi tiết hóa đơn thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                loadtableCTHD();
             }
             else
             {
-                HoaDonChiTiet hoaDonChiTiet = new HoaDonChiTiet
-                {
-                    MaHdct = int.Parse(dataGridViewCTHD.SelectedRows[0].Cells[0].Value.ToString()),
-                    MaHd = (int?)comboBoxMaHD.SelectedValue,
-                    MaGoiTap = (int?)comboBoxMaGoiTap.SelectedValue,
-                    MaDv = (int?)comboBoxmaDichVu.SelectedValue,
-                    SoLuong = int.TryParse(textBoxSoLuong.Text, out int soLuong) ? soLuong : (int?)null,
-                };
-                if (QuanLyChiTietHoaDon_DAL.UpdateChiTietHoaDon(hoaDonChiTiet))
-                {
-                    MessageBox.Show("Sửa chi tiết hóa đơn thành công!");
-                    loadtableCTHD();
-                }
-                else
-                {
-                    MessageBox.Show("Sửa chi tiết hóa đơn thất bại!");
-                }
+                MessageBox.Show("Sửa chi tiết hóa đơn thất bại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
 
         private void dataGridViewCTHD_CellClick(object sender, DataGridViewCellEventArgs e)
         {

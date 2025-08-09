@@ -36,6 +36,15 @@ namespace QuanLyPhongGym_nhom5.GUI
 
         private void ButtonThemDV_Click(object sender, EventArgs e)
         {
+            var confirmResult = MessageBox.Show(
+                "Bạn có chắc chắn muốn thêm dịch vụ này?",
+                "Xác nhận",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question
+            );
+
+            if (confirmResult == DialogResult.No)
+                return;
 
             DichVu dichVu = new DichVu
             {
@@ -43,6 +52,7 @@ namespace QuanLyPhongGym_nhom5.GUI
                 Gia = decimal.TryParse(textBoxDonGiaDV.Text.Trim(), out decimal gia) ? gia : (decimal?)null,
                 SoBuoiDk = int.TryParse(textBoxBuoiDkDV.Text.Trim(), out int soBuoi) ? soBuoi : (int?)null
             };
+
             if (_quanLyDichVuDAL.themdichvu(dichVu))
             {
                 MessageBox.Show("Thêm dịch vụ thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -52,10 +62,7 @@ namespace QuanLyPhongGym_nhom5.GUI
             {
                 MessageBox.Show("Lỗi khi thêm dịch vụ.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
         }
-
-
 
         private void ButtonXoaDV_Click(object sender, EventArgs e)
         {
@@ -64,24 +71,34 @@ namespace QuanLyPhongGym_nhom5.GUI
                 MessageBox.Show("Vui lòng chọn dịch vụ để xóa.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+
+
+            var confirmResult = MessageBox.Show(
+                "Bạn có chắc chắn muốn xóa dịch vụ này?",
+                "Xác nhận",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning
+            );
+
+            if (confirmResult == DialogResult.No)
+                return;
+
+            DichVu dichVu = new DichVu
+            {
+                MaDv = Convert.ToInt32(dataGridViewQLDV.SelectedRows[0].Cells["MaDv"].Value),
+                TenDv = textBoxTenDV.Text.Trim(),
+                Gia = decimal.TryParse(textBoxDonGiaDV.Text.Trim(), out decimal gia) ? gia : (decimal?)null,
+                SoBuoiDk = int.TryParse(textBoxBuoiDkDV.Text.Trim(), out int soBuoi) ? soBuoi : (int?)null
+            };
+
+            if (_quanLyDichVuDAL.DeleteDichVu(dichVu))
+            {
+                LoadTable();
+                MessageBox.Show("Xóa dịch vụ thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
             else
             {
-                DichVu dichVu = new DichVu
-                {
-                    MaDv = Convert.ToInt32(dataGridViewQLDV.SelectedRows[0].Cells["MaDv"].Value),
-                    TenDv = textBoxTenDV.Text.Trim(),
-                    Gia = decimal.TryParse(textBoxDonGiaDV.Text.Trim(), out decimal gia) ? gia : (decimal?)null,
-                    SoBuoiDk = int.TryParse(textBoxBuoiDkDV.Text.Trim(), out int soBuoi) ? soBuoi : (int?)null
-                };
-                if (_quanLyDichVuDAL.DeleteDichVu(dichVu))
-                {
-                    LoadTable();
-                    MessageBox.Show("Xóa dịch vụ thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else
-                {
-                    MessageBox.Show("Lỗi khi xóa dịch vụ.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                MessageBox.Show("Lỗi khi xóa dịch vụ.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -92,26 +109,35 @@ namespace QuanLyPhongGym_nhom5.GUI
                 MessageBox.Show("Vui lòng chọn dịch vụ để sửa.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+            var confirmResult = MessageBox.Show(
+                "Bạn có chắc chắn muốn cập nhật dịch vụ này?",
+                "Xác nhận",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question
+            );
+
+            if (confirmResult == DialogResult.No)
+                return;
+
+            DichVu dichVu = new DichVu
+            {
+                MaDv = Convert.ToInt32(dataGridViewQLDV.SelectedRows[0].Cells["MaDv"].Value),
+                TenDv = textBoxTenDV.Text.Trim(),
+                Gia = decimal.TryParse(textBoxDonGiaDV.Text.Trim(), out decimal gia) ? gia : (decimal?)null,
+                SoBuoiDk = int.TryParse(textBoxBuoiDkDV.Text.Trim(), out int soBuoi) ? soBuoi : (int?)null
+            };
+
+            if (_quanLyDichVuDAL.capnhapDV(dichVu))
+            {
+                MessageBox.Show("Cập nhật dịch vụ thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                LoadTable();
+            }
             else
             {
-                DichVu dichVu = new DichVu
-                {
-                    MaDv = Convert.ToInt32(dataGridViewQLDV.SelectedRows[0].Cells["MaDv"].Value),
-                    TenDv = textBoxTenDV.Text.Trim(),
-                    Gia = decimal.TryParse(textBoxDonGiaDV.Text.Trim(), out decimal gia) ? gia : (decimal?)null,
-                    SoBuoiDk = int.TryParse(textBoxBuoiDkDV.Text.Trim(), out int soBuoi) ? soBuoi : (int?)null
-                };
-                if (_quanLyDichVuDAL.capnhapDV(dichVu))
-                {
-                    MessageBox.Show("Cập nhật dịch vụ thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    LoadTable();
-                }
-                else
-                {
-                    MessageBox.Show("Lỗi khi cập nhật dịch vụ.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                MessageBox.Show("Lỗi khi cập nhật dịch vụ.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
 
         private void buttonTKDV_Click(object sender, EventArgs e)
         {

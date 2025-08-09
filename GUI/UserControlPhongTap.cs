@@ -49,30 +49,39 @@ namespace QuanLyPhongGym_nhom5.GUI
 
         private void guna2ButtonThemPT_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(textBoxThoiGianTap.Text) == null)
+            if (string.IsNullOrEmpty(textBoxThoiGianTap.Text))
             {
-                MessageBox.Show("Vui lòng điền đầy đủ thông tin!");
+                MessageBox.Show("Vui lòng điền đầy đủ thông tin!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
+            }
+
+            var confirm = MessageBox.Show(
+                "Bạn có chắc chắn muốn thêm chi tiết phòng tập này?",
+                "Xác nhận",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question
+            );
+
+            if (confirm == DialogResult.No)
+                return;
+
+            ChiTietPhongTap chiTietPhongTap = new ChiTietPhongTap
+            {
+                MaPhong = (int)comboBoxmaPT.SelectedValue,
+                MaNv = (int)comboBoxNV.SelectedValue,
+                MaThietBi = (int)comboBoxmaTB.SelectedValue,
+                ThoiGianTap = int.Parse(textBoxThoiGianTap.Text),
+                TrangThai = radioButtonhd.Checked
+            };
+
+            if (_DALPhongTap.ThemChiTietPhongTap(chiTietPhongTap))
+            {
+                MessageBox.Show("Thêm thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                loadtable();
             }
             else
             {
-                ChiTietPhongTap chiTietPhongTap = new ChiTietPhongTap
-                {
-                    MaPhong = (int)comboBoxmaPT.SelectedValue,
-                    MaNv = (int)comboBoxNV.SelectedValue,
-                    MaThietBi = (int)comboBoxmaTB.SelectedValue,
-                    ThoiGianTap = int.Parse(textBoxThoiGianTap.Text),
-                    TrangThai = radioButtonhd.Checked ? true : false
-                };
-                if (_DALPhongTap.ThemChiTietPhongTap(chiTietPhongTap))
-                {
-                    MessageBox.Show("Thêm thành công!");
-                    loadtable();
-                }
-                else
-                {
-                    MessageBox.Show("Thêm thất bại!");
-                }
+                MessageBox.Show("Thêm thất bại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -80,28 +89,37 @@ namespace QuanLyPhongGym_nhom5.GUI
         {
             if (dataGridViewPT.SelectedRows.Count == 0)
             {
-                MessageBox.Show("Vui lòng chọn hàng để xóa!");
+                MessageBox.Show("Vui lòng chọn hàng để xóa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
+            }
+
+            var confirm = MessageBox.Show(
+                "Bạn có chắc chắn muốn xóa chi tiết phòng tập này?",
+                "Xác nhận",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning
+            );
+
+            if (confirm == DialogResult.No)
+                return;
+
+            ChiTietPhongTap chiTietPhongTap = new ChiTietPhongTap
+            {
+                MaPhong = (int)comboBoxmaPT.SelectedValue,
+                MaNv = (int)comboBoxNV.SelectedValue,
+                MaThietBi = (int)comboBoxmaTB.SelectedValue,
+                ThoiGianTap = int.Parse(textBoxThoiGianTap.Text),
+                TrangThai = radioButtonhd.Checked
+            };
+
+            if (_DALPhongTap.XoaChiTietPhongTap(chiTietPhongTap))
+            {
+                MessageBox.Show("Xóa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                loadtable();
             }
             else
             {
-                ChiTietPhongTap chiTietPhongTap = new ChiTietPhongTap
-                {
-                    MaPhong = (int)comboBoxmaPT.SelectedValue,
-                    MaNv = (int)comboBoxNV.SelectedValue,
-                    MaThietBi = (int)comboBoxmaTB.SelectedValue,
-                    ThoiGianTap = int.Parse(textBoxThoiGianTap.Text),
-                    TrangThai = radioButtonhd.Checked ? true : false
-                };
-                if (_DALPhongTap.XoaChiTietPhongTap(chiTietPhongTap))
-                {
-                    MessageBox.Show("Xóa thành công!");
-                    loadtable();
-                }
-                else
-                {
-                    MessageBox.Show("Xóa thất bại!");
-                }
+                MessageBox.Show("Xóa thất bại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -109,30 +127,40 @@ namespace QuanLyPhongGym_nhom5.GUI
         {
             if (dataGridViewPT.SelectedRows.Count == 0)
             {
-                MessageBox.Show("Vui lòng chọn hàng để sửa!");
+                MessageBox.Show("Vui lòng chọn hàng để sửa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
+            }
+
+            var confirm = MessageBox.Show(
+                "Bạn có chắc chắn muốn cập nhật chi tiết phòng tập này?",
+                "Xác nhận",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question
+            );
+
+            if (confirm == DialogResult.No)
+                return;
+
+            ChiTietPhongTap chiTietPhongTap = new ChiTietPhongTap
+            {
+                MaPhong = (int)comboBoxmaPT.SelectedValue,
+                MaNv = (int)comboBoxNV.SelectedValue,
+                MaThietBi = (int)comboBoxmaTB.SelectedValue,
+                ThoiGianTap = int.Parse(textBoxThoiGianTap.Text),
+                TrangThai = radioButtonhd.Checked
+            };
+
+            if (_DALPhongTap.CapNhatChiTietPhongTap(chiTietPhongTap))
+            {
+                MessageBox.Show("Cập nhật thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                loadtable();
             }
             else
             {
-                ChiTietPhongTap chiTietPhongTap = new ChiTietPhongTap
-                {
-                    MaPhong = (int)comboBoxmaPT.SelectedValue,
-                    MaNv = (int)comboBoxNV.SelectedValue,
-                    MaThietBi = (int)comboBoxmaTB.SelectedValue,
-                    ThoiGianTap = int.Parse(textBoxThoiGianTap.Text),
-                    TrangThai = radioButtonhd.Checked ? true : false
-                };
-                if (_DALPhongTap.CapNhatChiTietPhongTap(chiTietPhongTap))
-                {
-                    MessageBox.Show("Cập nhật thành công!");
-                    loadtable();
-                }
-                else
-                {
-                    MessageBox.Show("Cập nhật thất bại!");
-                }
+                MessageBox.Show("Cập nhật thất bại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
 
         private void guna2ButtonTkPT_Click(object sender, EventArgs e)
         {
@@ -177,6 +205,15 @@ namespace QuanLyPhongGym_nhom5.GUI
             }
             else
             {
+                var confirm = MessageBox.Show(
+                "Bạn có chắc chắn muốn xóa chi tiết phòng tập này?",
+                "Xác nhận",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning
+                );
+
+                if (confirm == DialogResult.No)
+                    return;
                 ThietBi thietBi = new ThietBi
                 {
                     TenThietBi = textBoxMaTB.Text,
@@ -203,6 +240,16 @@ namespace QuanLyPhongGym_nhom5.GUI
             }
             else
             {
+                var confirm = MessageBox.Show(
+                "Bạn có chắc chắn muốn xóa chi tiết phòng tập này?",
+                "Xác nhận",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning
+                );
+
+                if (confirm == DialogResult.No)
+                    return; 
+
                 ThietBi thietBi = new ThietBi
                 {
                     MaThietBi = (int)dataGridThietBi.SelectedRows[0].Cells["MaThietBi"].Value,
@@ -230,6 +277,16 @@ namespace QuanLyPhongGym_nhom5.GUI
             }
             else
             {
+                var confirm = MessageBox.Show(
+                "Bạn có chắc chắn muốn xóa chi tiết phòng tập này?",
+                "Xác nhận",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning
+                );
+
+                if (confirm == DialogResult.No)
+                    return;
+
                 ThietBi thietBi = new ThietBi
                 {
                     MaThietBi = (int)dataGridThietBi.SelectedRows[0].Cells["MaThietBi"].Value,
@@ -265,7 +322,7 @@ namespace QuanLyPhongGym_nhom5.GUI
 
         private void dataGridThietBi_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if(dataGridThietBi.Rows.Count >= 0)
+            if (dataGridThietBi.Rows.Count >= 0)
             {
                 textBoxMaTB.Text = dataGridThietBi.Rows[e.RowIndex].Cells["TenThietBi"].Value.ToString();
                 textBoxSoluong.Text = dataGridThietBi.Rows[e.RowIndex].Cells["SoLuongThietBi"].Value.ToString();

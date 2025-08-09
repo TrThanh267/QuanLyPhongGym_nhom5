@@ -21,17 +21,8 @@ namespace QuanLyPhongGym_nhom5.BLL
         }
         public bool AddKhachHang(KhachHang khachHang)
         {
-            var kh= _khachhangDal.ThemKhachHang(khachHang);
-            if (kh)
-            {
-                MessageBox.Show("Thêm khách hàng thành công!");
-                return true;
-            }
-            else
-            {
-                MessageBox.Show("Thêm khách hàng không thành công!");
-                return false;
-            }
+            return _khachhangDal.ThemKhachHang(khachHang);
+            
         }
         public bool UpdateKhachHang(KhachHang khachHang)
         {

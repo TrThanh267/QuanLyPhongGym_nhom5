@@ -68,9 +68,9 @@ namespace QuanLyPhongGym.GUI
         private void ButtonQuenMK_Click(object sender, EventArgs e)
         {
             FormDoiMatKhau formDoiMatKhau = new FormDoiMatKhau();
-            this.Hide(); // Ẩn form đăng nhập
-            formDoiMatKhau.ShowDialog(); // Hiện form đổi mật khẩu như modal
-            this.Show(); // Hiện lại form đăng nhập khi đổi xong
+            this.Hide(); 
+            formDoiMatKhau.ShowDialog();
+            this.Show();
         }
     }
 }

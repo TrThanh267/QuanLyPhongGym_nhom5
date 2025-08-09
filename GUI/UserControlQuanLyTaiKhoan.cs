@@ -42,6 +42,15 @@ namespace QuanLyPhongGym_nhom5.GUI
             }
             else
             {
+                DialogResult confirm = MessageBox.Show(
+                "Bạn có chắc muốn thêm tài khoản này không?",
+                "Xác nhận xóa",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning
+                );
+                if (confirm == DialogResult.No)
+                    return;
+
                 TaiKhoan taiKhoan = new TaiKhoan
                 {
                     TenTaiKhoan = textBoxTenTK.Text,
@@ -69,6 +78,15 @@ namespace QuanLyPhongGym_nhom5.GUI
             }
             else
             {
+                DialogResult confirm = MessageBox.Show(
+                "Bạn có chắc muốn xóa tài khoản này không?",
+                "Xác nhận xóa",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning
+                );
+                if (confirm == DialogResult.No)
+                    return;
+
                 TaiKhoan taiKhoan = new TaiKhoan
                 {
                     TenTaiKhoan = textBoxTenTK.Text,
@@ -96,6 +114,19 @@ namespace QuanLyPhongGym_nhom5.GUI
             }
             else
             {
+                if (textBoxTenTK.Text == "" || textBoxMK.Text == "")
+                {
+                    MessageBox.Show("Vui lòng nhập đầy đủ thông tin!");
+                    return;
+                }
+                DialogResult confirm = MessageBox.Show(
+                "Bạn có chắc muốn sửa tài khoản này không?",
+                "Xác nhận xóa",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning
+                );
+                if (confirm == DialogResult.No)
+                    return;
                 TaiKhoan taiKhoan = new TaiKhoan
                 {
                     TenTaiKhoan = textBoxTenTK.Text,
@@ -139,7 +170,7 @@ namespace QuanLyPhongGym_nhom5.GUI
 
         private void dataGridTaiKhoan_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if(e.RowIndex >= 0 && e.RowIndex < dataGridTaiKhoan.Rows.Count)
+            if (e.RowIndex >= 0 && e.RowIndex < dataGridTaiKhoan.Rows.Count)
             {
                 var row = dataGridTaiKhoan.Rows[e.RowIndex];
                 textBoxTenTK.Text = row.Cells["TenTaiKhoan"].Value.ToString();

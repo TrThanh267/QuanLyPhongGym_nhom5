@@ -25,7 +25,7 @@ namespace QuanLyPhongGym.GUI
             LoadData();
             VaiTro();
         }
-        public void LoadData() 
+        public void LoadData()
         {
             var listNhanVien = _NhanVienBll.GetNhanVienWithVaiTro();
             dataGridViewNV.DataSource = listNhanVien;
@@ -33,21 +33,47 @@ namespace QuanLyPhongGym.GUI
         }
         public void VaiTro()
         {
-            comboBoxVaiTro.DataSource = _db.TaiKhoans.ToList().Where(nv=>nv.MaVaiTro==3||nv.MaVaiTro==2).ToList();
+            comboBoxVaiTro.DataSource = _db.TaiKhoans.ToList().Where(nv => nv.MaVaiTro == 3 || nv.MaVaiTro == 2).ToList();
             comboBoxVaiTro.DisplayMember = "TenTaiKhoan"; // Hiển thị tên vai trò
-            comboBoxVaiTro.ValueMember ="TenTaiKhoan"; // Lấy giá trị từ tên tài khoản
+            comboBoxVaiTro.ValueMember = "TenTaiKhoan"; // Lấy giá trị từ tên tài khoản
         }
 
         private void guna2ButtonThem_Click(object sender, EventArgs e)
         {
             try
-            {   
+            {
                 if (string.IsNullOrEmpty(textBoxTenNhanVien.Text) || string.IsNullOrEmpty(textBoxSDT.Text) || string.IsNullOrEmpty(textBoxDiaChi.Text) || string.IsNullOrEmpty(textBoxEmail.Text) || string.IsNullOrEmpty(textBoxSDT.Text))
                 {
                     MessageBox.Show("Vui lòng điền đầy đủ thông tin!");
                     return;
                 }
-                else
+                string tenTaiKhoan = comboBoxVaiTro.SelectedValue.ToString().Trim();
+                if (_NhanVienBll.KiemTraTaiKhoanDaSuDung(tenTaiKhoan))
+                {
+                    MessageBox.Show("Tài khoản đã được sử dụng, vui lòng chọn tài khoản khác!");
+                    return;
+                }
+                string email = textBoxEmail.Text.Trim();
+                if (!email.EndsWith("@gmail.com") || !email.Contains("@") || email.StartsWith("@"))
+                {
+                    MessageBox.Show("Email phải có định dạng hợp lệ và kết thúc bằng @gmail.com!");
+                    return;
+                }
+                string sdt = textBoxSDT.Text.Trim();
+                if (sdt.Length != 10 || !sdt.All(char.IsDigit))
+                {
+                    MessageBox.Show("Số điện thoại phải có 10 chữ số và không chứa ký tự khác!");
+                    return;
+                }
+
+                DialogResult confirm = MessageBox.Show(
+                "Bạn có chắc muốn thêm nhân viên này không?",
+                "Xác nhận xóa",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning
+                );
+                if (confirm == DialogResult.No)
+                    return;
                 {
                     NhanVien nhanVien = new NhanVien
                     {
@@ -61,26 +87,9 @@ namespace QuanLyPhongGym.GUI
                     };
                     _NhanVienBll.AddNhanVien(nhanVien);
                     LoadData();
-                    string tenTaiKhoan = comboBoxVaiTro.SelectedValue.ToString().Trim();
-                    if(_NhanVienBll.KiemTraTaiKhoanDaSuDung(tenTaiKhoan))
-                    {
-                        MessageBox.Show("Tài khoản đã được sử dụng, vui lòng chọn tài khoản khác!");
-                        return;
-                    }
-                    string email = textBoxEmail.Text.Trim();
-                    if (!email.EndsWith("@gmail.com") || !email.Contains("@") || email.StartsWith("@"))
-                    {
-                        MessageBox.Show("Email phải có định dạng hợp lệ và kết thúc bằng @gmail.com!");
-                        return;
-                    }
-                    string sdt = textBoxSDT.Text.Trim();
-                    if (sdt.Length != 10 || !sdt.All(char.IsDigit))
-                    {
-                        MessageBox.Show("Số điện thoại phải có 10 chữ số và không chứa ký tự khác!");
-                        return;
-                    }
+
                 }
-                    
+
             }
             catch (Exception ex)
             {
@@ -90,6 +99,20 @@ namespace QuanLyPhongGym.GUI
 
         private void guna2ButtonXoa_Click(object sender, EventArgs e)
         {
+            if (dataGridViewNV.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Vui lòng chọn một nhân viên để xóa!");
+                return;
+            }
+            DialogResult confirm = MessageBox.Show(
+                "Bạn có chắc muốn thêm nhân viên này không?",
+                "Xác nhận xóa",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning
+            );
+            if (confirm == DialogResult.No)
+                return;
+
             try
             {
                 NhanVien nhanVien = new NhanVien
@@ -115,9 +138,35 @@ namespace QuanLyPhongGym.GUI
 
         private void guna2ButtonCapNhap_Click(object sender, EventArgs e)
         {
+            if (dataGridViewNV.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Vui lòng chọn một nhân viên để cập nhật!");
+                return;
+            }
+            string email = textBoxEmail.Text.Trim();
+            if (!email.EndsWith("@gmail.com") || !email.Contains("@") || email.StartsWith("@"))
+            {
+                MessageBox.Show("Email phải có định dạng hợp lệ và kết thúc bằng @gmail.com!");
+                return;
+            }
+            string sdt = textBoxSDT.Text.Trim();
+            if (sdt.Length != 10 || !sdt.All(char.IsDigit))
+            {
+                MessageBox.Show("Số điện thoại phải có 10 chữ số và không chứa ký tự khác!");
+                return;
+            }
+
+            DialogResult confirm = MessageBox.Show(
+                "Bạn có chắc muốn thêm nhân viên này không?",
+                "Xác nhận xóa",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning
+            );
+            if (confirm == DialogResult.No)
+                return;
             try
             {
-                
+
                 NhanVien nhanVien = new NhanVien
                 {
                     MaNv = int.Parse(textBoxMaNV.Text),
@@ -138,18 +187,7 @@ namespace QuanLyPhongGym.GUI
                 {
                     MessageBox.Show("Cập nhật nhân viên thất bại!");
                 }
-                string email = textBoxEmail.Text.Trim();
-                if (!email.EndsWith("@gmail.com") || !email.Contains("@") || email.StartsWith("@"))
-                {
-                    MessageBox.Show("Email phải có định dạng hợp lệ và kết thúc bằng @gmail.com!");
-                    return;
-                }
-                string sdt = textBoxSDT.Text.Trim();
-                if (sdt.Length != 10 || !sdt.All(char.IsDigit))
-                {
-                    MessageBox.Show("Số điện thoại phải có 10 chữ số và không chứa ký tự khác!");
-                    return;
-                }
+
             }
             catch (Exception ex)
             {
