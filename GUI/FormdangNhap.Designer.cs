@@ -119,6 +119,7 @@
             guna2TextBoxMatKhau.Location = new Point(439, 208);
             guna2TextBoxMatKhau.Margin = new Padding(3, 4, 3, 4);
             guna2TextBoxMatKhau.Name = "guna2TextBoxMatKhau";
+            guna2TextBoxMatKhau.PasswordChar = '*';
             guna2TextBoxMatKhau.PlaceholderText = "Enter Password";
             guna2TextBoxMatKhau.SelectedText = "";
             guna2TextBoxMatKhau.ShadowDecoration.CustomizableEdges = customizableEdges6;

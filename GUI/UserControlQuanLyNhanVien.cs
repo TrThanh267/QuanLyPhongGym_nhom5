@@ -33,9 +33,9 @@ namespace QuanLyPhongGym.GUI
         }
         public void VaiTro()
         {
-            comboBoxVaiTro.DataSource = _db.TaiKhoans.ToList().Where(nv => nv.MaVaiTro == 3 || nv.MaVaiTro == 2).ToList();
-            comboBoxVaiTro.DisplayMember = "TenTaiKhoan"; // Hiển thị tên vai trò
-            comboBoxVaiTro.ValueMember = "TenTaiKhoan"; // Lấy giá trị từ tên tài khoản
+            comboBoxTaiKhoan.DataSource = _db.TaiKhoans.ToList().Where(nv => nv.MaVaiTro == 3 || nv.MaVaiTro == 2).ToList();
+            comboBoxTaiKhoan.DisplayMember = "TenTaiKhoan"; // Hiển thị tên vai trò
+            comboBoxTaiKhoan.ValueMember = "TenTaiKhoan"; // Lấy giá trị từ tên tài khoản
         }
 
         private void guna2ButtonThem_Click(object sender, EventArgs e)
@@ -47,7 +47,7 @@ namespace QuanLyPhongGym.GUI
                     MessageBox.Show("Vui lòng điền đầy đủ thông tin!");
                     return;
                 }
-                string tenTaiKhoan = comboBoxVaiTro.SelectedValue.ToString().Trim();
+                string tenTaiKhoan = comboBoxTaiKhoan.SelectedValue.ToString().Trim();
                 if (_NhanVienBll.KiemTraTaiKhoanDaSuDung(tenTaiKhoan))
                 {
                     MessageBox.Show("Tài khoản đã được sử dụng, vui lòng chọn tài khoản khác!");
@@ -78,7 +78,7 @@ namespace QuanLyPhongGym.GUI
                     NhanVien nhanVien = new NhanVien
                     {
                         TenNhanVien = textBoxTenNhanVien.Text,
-                        TenTaiKhoan = comboBoxVaiTro.SelectedValue.ToString(),
+                        TenTaiKhoan = comboBoxTaiKhoan.SelectedValue.ToString(),
                         DiaChi = textBoxDiaChi.Text,
                         Email = textBoxEmail.Text,
                         NgayVaoLam = DateOnly.FromDateTime(dateTimePickerNgayVaoLam.Value),
@@ -118,7 +118,7 @@ namespace QuanLyPhongGym.GUI
                 NhanVien nhanVien = new NhanVien
                 {
                     MaNv = int.Parse(dataGridViewNV.SelectedRows[0].Cells[0].Value.ToString()),
-                    TenTaiKhoan = comboBoxVaiTro.SelectedValue.ToString(),
+                    TenTaiKhoan = comboBoxTaiKhoan.SelectedValue.ToString(),
                     DiaChi = textBoxDiaChi.Text,
                     Email = textBoxEmail.Text,
                     NgayVaoLam = DateOnly.FromDateTime(dateTimePickerNgayVaoLam.Value),
@@ -171,7 +171,7 @@ namespace QuanLyPhongGym.GUI
                 {
                     MaNv = int.Parse(textBoxMaNV.Text),
                     TenNhanVien = textBoxTenNhanVien.Text,
-                    TenTaiKhoan = comboBoxVaiTro.SelectedValue.ToString(),
+                    TenTaiKhoan = comboBoxTaiKhoan.SelectedValue.ToString(),
                     DiaChi = textBoxDiaChi.Text,
                     Email = textBoxEmail.Text,
                     NgayVaoLam = DateOnly.FromDateTime(dateTimePickerNgayVaoLam.Value),
@@ -226,7 +226,7 @@ namespace QuanLyPhongGym.GUI
                     dateTimePickerNgayVaoLam.Value = ngay;
                 }
 
-                comboBoxVaiTro.Text = row.Cells["TenTaiKhoan"].Value?.ToString();
+                comboBoxTaiKhoan.Text = row.Cells["TenTaiKhoan"].Value?.ToString();
             }
         }
 

@@ -52,6 +52,17 @@ namespace QuanLyPhongGym.GUI
                 }
                 else
                 {
+                    if(NguoiDung.nguoidunghientai.MaVaiTroNavigation.TenVaiTro == "QuanLy")
+                    {
+                        MessageBox.Show("Bạn đã đăng nhập với vai trò là Quản Lý");
+                    }else if (NguoiDung.nguoidunghientai.MaVaiTroNavigation.TenVaiTro == "HLV")
+                    {
+                        MessageBox.Show("Bạn đã đăng nhập với vai trò là Huấn Luyện Viên");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Bạn đã đăng nhập với vai trò là Thu Ngân");
+                    }
                     FormMain formMain = new FormMain();
                     formMain.Show();
                     this.Hide();

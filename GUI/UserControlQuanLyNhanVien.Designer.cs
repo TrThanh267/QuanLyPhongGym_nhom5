@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserControlQuanLyNhanVien));
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             dataGridViewNV = new DataGridView();
             label7 = new Label();
             label6 = new Label();
@@ -51,7 +51,7 @@
             textBoxDiaChi = new TextBox();
             textBoxSDT = new TextBox();
             dateTimePickerNgayVaoLam = new DateTimePicker();
-            comboBoxVaiTro = new ComboBox();
+            comboBoxTaiKhoan = new ComboBox();
             textBoxTenNhanVien = new TextBox();
             label8 = new Label();
             guna2ButtonThem = new Guna.UI2.WinForms.Guna2Button();
@@ -197,13 +197,13 @@
             dateTimePickerNgayVaoLam.Size = new Size(175, 25);
             dateTimePickerNgayVaoLam.TabIndex = 30;
             // 
-            // comboBoxVaiTro
+            // comboBoxTaiKhoan
             // 
-            comboBoxVaiTro.FormattingEnabled = true;
-            comboBoxVaiTro.Location = new Point(661, 205);
-            comboBoxVaiTro.Name = "comboBoxVaiTro";
-            comboBoxVaiTro.Size = new Size(175, 28);
-            comboBoxVaiTro.TabIndex = 29;
+            comboBoxTaiKhoan.FormattingEnabled = true;
+            comboBoxTaiKhoan.Location = new Point(661, 205);
+            comboBoxTaiKhoan.Name = "comboBoxTaiKhoan";
+            comboBoxTaiKhoan.Size = new Size(175, 28);
+            comboBoxTaiKhoan.TabIndex = 29;
             // 
             // textBoxTenNhanVien
             // 
@@ -226,7 +226,7 @@
             // guna2ButtonThem
             // 
             guna2ButtonThem.BorderRadius = 18;
-            guna2ButtonThem.CustomizableEdges = customizableEdges1;
+            guna2ButtonThem.CustomizableEdges = customizableEdges9;
             guna2ButtonThem.DisabledState.BorderColor = Color.DarkGray;
             guna2ButtonThem.DisabledState.CustomBorderColor = Color.DarkGray;
             guna2ButtonThem.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -237,7 +237,7 @@
             guna2ButtonThem.Image = (Image)resources.GetObject("guna2ButtonThem.Image");
             guna2ButtonThem.Location = new Point(17, 481);
             guna2ButtonThem.Name = "guna2ButtonThem";
-            guna2ButtonThem.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            guna2ButtonThem.ShadowDecoration.CustomizableEdges = customizableEdges10;
             guna2ButtonThem.Size = new Size(130, 51);
             guna2ButtonThem.TabIndex = 42;
             guna2ButtonThem.Text = "Thêm";
@@ -246,7 +246,7 @@
             // guna2ButtonXoa
             // 
             guna2ButtonXoa.BorderRadius = 18;
-            guna2ButtonXoa.CustomizableEdges = customizableEdges3;
+            guna2ButtonXoa.CustomizableEdges = customizableEdges11;
             guna2ButtonXoa.DisabledState.BorderColor = Color.DarkGray;
             guna2ButtonXoa.DisabledState.CustomBorderColor = Color.DarkGray;
             guna2ButtonXoa.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -257,7 +257,7 @@
             guna2ButtonXoa.Image = (Image)resources.GetObject("guna2ButtonXoa.Image");
             guna2ButtonXoa.Location = new Point(182, 481);
             guna2ButtonXoa.Name = "guna2ButtonXoa";
-            guna2ButtonXoa.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            guna2ButtonXoa.ShadowDecoration.CustomizableEdges = customizableEdges12;
             guna2ButtonXoa.Size = new Size(130, 51);
             guna2ButtonXoa.TabIndex = 43;
             guna2ButtonXoa.Text = "Xóa";
@@ -266,7 +266,7 @@
             // guna2ButtonCapNhap
             // 
             guna2ButtonCapNhap.BorderRadius = 18;
-            guna2ButtonCapNhap.CustomizableEdges = customizableEdges5;
+            guna2ButtonCapNhap.CustomizableEdges = customizableEdges13;
             guna2ButtonCapNhap.DisabledState.BorderColor = Color.DarkGray;
             guna2ButtonCapNhap.DisabledState.CustomBorderColor = Color.DarkGray;
             guna2ButtonCapNhap.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -277,7 +277,7 @@
             guna2ButtonCapNhap.Image = (Image)resources.GetObject("guna2ButtonCapNhap.Image");
             guna2ButtonCapNhap.Location = new Point(340, 481);
             guna2ButtonCapNhap.Name = "guna2ButtonCapNhap";
-            guna2ButtonCapNhap.ShadowDecoration.CustomizableEdges = customizableEdges6;
+            guna2ButtonCapNhap.ShadowDecoration.CustomizableEdges = customizableEdges14;
             guna2ButtonCapNhap.Size = new Size(130, 51);
             guna2ButtonCapNhap.TabIndex = 44;
             guna2ButtonCapNhap.Text = "Cập Nhập";
@@ -286,7 +286,7 @@
             // guna2ButtonTk
             // 
             guna2ButtonTk.BorderRadius = 18;
-            guna2ButtonTk.CustomizableEdges = customizableEdges7;
+            guna2ButtonTk.CustomizableEdges = customizableEdges15;
             guna2ButtonTk.DisabledState.BorderColor = Color.DarkGray;
             guna2ButtonTk.DisabledState.CustomBorderColor = Color.DarkGray;
             guna2ButtonTk.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -297,7 +297,7 @@
             guna2ButtonTk.Image = (Image)resources.GetObject("guna2ButtonTk.Image");
             guna2ButtonTk.Location = new Point(503, 481);
             guna2ButtonTk.Name = "guna2ButtonTk";
-            guna2ButtonTk.ShadowDecoration.CustomizableEdges = customizableEdges8;
+            guna2ButtonTk.ShadowDecoration.CustomizableEdges = customizableEdges16;
             guna2ButtonTk.Size = new Size(130, 51);
             guna2ButtonTk.TabIndex = 45;
             guna2ButtonTk.Text = "Tìm Kiếm";
@@ -361,7 +361,7 @@
             Controls.Add(textBoxDiaChi);
             Controls.Add(textBoxSDT);
             Controls.Add(dateTimePickerNgayVaoLam);
-            Controls.Add(comboBoxVaiTro);
+            Controls.Add(comboBoxTaiKhoan);
             Controls.Add(textBoxTenNhanVien);
             Controls.Add(dataGridViewNV);
             Name = "UserControlQuanLyNhanVien";
@@ -386,7 +386,7 @@
         private TextBox textBoxDiaChi;
         private TextBox textBoxSDT;
         private DateTimePicker dateTimePickerNgayVaoLam;
-        private ComboBox comboBoxVaiTro;
+        private ComboBox comboBoxTaiKhoan;
         private TextBox textBoxTenNhanVien;
         private Label label8;
         private Guna.UI2.WinForms.Guna2Button guna2ButtonThem;
