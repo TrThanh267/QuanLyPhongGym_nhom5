@@ -23,6 +23,11 @@ namespace QuanLyPhongGym_nhom5.GUI
             _QuanLyDangKyGoiTap_DAL = new QuanLyDangKyGT(_db);
             _dangKyDichVu_DAL = new DangKyDichVu_DAL(_db);
             loadData();
+            if (NguoiDung.nguoidunghientai.TenTaiKhoan == null)
+            {
+                MessageBox.Show("Bạn chưa đăng nhập!");
+                return;
+            }
         }
         public void loadData()
         {
@@ -30,9 +35,17 @@ namespace QuanLyPhongGym_nhom5.GUI
             dataGridViewDKGT.DataSource = listDangKyGoiTap;
             dataGridViewDKGT.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
-            comboBoxMaKHGT.DataSource = _db.KhachHangs.ToList();
-            comboBoxMaKHGT.DisplayMember = "TenKh";
-            comboBoxMaKHGT.ValueMember = "MaKh";
+            var maKH = _dangKyDichVu_DAL.LayMaKHTheoTenDangNhap(NguoiDung.nguoidunghientai.TenTaiKhoan);
+            if (maKH.HasValue)
+            {
+                textBoxKH.Text = maKH.Value.ToString();
+            }
+            else
+            {
+                textBoxKH.Text = "Tai khoan chua duoc thay";
+            }
+            dateTimePickerBDGT.Value = DateTime.Now;
+            dateTimePickerBDDV.Value = DateTime.Now;
 
             comboBoxMaGT.DataSource = _db.GoiTaps.ToList();
             comboBoxMaGT.DisplayMember = "TenGoiTap";
@@ -42,9 +55,6 @@ namespace QuanLyPhongGym_nhom5.GUI
             dataGridViewDKDV.DataSource = listDangKyDichVu;
             dataGridViewDKDV.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
-            comboBoxMaKHDV.DataSource = _db.KhachHangs.ToList();
-            comboBoxMaKHDV.DisplayMember = "TenKh";
-            comboBoxMaKHDV.ValueMember = "MaKh";
 
             comboBoxMaDV.DataSource = _db.DichVus.ToList();
             comboBoxMaDV.DisplayMember = "TenDv";
@@ -53,19 +63,43 @@ namespace QuanLyPhongGym_nhom5.GUI
 
         private void guna2ButtonMuaGoi_Click(object sender, EventArgs e)
         {
-            if (comboBoxMaKHGT.SelectedValue == null || comboBoxMaGT.SelectedValue == null)
+            if (comboBoxMaGT.SelectedValue == null)
             {
                 MessageBox.Show("Vui lòng chọn khách hàng và gói tập!");
                 return;
             }
             else
             {
+                DateTime batDau = dateTimePickerBDGT.Value;
+                DateTime ketThuc = batDau;
+
+                int goiTap = (int)comboBoxMaGT.SelectedValue;
+                switch (goiTap)
+                {
+                    case 2:
+                        ketThuc = batDau.AddDays(30);
+                        break;
+                    case 3:
+                        ketThuc = batDau.AddDays(65);
+                        break;
+                    case 4:
+                        ketThuc = batDau.AddDays(100);
+                        break;
+                    case 5:
+                        ketThuc = batDau.AddDays(145);
+                        break;
+                }
+                var confirm = MessageBox.Show("Bạn có chắc muốn đăng ký gói tập này không?", "Xác nhận đăng ký", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (confirm == DialogResult.No)
+                    return;
+
                 DangKyGoiTap dangKyGoiTap = new DangKyGoiTap
                 {
-                    MaKh = (int)comboBoxMaKHGT.SelectedValue,
+                    MaKh = int.Parse(textBoxKH.Text),
                     MaGoiTap = (int)comboBoxMaGT.SelectedValue,
-                    NgayBatDau = DateOnly.FromDateTime(dateTimePickerBDGT.Value),
-                    NgayKetThuc = DateOnly.FromDateTime(dateTimePickerKTGT.Value),
+                    NgayBatDau = DateOnly.FromDateTime(batDau),
+                    NgayKetThuc = DateOnly.FromDateTime(ketThuc),
+                    TrangThai = ketThuc > DateTime.Now ? true : false
                 };
                 if (_QuanLyDangKyGoiTap_DAL.Them(dangKyGoiTap))
                 {
@@ -88,13 +122,17 @@ namespace QuanLyPhongGym_nhom5.GUI
             }
             else
             {
+                var confirm = MessageBox.Show("Bạn có chắc muốn hủy đăng ký gói tập này không?", "Xác nhận hủy", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (confirm == DialogResult.No)
+                    return;
                 DangKyGoiTap dangKyGoiTap = new DangKyGoiTap
                 {
 
-                    MaKh = (int)comboBoxMaKHGT.SelectedValue,
+                    MaKh = int.Parse(textBoxKH.Text),
                     MaGoiTap = (int)comboBoxMaGT.SelectedValue,
                     NgayBatDau = DateOnly.FromDateTime(dateTimePickerBDGT.Value),
                     NgayKetThuc = DateOnly.FromDateTime(dateTimePickerKTGT.Value),
+                    TrangThai = dataGridViewDKGT.Columns["TrangThai"].ValueType == typeof(bool) ? (bool)dataGridViewDKGT.SelectedRows[0].Cells["TrangThai"].Value : false
                 };
                 if (_QuanLyDangKyGoiTap_DAL.Xoa(dangKyGoiTap.MaGoiTap, dangKyGoiTap.MaKh))
                 {
@@ -110,19 +148,38 @@ namespace QuanLyPhongGym_nhom5.GUI
 
         private void guna2ButtonMuaDv_Click(object sender, EventArgs e)
         {
-            if (comboBoxMaKHDV.SelectedValue == null || comboBoxMaDV.SelectedValue == null)
+            if (comboBoxMaDV.SelectedValue == null)
             {
                 MessageBox.Show("Vui lòng chọn khách hàng và dịch vụ!");
                 return;
             }
             else
             {
+                if (dateTimePickerKTDV.Value < dateTimePickerBDDV.Value)
+                {
+                    MessageBox.Show("Ngày kết thúc không thể nhỏ hơn ngày bắt đầu!");
+                    return;
+                }
+                else if (dateTimePickerKTDV.Value == dateTimePickerBDDV.Value)
+                {
+                    MessageBox.Show("Ngày kết thúc không thể bằng ngày bắt đầu!");
+                    return;
+                }
+                DateTime BatDau = dateTimePickerBDDV.Value;
+                DateTime KetThuc = dateTimePickerKTDV.Value;
+
+                int SoNgay = (KetThuc - BatDau).Days;
+
+                var confirm = MessageBox.Show("Bạn có chắc muốn đăng ký dịch vụ này không?", "Xác nhận đăng ký", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (confirm == DialogResult.No)
+                    return;
                 DangKyDichVu dangKyDichVu = new DangKyDichVu
                 {
-                    MaKh = (int)comboBoxMaKHDV.SelectedValue,
+                    MaKh = int.Parse(textBoxKH.Text),
                     MaDv = (int)comboBoxMaDV.SelectedValue,
-                    NgayBatDau = DateOnly.FromDateTime(dateTimePickerBDDV.Value),
-                    NgayKetThuc = DateOnly.FromDateTime(dateTimePickerKTDV.Value),
+                    NgayBatDau = DateOnly.FromDateTime(BatDau),
+                    NgayKetThuc = DateOnly.FromDateTime(KetThuc),
+                    TrangThai = KetThuc > DateTime.Now ? true : false
                 };
                 if (_dangKyDichVu_DAL.Them(dangKyDichVu))
                 {
@@ -145,12 +202,16 @@ namespace QuanLyPhongGym_nhom5.GUI
             }
             else
             {
+                var confirm = MessageBox.Show("Bạn có chắc muốn hủy đăng ký dịch vụ này không?", "Xác nhận hủy", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (confirm == DialogResult.No)
+                    return;
                 DangKyDichVu dangKyDichVu = new DangKyDichVu
                 {
-                    MaKh = (int)comboBoxMaKHDV.SelectedValue,
+                    MaKh = int.Parse(textBoxKH.Text),
                     MaDv = (int)comboBoxMaDV.SelectedValue,
                     NgayBatDau = DateOnly.FromDateTime(dateTimePickerBDDV.Value),
                     NgayKetThuc = DateOnly.FromDateTime(dateTimePickerKTDV.Value),
+                    TrangThai = dataGridViewDKDV.Columns["TrangThai"].ValueType == typeof(bool) ? (bool)dataGridViewDKDV.SelectedRows[0].Cells["TrangThai"].Value : false
                 };
                 if (_dangKyDichVu_DAL.Xoa(dangKyDichVu.MaDv, dangKyDichVu.MaKh))
                 {
@@ -169,8 +230,6 @@ namespace QuanLyPhongGym_nhom5.GUI
             if (e.RowIndex >= 0)
             {
                 var row = dataGridViewDKDV.Rows[e.RowIndex];
-
-                comboBoxMaKHDV.SelectedValue = row.Cells["MaKh"].Value;
                 comboBoxMaDV.SelectedValue = row.Cells["MaDv"].Value;
                 dateTimePickerBDDV.Value = DateTime.Parse(row.Cells["NgayBatDau"].Value.ToString());
                 dateTimePickerKTDV.Value = DateTime.Parse(row.Cells["NgayKetThuc"].Value.ToString());
@@ -179,14 +238,52 @@ namespace QuanLyPhongGym_nhom5.GUI
 
         private void dataGridViewDKGT_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if(dataGridViewDKGT.SelectedRows.Count > 0)
+            if (e.RowIndex >= 0)
             {
-                var row = dataGridViewDKGT.SelectedRows[e.RowIndex];
-                comboBoxMaKHGT.SelectedValue = row.Cells["MaKh"].Value;
+                var row = dataGridViewDKGT.Rows[e.RowIndex];
                 comboBoxMaGT.SelectedValue = row.Cells["MaGoiTap"].Value;
                 dateTimePickerBDGT.Value = DateTime.Parse(row.Cells["NgayBatDau"].Value.ToString());
                 dateTimePickerKTGT.Value = DateTime.Parse(row.Cells["NgayKetThuc"].Value.ToString());
             }
+        }
+
+        private void comboBoxMaGT_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBoxMaGT.SelectedValue != null && int.TryParse(comboBoxMaGT.SelectedValue.ToString(), out int GoiTap))
+            {
+                DateTime BatDau = DateTime.Today;
+                DateTime KetThuc = BatDau;
+
+                switch (GoiTap)
+                {
+                    case 2:
+                        KetThuc = BatDau.AddDays(30);
+                        break;
+                    case 3:
+                        KetThuc = BatDau.AddDays(65);
+                        break;
+                    case 4:
+                        KetThuc = BatDau.AddDays(100);
+                        break;
+                    case 5:
+                        KetThuc = BatDau.AddDays(145);
+                        break;
+                }
+
+                dateTimePickerBDGT.Value = BatDau;
+                dateTimePickerKTGT.Value = KetThuc;
+            }
+        }
+
+        private void comboBoxMaDV_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+            DateTime BatDau = dateTimePickerBDDV.Value;
+            DateTime KetThuc = dateTimePickerKTDV.Value;
+
+            int SoNgay = (BatDau - KetThuc).Days;
+
+
         }
     }
 }

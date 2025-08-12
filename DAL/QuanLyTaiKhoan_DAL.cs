@@ -74,7 +74,7 @@ namespace QuanLyPhongGym_nhom5.DAL
         {
             try
             {
-                var tk = _context.TaiKhoans.FirstOrDefault(x => x.TenTaiKhoan == taiKhoan.TenTaiKhoan);
+                var tk = _context.TaiKhoans.First(x => x.TenTaiKhoan == taiKhoan.TenTaiKhoan.Trim());
                 if (tk != null)
                 {
                     tk.MatKhau = taiKhoan.MatKhau == null ? tk.MatKhau : taiKhoan.MatKhau;

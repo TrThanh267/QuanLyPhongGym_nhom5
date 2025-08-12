@@ -18,11 +18,13 @@ namespace QuanLyPhongGym_nhom5.GUI
         QlGymContext _db = new QlGymContext();
         QuanLyHoaDon_DAL QuanLyHoaDon_DAL;
         QuanLyChiTietHoaDon_DAL QuanLyChiTietHoaDon_DAL;
+        HienThiDangKy_DAL HienThiDangKy_DAL;
         public UserControlQuanLyHoaDon()
         {
             InitializeComponent();
             QuanLyHoaDon_DAL = new QuanLyHoaDon_DAL(_db);
             QuanLyChiTietHoaDon_DAL = new QuanLyChiTietHoaDon_DAL(_db);
+            HienThiDangKy_DAL = new HienThiDangKy_DAL(_db);
             laodtable();
             loadtableCTHD();
         }
@@ -32,6 +34,8 @@ namespace QuanLyPhongGym_nhom5.GUI
             dataGridViewHD.DataSource = listHoaDon;
             dataGridViewHD.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
+            var dangKyList = HienThiDangKy_DAL.GetDangKy();
+            dataGridViewDangKyGTHD.DataSource = dangKyList;
 
             comboBoxmaKH.DataSource = _db.KhachHangs.ToList();
             comboBoxmaKH.DisplayMember = "HoTen";
@@ -46,6 +50,11 @@ namespace QuanLyPhongGym_nhom5.GUI
             var listChiTietHoaDon = QuanLyChiTietHoaDon_DAL.GetHoaDonChiTiets();
             dataGridViewCTHD.DataSource = listChiTietHoaDon;
             dataGridViewCTHD.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+
+            var dangKyList = HienThiDangKy_DAL.GetDangKy();
+            dataGridViewDangKyHDCT.DataSource = dangKyList;
+
+
 
             comboBoxMaHD.DataSource = _db.HoaDons.ToList();
             comboBoxMaHD.ValueMember = "MaHd";
@@ -369,6 +378,51 @@ namespace QuanLyPhongGym_nhom5.GUI
             {
                 MessageBox.Show("Nhập thông tin cần tiềm kiếm");
             }
+        }
+
+        private void dataGridViewDangKyGTHD_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (dataGridViewDangKyGTHD.Columns[e.ColumnIndex].Name == "MaGoiTap" && e.Value != null)
+            {
+                int maGT;
+                if (int.TryParse(e.Value.ToString(), out maGT))
+                {
+                    e.Value = HienThiDangKy_DAL.GetTenGoiTapById(maGT);
+                    e.FormattingApplied = true;
+                }
+            }
+            if (dataGridViewDangKyGTHD.Columns[e.ColumnIndex].Name == "MaDichVu" && e.Value != null)
+            {
+                int maDV;
+                if (int.TryParse(e.Value.ToString(), out maDV))
+                {
+                    e.Value = HienThiDangKy_DAL.GetTenDichVuById(maDV);
+                    e.FormattingApplied = true;
+                }
+            }
+        }
+
+        private void dataGridViewDangKyHDCT_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if(dataGridViewDangKyHDCT.Columns[e.ColumnIndex].Name == "MaGoiTap" && e.Value != null)
+            {
+                int maGT;
+                if (int.TryParse(e.Value.ToString(), out maGT))
+                {
+                    e.Value = HienThiDangKy_DAL.GetTenGoiTapById(maGT);
+                    e.FormattingApplied = true;
+                }
+            }
+            if (dataGridViewDangKyHDCT.Columns[e.ColumnIndex].Name == "MaDichVu" && e.Value != null)
+            {
+                int maDV;
+                if (int.TryParse(e.Value.ToString(), out maDV))
+                {
+                    e.Value = HienThiDangKy_DAL.GetTenDichVuById(maDV);
+                    e.FormattingApplied = true;
+                }
+            }
+
         }
     }
 }

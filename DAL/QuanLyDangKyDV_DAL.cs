@@ -25,6 +25,7 @@ namespace QuanLyPhongGym_nhom5.DAL
                                                   MaKh = dk.MaKh,
                                                   NgayBatDau = dk.NgayBatDau,
                                                   NgayKetThuc = dk.NgayKetThuc,
+                                                  TrangThai=dk.TrangThai,
                                               })
                                             .ToList();
         }
@@ -62,6 +63,13 @@ namespace QuanLyPhongGym_nhom5.DAL
                 Console.WriteLine("Lỗi xoá ĐKDV: " + ex.Message);
                 return false;
             }
+        }
+        public int? LayMaKHTheoTenDangNhap(string tenDangNhap)
+        {
+            return _context.KhachHangs
+                .Where(kh => kh.TenTaiKhoan == tenDangNhap)
+                .Select(kh => (int?)kh.MaKh)
+                .FirstOrDefault();
         }
 
     }

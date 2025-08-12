@@ -27,6 +27,7 @@ namespace QuanLyPhongGym_nhom5.DAL
                                                  MaKh = DangKyGoiTap.MaKh,
                                                  NgayBatDau = DangKyGoiTap.NgayBatDau,
                                                  NgayKetThuc = DangKyGoiTap.NgayKetThuc,
+                                                 TrangThai = DangKyGoiTap.TrangThai
                                              })
                                              .ToList();
         }

@@ -48,6 +48,7 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             tabControl1 = new TabControl();
             tabPageQLHD = new TabPage();
+            dataGridViewDangKyGTHD = new DataGridView();
             label5 = new Label();
             textBoxTKHD = new TextBox();
             una2ButtonSuaHD = new Guna.UI2.WinForms.Guna2Button();
@@ -64,6 +65,7 @@
             label1 = new Label();
             dataGridViewHD = new DataGridView();
             tabPageQLCTHD = new TabPage();
+            dataGridViewDangKyHDCT = new DataGridView();
             textBoxSoLuong = new TextBox();
             comboBoxmaDichVu = new ComboBox();
             comboBoxMaGoiTap = new ComboBox();
@@ -82,8 +84,10 @@
             guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(components);
             tabControl1.SuspendLayout();
             tabPageQLHD.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewDangKyGTHD).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridViewHD).BeginInit();
             tabPageQLCTHD.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewDangKyHDCT).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridViewCTHD).BeginInit();
             SuspendLayout();
             // 
@@ -99,6 +103,7 @@
             // 
             // tabPageQLHD
             // 
+            tabPageQLHD.Controls.Add(dataGridViewDangKyGTHD);
             tabPageQLHD.Controls.Add(label5);
             tabPageQLHD.Controls.Add(textBoxTKHD);
             tabPageQLHD.Controls.Add(una2ButtonSuaHD);
@@ -121,6 +126,24 @@
             tabPageQLHD.TabIndex = 0;
             tabPageQLHD.Text = "Quản Lý Hóa Đơn";
             tabPageQLHD.UseVisualStyleBackColor = true;
+            // 
+            // dataGridViewDangKyGTHD
+            // 
+            dataGridViewDangKyGTHD.AllowUserToAddRows = false;
+            dataGridViewDangKyGTHD.AllowUserToDeleteRows = false;
+            dataGridViewDangKyGTHD.AllowUserToResizeColumns = false;
+            dataGridViewDangKyGTHD.AllowUserToResizeRows = false;
+            dataGridViewDangKyGTHD.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewDangKyGTHD.BorderStyle = BorderStyle.Fixed3D;
+            dataGridViewDangKyGTHD.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewDangKyGTHD.Cursor = Cursors.No;
+            dataGridViewDangKyGTHD.Location = new Point(7, 298);
+            dataGridViewDangKyGTHD.Name = "dataGridViewDangKyGTHD";
+            dataGridViewDangKyGTHD.ReadOnly = true;
+            dataGridViewDangKyGTHD.RowHeadersWidth = 51;
+            dataGridViewDangKyGTHD.Size = new Size(611, 112);
+            dataGridViewDangKyGTHD.TabIndex = 33;
+            dataGridViewDangKyGTHD.CellFormatting += dataGridViewDangKyGTHD_CellFormatting;
             // 
             // label5
             // 
@@ -302,16 +325,17 @@
             dataGridViewHD.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewHD.BackgroundColor = SystemColors.ButtonHighlight;
             dataGridViewHD.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewHD.Location = new Point(0, 53);
+            dataGridViewHD.Location = new Point(6, 53);
             dataGridViewHD.Name = "dataGridViewHD";
             dataGridViewHD.ReadOnly = true;
             dataGridViewHD.RowHeadersWidth = 51;
-            dataGridViewHD.Size = new Size(618, 368);
+            dataGridViewHD.Size = new Size(612, 221);
             dataGridViewHD.TabIndex = 0;
             dataGridViewHD.CellClick += dataGridViewHD_CellClick;
             // 
             // tabPageQLCTHD
             // 
+            tabPageQLCTHD.Controls.Add(dataGridViewDangKyHDCT);
             tabPageQLCTHD.Controls.Add(textBoxSoLuong);
             tabPageQLCTHD.Controls.Add(comboBoxmaDichVu);
             tabPageQLCTHD.Controls.Add(comboBoxMaGoiTap);
@@ -334,6 +358,24 @@
             tabPageQLCTHD.TabIndex = 1;
             tabPageQLCTHD.Text = "Quản Lý Chi Tiết Hóa Đơn";
             tabPageQLCTHD.UseVisualStyleBackColor = true;
+            // 
+            // dataGridViewDangKyHDCT
+            // 
+            dataGridViewDangKyHDCT.AllowUserToAddRows = false;
+            dataGridViewDangKyHDCT.AllowUserToDeleteRows = false;
+            dataGridViewDangKyHDCT.AllowUserToResizeColumns = false;
+            dataGridViewDangKyHDCT.AllowUserToResizeRows = false;
+            dataGridViewDangKyHDCT.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewDangKyHDCT.BorderStyle = BorderStyle.Fixed3D;
+            dataGridViewDangKyHDCT.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewDangKyHDCT.Cursor = Cursors.No;
+            dataGridViewDangKyHDCT.Location = new Point(6, 294);
+            dataGridViewDangKyHDCT.Name = "dataGridViewDangKyHDCT";
+            dataGridViewDangKyHDCT.ReadOnly = true;
+            dataGridViewDangKyHDCT.RowHeadersWidth = 51;
+            dataGridViewDangKyHDCT.Size = new Size(611, 112);
+            dataGridViewDangKyHDCT.TabIndex = 49;
+            dataGridViewDangKyHDCT.CellFormatting += dataGridViewDangKyHDCT_CellFormatting;
             // 
             // textBoxSoLuong
             // 
@@ -520,7 +562,7 @@
             dataGridViewCTHD.Name = "dataGridViewCTHD";
             dataGridViewCTHD.ReadOnly = true;
             dataGridViewCTHD.RowHeadersWidth = 51;
-            dataGridViewCTHD.Size = new Size(628, 376);
+            dataGridViewCTHD.Size = new Size(611, 220);
             dataGridViewCTHD.TabIndex = 0;
             dataGridViewCTHD.CellClick += dataGridViewCTHD_CellClick;
             // 
@@ -538,9 +580,11 @@
             tabControl1.ResumeLayout(false);
             tabPageQLHD.ResumeLayout(false);
             tabPageQLHD.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewDangKyGTHD).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridViewHD).EndInit();
             tabPageQLCTHD.ResumeLayout(false);
             tabPageQLCTHD.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewDangKyHDCT).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridViewCTHD).EndInit();
             ResumeLayout(false);
         }
@@ -581,5 +625,7 @@
         private Label label10;
         private Label label9;
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
+        private DataGridView dataGridViewDangKyGTHD;
+        private DataGridView dataGridViewDangKyHDCT;
     }
 }

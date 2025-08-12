@@ -208,9 +208,10 @@ namespace QuanLyPhongGym_nhom5.GUI
 
         private void dataGridViewKH_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            var selectedRow = dataGridViewKH.Rows[e.RowIndex];
-            if (selectedRow != null)
+            
+            if (e.RowIndex>=0)
             {
+                var selectedRow = dataGridViewKH.Rows[e.RowIndex];
                 textBoxTenKH.Text = selectedRow.Cells["HoTen"].Value.ToString();
                 textBoxDiaChi.Text = selectedRow.Cells["DiaChi"].Value.ToString();
                 textBoxEmail.Text = selectedRow.Cells["Email"].Value.ToString();

@@ -13,7 +13,7 @@ public partial class DangKyGoiTap
     public DateOnly? NgayBatDau { get; set; }
 
     public DateOnly? NgayKetThuc { get; set; }
-    [Browsable(false)]
+    
     public bool? TrangThai { get; set; }
     [Browsable(false)]
     public virtual GoiTap MaGoiTapNavigation { get; set; } = null!;

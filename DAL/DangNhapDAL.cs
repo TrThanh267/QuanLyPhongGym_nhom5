@@ -20,8 +20,7 @@ namespace QuanLyPhongGym.DAL
         {
             return _context.TaiKhoans
                 .Include(tk => tk.MaVaiTroNavigation)
-                .FirstOrDefault(tk => tk.TenTaiKhoan == tenTK && tk.MatKhau == matKhau);
-
+                .FirstOrDefault(tk => tk.TenTaiKhoan.Trim() == tenTK && tk.MatKhau.Trim() == matKhau);
         }
 
     }

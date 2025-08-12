@@ -41,10 +41,8 @@
             dataGridViewDKDV = new DataGridView();
             dataGridViewDKGT = new DataGridView();
             comboBoxMaGT = new ComboBox();
-            comboBoxMaKHGT = new ComboBox();
             dateTimePickerBDGT = new DateTimePicker();
             dateTimePickerKTGT = new DateTimePicker();
-            comboBoxMaKHDV = new ComboBox();
             comboBoxMaDV = new ComboBox();
             dateTimePickerBDDV = new DateTimePicker();
             dateTimePickerKTDV = new DateTimePicker();
@@ -55,7 +53,6 @@
             label3 = new Label();
             label4 = new Label();
             label6 = new Label();
-            label7 = new Label();
             label8 = new Label();
             label9 = new Label();
             guna2ButtonHuyDV = new Guna.UI2.WinForms.Guna2Button();
@@ -63,6 +60,7 @@
             label5 = new Label();
             label10 = new Label();
             guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(components);
+            textBoxKH = new TextBox();
             ((System.ComponentModel.ISupportInitialize)dataGridViewDKDV).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridViewDKGT).BeginInit();
             SuspendLayout();
@@ -104,52 +102,41 @@
             // comboBoxMaGT
             // 
             comboBoxMaGT.FormattingEnabled = true;
-            comboBoxMaGT.Location = new Point(679, 23);
+            comboBoxMaGT.Location = new Point(679, 70);
             comboBoxMaGT.Name = "comboBoxMaGT";
             comboBoxMaGT.Size = new Size(151, 28);
             comboBoxMaGT.TabIndex = 2;
-            // 
-            // comboBoxMaKHGT
-            // 
-            comboBoxMaKHGT.FormattingEnabled = true;
-            comboBoxMaKHGT.Location = new Point(679, 79);
-            comboBoxMaKHGT.Name = "comboBoxMaKHGT";
-            comboBoxMaKHGT.Size = new Size(151, 28);
-            comboBoxMaKHGT.TabIndex = 3;
+            comboBoxMaGT.SelectedIndexChanged += comboBoxMaGT_SelectedIndexChanged;
             // 
             // dateTimePickerBDGT
             // 
-            dateTimePickerBDGT.Location = new Point(679, 138);
+            dateTimePickerBDGT.Enabled = false;
+            dateTimePickerBDGT.Location = new Point(679, 131);
             dateTimePickerBDGT.Name = "dateTimePickerBDGT";
             dateTimePickerBDGT.Size = new Size(179, 27);
             dateTimePickerBDGT.TabIndex = 4;
             // 
             // dateTimePickerKTGT
             // 
+            dateTimePickerKTGT.Enabled = false;
             dateTimePickerKTGT.Location = new Point(679, 191);
             dateTimePickerKTGT.Name = "dateTimePickerKTGT";
             dateTimePickerKTGT.Size = new Size(179, 27);
             dateTimePickerKTGT.TabIndex = 5;
             // 
-            // comboBoxMaKHDV
-            // 
-            comboBoxMaKHDV.FormattingEnabled = true;
-            comboBoxMaKHDV.Location = new Point(679, 378);
-            comboBoxMaKHDV.Name = "comboBoxMaKHDV";
-            comboBoxMaKHDV.Size = new Size(151, 28);
-            comboBoxMaKHDV.TabIndex = 6;
-            // 
             // comboBoxMaDV
             // 
             comboBoxMaDV.FormattingEnabled = true;
-            comboBoxMaDV.Location = new Point(679, 322);
+            comboBoxMaDV.Location = new Point(679, 355);
             comboBoxMaDV.Name = "comboBoxMaDV";
             comboBoxMaDV.Size = new Size(151, 28);
             comboBoxMaDV.TabIndex = 7;
+            comboBoxMaDV.SelectedIndexChanged += comboBoxMaDV_SelectedIndexChanged;
             // 
             // dateTimePickerBDDV
             // 
-            dateTimePickerBDDV.Location = new Point(679, 433);
+            dateTimePickerBDDV.Enabled = false;
+            dateTimePickerBDDV.Location = new Point(679, 416);
             dateTimePickerBDDV.Name = "dateTimePickerBDDV";
             dateTimePickerBDDV.Size = new Size(179, 27);
             dateTimePickerBDDV.TabIndex = 12;
@@ -204,7 +191,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(614, 26);
+            label1.Location = new Point(614, 73);
             label1.Name = "label1";
             label1.Size = new Size(59, 20);
             label1.TabIndex = 17;
@@ -213,16 +200,16 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(557, 82);
+            label2.Location = new Point(701, 6);
             label2.Name = "label2";
-            label2.Size = new Size(116, 20);
+            label2.Size = new Size(73, 20);
             label2.TabIndex = 18;
-            label2.Text = "Ten Khach Hang";
+            label2.Text = "Tai Khoan";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(572, 138);
+            label3.Location = new Point(568, 136);
             label3.Name = "label3";
             label3.Size = new Size(101, 20);
             label3.TabIndex = 19;
@@ -240,25 +227,16 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(613, 325);
+            label6.Location = new Point(613, 358);
             label6.Name = "label6";
             label6.Size = new Size(60, 20);
             label6.TabIndex = 22;
             label6.Text = "Dich Vu";
             // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Location = new Point(557, 381);
-            label7.Name = "label7";
-            label7.Size = new Size(116, 20);
-            label7.TabIndex = 23;
-            label7.Text = "Ten Khach Hang";
-            // 
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(572, 438);
+            label8.Location = new Point(572, 421);
             label8.Name = "label8";
             label8.Size = new Size(101, 20);
             label8.TabIndex = 24;
@@ -337,18 +315,27 @@
             // 
             guna2Elipse1.TargetControl = this;
             // 
+            // textBoxKH
+            // 
+            textBoxKH.Enabled = false;
+            textBoxKH.Location = new Point(780, 3);
+            textBoxKH.Name = "textBoxKH";
+            textBoxKH.ReadOnly = true;
+            textBoxKH.Size = new Size(108, 27);
+            textBoxKH.TabIndex = 30;
+            // 
             // UserControlDKDichvu_GoiTap
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(192, 192, 255);
+            Controls.Add(textBoxKH);
             Controls.Add(label10);
             Controls.Add(label5);
             Controls.Add(guna2ButtonHuyDV);
             Controls.Add(guna2ButtonMuaDv);
             Controls.Add(label9);
             Controls.Add(label8);
-            Controls.Add(label7);
             Controls.Add(label6);
             Controls.Add(label4);
             Controls.Add(label3);
@@ -359,10 +346,8 @@
             Controls.Add(dateTimePickerKTDV);
             Controls.Add(dateTimePickerBDDV);
             Controls.Add(comboBoxMaDV);
-            Controls.Add(comboBoxMaKHDV);
             Controls.Add(dateTimePickerKTGT);
             Controls.Add(dateTimePickerBDGT);
-            Controls.Add(comboBoxMaKHGT);
             Controls.Add(comboBoxMaGT);
             Controls.Add(dataGridViewDKGT);
             Controls.Add(dataGridViewDKDV);
@@ -379,10 +364,8 @@
         private DataGridView dataGridViewDKDV;
         private DataGridView dataGridViewDKGT;
         private ComboBox comboBoxMaGT;
-        private ComboBox comboBoxMaKHGT;
         private DateTimePicker dateTimePickerBDGT;
         private DateTimePicker dateTimePickerKTGT;
-        private ComboBox comboBoxMaKHDV;
         private ComboBox comboBoxMaDV;
         private DateTimePicker dateTimePickerBDDV;
         private DateTimePicker dateTimePickerKTDV;
@@ -393,7 +376,6 @@
         private Label label3;
         private Label label4;
         private Label label6;
-        private Label label7;
         private Label label8;
         private Label label9;
         private Guna.UI2.WinForms.Guna2Button guna2ButtonHuyDV;
@@ -401,5 +383,6 @@
         private Label label5;
         private Label label10;
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
+        private TextBox textBoxKH;
     }
 }
