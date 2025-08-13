@@ -48,7 +48,7 @@ namespace QuanLyPhongGym_nhom5.GUI
 
             DichVu dichVu = new DichVu
             {
-                TenDv = textBoxTenDV.Text.Trim(),
+                TenDv = textBoxTenDV.Text,
                 Gia = decimal.TryParse(textBoxDonGiaDV.Text.Trim(), out decimal gia) ? gia : (decimal?)null,
                 SoBuoiDk = int.TryParse(textBoxBuoiDkDV.Text.Trim(), out int soBuoi) ? soBuoi : (int?)null
             };
@@ -82,16 +82,11 @@ namespace QuanLyPhongGym_nhom5.GUI
 
             if (confirmResult == DialogResult.No)
                 return;
-
-            DichVu dichVu = new DichVu
-            {
-                MaDv = Convert.ToInt32(dataGridViewQLDV.SelectedRows[0].Cells["MaDv"].Value),
-                TenDv = textBoxTenDV.Text.Trim(),
-                Gia = decimal.TryParse(textBoxDonGiaDV.Text.Trim(), out decimal gia) ? gia : (decimal?)null,
-                SoBuoiDk = int.TryParse(textBoxBuoiDkDV.Text.Trim(), out int soBuoi) ? soBuoi : (int?)null
-            };
-
-            if (_quanLyDichVuDAL.DeleteDichVu(dichVu))
+            var dichVu = (DichVu)dataGridViewQLDV.SelectedRows[0].DataBoundItem;
+            int maDv = dichVu.MaDv;
+            var cellValue = dataGridViewQLDV.SelectedRows[0].Cells["MaDv"].Value;
+            MessageBox.Show($"Giá trị MaDv lấy được: {cellValue}");
+            if (_quanLyDichVuDAL.DeleteDichVu(maDv))
             {
                 LoadTable();
                 MessageBox.Show("Xóa dịch vụ thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);

@@ -70,24 +70,33 @@ namespace QuanLyPhongGym_nhom5.GUI
             }
             else
             {
+                string input = textBoxKH.Text;
+                if (!int.TryParse(input, out int maKh))
+                {
+                    MessageBox.Show("Tài khoản chưa được đăng ký");
+                    return;
+                }
                 DateTime batDau = dateTimePickerBDGT.Value;
                 DateTime ketThuc = batDau;
 
                 int goiTap = (int)comboBoxMaGT.SelectedValue;
                 switch (goiTap)
                 {
-                    case 2:
+                    case 28:
                         ketThuc = batDau.AddDays(30);
                         break;
-                    case 3:
+                    case 29:
                         ketThuc = batDau.AddDays(65);
                         break;
-                    case 4:
+                    case 30:
                         ketThuc = batDau.AddDays(100);
                         break;
-                    case 5:
+                    case 31:
                         ketThuc = batDau.AddDays(145);
                         break;
+                    default:
+                        MessageBox.Show("Chưa chọn gói tập");
+                        return;
                 }
                 var confirm = MessageBox.Show("Bạn có chắc muốn đăng ký gói tập này không?", "Xác nhận đăng ký", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (confirm == DialogResult.No)
@@ -122,6 +131,13 @@ namespace QuanLyPhongGym_nhom5.GUI
             }
             else
             {
+                
+                string input = textBoxKH.Text;
+                if (!int.TryParse(input, out int maKh))
+                {
+                    MessageBox.Show("Tài khoản chưa được đăng ký");
+                    return;
+                }
                 var confirm = MessageBox.Show("Bạn có chắc muốn hủy đăng ký gói tập này không?", "Xác nhận hủy", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (confirm == DialogResult.No)
                     return;
@@ -155,6 +171,17 @@ namespace QuanLyPhongGym_nhom5.GUI
             }
             else
             {
+                if ((int)comboBoxMaDV.SelectedValue == 24)
+                {
+                    MessageBox.Show("Chưa chọn dịch vụ");
+                    return;
+                }
+                string input = textBoxKH.Text;
+                if (!int.TryParse(input, out int maKh))
+                {
+                    MessageBox.Show("Tài khoản chưa được đăng ký");
+                    return;
+                }
                 if (dateTimePickerKTDV.Value < dateTimePickerBDDV.Value)
                 {
                     MessageBox.Show("Ngày kết thúc không thể nhỏ hơn ngày bắt đầu!");
@@ -202,6 +229,12 @@ namespace QuanLyPhongGym_nhom5.GUI
             }
             else
             {
+                string input = textBoxKH.Text;
+                if (!int.TryParse(input, out int maKh))
+                {
+                    MessageBox.Show("Tài khoản chưa được đăng ký");
+                    return;
+                }
                 var confirm = MessageBox.Show("Bạn có chắc muốn hủy đăng ký dịch vụ này không?", "Xác nhận hủy", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (confirm == DialogResult.No)
                     return;
@@ -256,18 +289,20 @@ namespace QuanLyPhongGym_nhom5.GUI
 
                 switch (GoiTap)
                 {
-                    case 2:
+                    case 28:
                         KetThuc = BatDau.AddDays(30);
                         break;
-                    case 3:
+                    case 29:
                         KetThuc = BatDau.AddDays(65);
                         break;
-                    case 4:
+                    case 30:
                         KetThuc = BatDau.AddDays(100);
                         break;
-                    case 5:
+                    case 31:
                         KetThuc = BatDau.AddDays(145);
                         break;
+                    default:
+                        return;
                 }
 
                 dateTimePickerBDGT.Value = BatDau;

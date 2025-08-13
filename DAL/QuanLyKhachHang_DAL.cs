@@ -112,7 +112,7 @@ namespace QuanLyPhongGym_nhom5.DAL
         public List<KhachHang> timkiemKH(string khachhang)
         {
             var nv = _context.KhachHangs
-                .Where(x => x.HoTen.Contains(khachhang) || x.Email.Contains(khachhang) || x.TenTaiKhoan.Contains(khachhang))
+                .Where(x => x.HoTen.Contains(khachhang) || x.Email.Contains(khachhang) || x.TenTaiKhoan.Contains(khachhang) || x.MaKh.ToString().ToLower()==khachhang)
                 .ToList();
             return nv;
         }

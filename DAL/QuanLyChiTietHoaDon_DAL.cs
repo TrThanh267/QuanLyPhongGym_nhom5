@@ -27,8 +27,8 @@ namespace QuanLyPhongGym_nhom5.DAL
                                                   MaGoiTap = h.MaGoiTap,
                                                   MaDv = h.MaDv,
                                                    SoLuong = h.MaDvNavigation != null ? h.MaDvNavigation.SoBuoiDk : 0,
-                                                    DonGia = (h.MaGoiTapNavigation != null ? h.MaGoiTapNavigation.Gia : 0)+ (h.MaDvNavigation != null ? h.MaDvNavigation.Gia * (h.MaDvNavigation.SoBuoiDk) : 0),
-                                                    ThanhTien = (h.MaGoiTapNavigation != null ? h.MaGoiTapNavigation.Gia : 0)+ (h.MaDvNavigation != null ? h.MaDvNavigation.Gia * (h.MaDvNavigation.SoBuoiDk) : 0)
+                                                    DonGia = (h.MaGoiTapNavigation != null ? h.MaGoiTapNavigation.Gia : 0)+ (h.MaDvNavigation != null ? h.MaDvNavigation.Gia * (h.SoLuong) : 0),
+                                                    ThanhTien = (h.MaGoiTapNavigation != null ? h.MaGoiTapNavigation.Gia : 0)+ (h.MaDvNavigation != null ? h.MaDvNavigation.Gia * (h.SoLuong) : 0)
                                            }).ToList();
         }
         public bool AddChiTietHoaDon(HoaDonChiTiet hoaDonChiTiet)
@@ -89,7 +89,6 @@ namespace QuanLyPhongGym_nhom5.DAL
                     int giaDv = 0;
                     int soBuoi = 0;
 
-                    // Lấy thông tin gói tập
                     if (hoaDonChiTiet.MaGoiTap != null)
                     {
                         var goiTap = _context.GoiTaps.FirstOrDefault(g => g.MaGoiTap == hoaDonChiTiet.MaGoiTap);
@@ -99,7 +98,6 @@ namespace QuanLyPhongGym_nhom5.DAL
                         }
                     }
 
-                    // Lấy thông tin dịch vụ + số buổi đăng ký
                     if (hoaDonChiTiet.MaDv != null)
                     {
                         var dichVu = _context.DichVus.FirstOrDefault(d => d.MaDv == hoaDonChiTiet.MaDv);
@@ -110,8 +108,8 @@ namespace QuanLyPhongGym_nhom5.DAL
                         }
                     }
 
-                    hdct.SoLuong = soBuoi; // ← Tự động tính theo dịch vụ
-                    hdct.DonGia = giaGoiTap + (giaDv * soBuoi); // Gói tập + (dịch vụ * số buổi)
+                    hdct.SoLuong = soBuoi; 
+                    hdct.DonGia = giaGoiTap + (giaDv * soBuoi);
                     hdct.ThanhTien = hdct.DonGia;
 
                     _context.SaveChanges();

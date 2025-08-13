@@ -235,12 +235,14 @@ namespace QuanLyPhongGym_nhom5.GUI
 
         private void guna2ButtonThemCTHD_Click(object sender, EventArgs e)
         {
-            if (comboBoxMaHD.SelectedItem == null
-                || comboBoxmaDichVu.SelectedItem == null
-                || comboBoxMaGoiTap.SelectedItem == null
-                || string.IsNullOrEmpty(textBoxSoLuong.Text))
+            if (comboBoxMaHD.SelectedItem == null|| string.IsNullOrEmpty(textBoxSoLuong.Text))
             {
                 MessageBox.Show("Vui lòng điền đầy đủ thông tin!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if((int)comboBoxMaGoiTap.SelectedValue == 27 && (int)comboBoxmaDichVu.SelectedValue == 24)
+            {
+                MessageBox.Show("Chọn Gói tập hoặc dịch vụ đã đăng kí");
                 return;
             }
 
@@ -352,9 +354,10 @@ namespace QuanLyPhongGym_nhom5.GUI
 
         private void dataGridViewCTHD_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            var selectedRow = dataGridViewCTHD.Rows[e.RowIndex];
-            if (selectedRow != null)
+            
+            if (e.RowIndex>=0)
             {
+                var selectedRow = dataGridViewCTHD.Rows[e.RowIndex];
                 comboBoxMaHD.SelectedValue = selectedRow.Cells["MaHd"].Value;
                 comboBoxmaDichVu.SelectedValue = selectedRow.Cells["MaDv"].Value;
                 comboBoxMaGoiTap.SelectedValue = selectedRow.Cells["MaGoiTap"].Value;
@@ -382,46 +385,12 @@ namespace QuanLyPhongGym_nhom5.GUI
 
         private void dataGridViewDangKyGTHD_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            if (dataGridViewDangKyGTHD.Columns[e.ColumnIndex].Name == "MaGoiTap" && e.Value != null)
-            {
-                int maGT;
-                if (int.TryParse(e.Value.ToString(), out maGT))
-                {
-                    e.Value = HienThiDangKy_DAL.GetTenGoiTapById(maGT);
-                    e.FormattingApplied = true;
-                }
-            }
-            if (dataGridViewDangKyGTHD.Columns[e.ColumnIndex].Name == "MaDichVu" && e.Value != null)
-            {
-                int maDV;
-                if (int.TryParse(e.Value.ToString(), out maDV))
-                {
-                    e.Value = HienThiDangKy_DAL.GetTenDichVuById(maDV);
-                    e.FormattingApplied = true;
-                }
-            }
+            
         }
 
         private void dataGridViewDangKyHDCT_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            if(dataGridViewDangKyHDCT.Columns[e.ColumnIndex].Name == "MaGoiTap" && e.Value != null)
-            {
-                int maGT;
-                if (int.TryParse(e.Value.ToString(), out maGT))
-                {
-                    e.Value = HienThiDangKy_DAL.GetTenGoiTapById(maGT);
-                    e.FormattingApplied = true;
-                }
-            }
-            if (dataGridViewDangKyHDCT.Columns[e.ColumnIndex].Name == "MaDichVu" && e.Value != null)
-            {
-                int maDV;
-                if (int.TryParse(e.Value.ToString(), out maDV))
-                {
-                    e.Value = HienThiDangKy_DAL.GetTenDichVuById(maDV);
-                    e.FormattingApplied = true;
-                }
-            }
+            
 
         }
     }

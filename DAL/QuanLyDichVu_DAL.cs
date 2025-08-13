@@ -73,17 +73,18 @@ namespace QuanLyPhongGym_nhom5.DAL
                 return false;
             }
         }
-        public bool DeleteDichVu(DichVu dichVu)
+        public bool DeleteDichVu(int dichVu)
         {
             try
             {
-                var dichvu = _context.DichVus.FirstOrDefault(x=>x.MaDv==dichVu.MaDv);
-                if (dichVu != null)
+                var dv = _context.DichVus.FirstOrDefault(x=>x.MaDv==dichVu);
+                if (dv != null)
                 {
-                    _context.DichVus.Remove(dichvu);
+                    _context.DichVus.Remove(dv);
                     _context.SaveChanges();
+                    return true;
                 }
-                return true;
+                return false;
             }
             catch (Exception ex)
             {

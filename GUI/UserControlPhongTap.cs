@@ -179,7 +179,7 @@ namespace QuanLyPhongGym_nhom5.GUI
 
         private void dataGridViewPT_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dataGridViewPT.Rows.Count >= 0)
+            if (e.RowIndex>=0)
             {
                 comboBoxmaPT.SelectedValue = dataGridViewPT.Rows[e.RowIndex].Cells["MaPhong"].Value;
                 comboBoxmaTB.SelectedValue = dataGridViewPT.Rows[e.RowIndex].Cells["MaThietBi"].Value;
@@ -322,7 +322,7 @@ namespace QuanLyPhongGym_nhom5.GUI
 
         private void dataGridThietBi_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dataGridThietBi.Rows.Count >= 0)
+            if (e.RowIndex>=0)
             {
                 textBoxMaTB.Text = dataGridThietBi.Rows[e.RowIndex].Cells["TenThietBi"].Value.ToString();
                 textBoxSoluong.Text = dataGridThietBi.Rows[e.RowIndex].Cells["SoLuongThietBi"].Value.ToString();

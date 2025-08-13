@@ -82,6 +82,8 @@
             label6 = new Label();
             dataGridViewCTHD = new DataGridView();
             guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(components);
+            label11 = new Label();
+            label12 = new Label();
             tabControl1.SuspendLayout();
             tabPageQLHD.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewDangKyGTHD).BeginInit();
@@ -103,6 +105,7 @@
             // 
             // tabPageQLHD
             // 
+            tabPageQLHD.Controls.Add(label12);
             tabPageQLHD.Controls.Add(dataGridViewDangKyGTHD);
             tabPageQLHD.Controls.Add(label5);
             tabPageQLHD.Controls.Add(textBoxTKHD);
@@ -329,12 +332,13 @@
             dataGridViewHD.Name = "dataGridViewHD";
             dataGridViewHD.ReadOnly = true;
             dataGridViewHD.RowHeadersWidth = 51;
-            dataGridViewHD.Size = new Size(612, 221);
+            dataGridViewHD.Size = new Size(612, 180);
             dataGridViewHD.TabIndex = 0;
             dataGridViewHD.CellClick += dataGridViewHD_CellClick;
             // 
             // tabPageQLCTHD
             // 
+            tabPageQLCTHD.Controls.Add(label11);
             tabPageQLCTHD.Controls.Add(dataGridViewDangKyHDCT);
             tabPageQLCTHD.Controls.Add(textBoxSoLuong);
             tabPageQLCTHD.Controls.Add(comboBoxmaDichVu);
@@ -379,25 +383,25 @@
             // 
             // textBoxSoLuong
             // 
-            textBoxSoLuong.Location = new Point(827, 96);
+            textBoxSoLuong.Location = new Point(657, 371);
             textBoxSoLuong.Name = "textBoxSoLuong";
-            textBoxSoLuong.Size = new Size(138, 27);
+            textBoxSoLuong.Size = new Size(172, 27);
             textBoxSoLuong.TabIndex = 48;
             // 
             // comboBoxmaDichVu
             // 
             comboBoxmaDichVu.FormattingEnabled = true;
-            comboBoxmaDichVu.Location = new Point(655, 360);
+            comboBoxmaDichVu.Location = new Point(657, 279);
             comboBoxmaDichVu.Name = "comboBoxmaDichVu";
-            comboBoxmaDichVu.Size = new Size(151, 28);
+            comboBoxmaDichVu.Size = new Size(172, 28);
             comboBoxmaDichVu.TabIndex = 47;
             // 
             // comboBoxMaGoiTap
             // 
             comboBoxMaGoiTap.FormattingEnabled = true;
-            comboBoxMaGoiTap.Location = new Point(655, 225);
+            comboBoxMaGoiTap.Location = new Point(655, 180);
             comboBoxMaGoiTap.Name = "comboBoxMaGoiTap";
-            comboBoxMaGoiTap.Size = new Size(151, 28);
+            comboBoxMaGoiTap.Size = new Size(174, 28);
             comboBoxMaGoiTap.TabIndex = 46;
             // 
             // comboBoxMaHD
@@ -405,24 +409,24 @@
             comboBoxMaHD.FormattingEnabled = true;
             comboBoxMaHD.Location = new Point(655, 95);
             comboBoxMaHD.Name = "comboBoxMaHD";
-            comboBoxMaHD.Size = new Size(151, 28);
+            comboBoxMaHD.Size = new Size(174, 28);
             comboBoxMaHD.TabIndex = 45;
             // 
             // label10
             // 
             label10.AutoSize = true;
             label10.Font = new Font("Goudy Old Style", 10.2F);
-            label10.Location = new Point(827, 72);
+            label10.Location = new Point(657, 347);
             label10.Name = "label10";
-            label10.Size = new Size(75, 21);
+            label10.Size = new Size(166, 21);
             label10.TabIndex = 42;
-            label10.Text = "Số Lượng";
+            label10.Text = "Số Ngày Thuê Dịch Vụ";
             // 
             // label9
             // 
             label9.AutoSize = true;
             label9.Font = new Font("Goudy Old Style", 10.2F);
-            label9.Location = new Point(655, 337);
+            label9.Location = new Point(657, 256);
             label9.Name = "label9";
             label9.Size = new Size(97, 21);
             label9.TabIndex = 41;
@@ -432,7 +436,7 @@
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Goudy Old Style", 10.2F);
-            label8.Location = new Point(655, 202);
+            label8.Location = new Point(655, 157);
             label8.Name = "label8";
             label8.Size = new Size(98, 21);
             label8.TabIndex = 40;
@@ -536,7 +540,7 @@
             guna2ButtonThemCTHD.ShadowDecoration.CustomizableEdges = customizableEdges16;
             guna2ButtonThemCTHD.Size = new Size(130, 48);
             guna2ButtonThemCTHD.TabIndex = 34;
-            guna2ButtonThemCTHD.Text = "Thêm";
+            guna2ButtonThemCTHD.Text = "Thanh Toán";
             guna2ButtonThemCTHD.Click += guna2ButtonThemCTHD_Click;
             // 
             // label6
@@ -562,13 +566,33 @@
             dataGridViewCTHD.Name = "dataGridViewCTHD";
             dataGridViewCTHD.ReadOnly = true;
             dataGridViewCTHD.RowHeadersWidth = 51;
-            dataGridViewCTHD.Size = new Size(611, 220);
+            dataGridViewCTHD.Size = new Size(611, 183);
             dataGridViewCTHD.TabIndex = 0;
             dataGridViewCTHD.CellClick += dataGridViewCTHD_CellClick;
             // 
             // guna2Elipse1
             // 
             guna2Elipse1.TargetControl = this;
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Font = new Font("Sylfaen", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label11.Location = new Point(6, 262);
+            label11.Name = "label11";
+            label11.Size = new Size(134, 29);
+            label11.TabIndex = 50;
+            label11.Text = "Đơn đăng kí";
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Font = new Font("Sylfaen", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label12.Location = new Point(7, 266);
+            label12.Name = "label12";
+            label12.Size = new Size(134, 29);
+            label12.TabIndex = 51;
+            label12.Text = "Đơn đăng kí";
             // 
             // UserControlQuanLyHoaDon
             // 
@@ -627,5 +651,7 @@
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
         private DataGridView dataGridViewDangKyGTHD;
         private DataGridView dataGridViewDangKyHDCT;
+        private Label label12;
+        private Label label11;
     }
 }

@@ -9,8 +9,10 @@ namespace QuanLyPhongGym_nhom5.DTO
     internal class BangDangKyDV_GT
     {
         public int MaKh { get; set; }
-        public int MaGoiTap { get; set; }
-        public int MaDichVu { get; set; }
-        public string? TenKhachHang { get; set; }
+        public string TenKh { get; set; }
+        public string TenGoiHoacDv { get; set; }
+        public DateOnly? NgayBatDau { get; set; }
+        public DateOnly? NgayKetThuc { get; set; }
+        public bool? TrangThai { get; set; }
     }
 }

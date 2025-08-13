@@ -18,29 +18,35 @@ namespace QuanLyPhongGym_nhom5.DAL
         }
         public List<BangDangKyDV_GT> GetDangKy()
         {
-            return _context.KhachHangs
-                .Include(dk => dk.DangKyGoiTaps)
-                .Include(dk => dk.DangKyDichVus)
-                .Select(dk => new BangDangKyDV_GT
+                var dangKyGoiTap = _context.DangKyGoiTaps
+                .Select(x => new BangDangKyDV_GT
                 {
-                    MaKh = dk.MaKh,
-                    MaGoiTap = dk.DangKyGoiTaps.Select(gt => gt.MaGoiTap).FirstOrDefault(),
-                    MaDichVu = dk.DangKyDichVus.Select(dv => dv.MaDv).FirstOrDefault(),
-                    TenKhachHang = dk.HoTen
-                })
+                MaKh = x.MaKh,
+                TenKh = x.MaKhNavigation.HoTen,
+                TenGoiHoacDv = x.MaGoiTapNavigation.TenGoiTap,
+                NgayBatDau = x.NgayBatDau,
+                NgayKetThuc = x.NgayKetThuc,
+                TrangThai = x.NgayKetThuc >= DateOnly.FromDateTime(DateTime.Now)
+                });
+
+                var dangKyDichVu = _context.DangKyDichVus
+                .Select(x => new BangDangKyDV_GT
+                {
+                    MaKh = x.MaKh,
+                    TenKh = x.MaKhNavigation.HoTen,
+                    TenGoiHoacDv = x.MaDvNavigation.TenDv,
+                    NgayBatDau = x.NgayBatDau,
+                    NgayKetThuc = x.NgayKetThuc,
+                    TrangThai = x.NgayKetThuc >= DateOnly.FromDateTime(DateTime.Now)
+                });
+
+                var danhSachTongHop = dangKyGoiTap
+                .Concat(dangKyDichVu)
+                .OrderByDescending(x => x.NgayBatDau)
                 .ToList();
+                return danhSachTongHop;
         }
-        public string GetTenGoiTapById(int maGT)
-        {
-            return _context.GoiTaps.Where(gt => gt.MaGoiTap == maGT)
-                .Select(gt => gt.TenGoiTap)
-                .FirstOrDefault() ?? string.Empty;
-        }
-        public string GetTenDichVuById(int maDV)
-        {
-            return _context.DichVus.Where(dv => dv.MaDv == maDV)
-                .Select(dv => dv.TenDv)
-                .FirstOrDefault() ?? string.Empty;
-        }
+        
+        
     }
 }
