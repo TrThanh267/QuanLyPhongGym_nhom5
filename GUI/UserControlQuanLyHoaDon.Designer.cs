@@ -48,6 +48,7 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             tabControl1 = new TabControl();
             tabPageQLHD = new TabPage();
+            label12 = new Label();
             dataGridViewDangKyGTHD = new DataGridView();
             label5 = new Label();
             textBoxTKHD = new TextBox();
@@ -65,6 +66,9 @@
             label1 = new Label();
             dataGridViewHD = new DataGridView();
             tabPageQLCTHD = new TabPage();
+            labelTongCong = new Label();
+            label13 = new Label();
+            label11 = new Label();
             dataGridViewDangKyHDCT = new DataGridView();
             textBoxSoLuong = new TextBox();
             comboBoxmaDichVu = new ComboBox();
@@ -82,8 +86,6 @@
             label6 = new Label();
             dataGridViewCTHD = new DataGridView();
             guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(components);
-            label11 = new Label();
-            label12 = new Label();
             tabControl1.SuspendLayout();
             tabPageQLHD.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewDangKyGTHD).BeginInit();
@@ -129,6 +131,16 @@
             tabPageQLHD.TabIndex = 0;
             tabPageQLHD.Text = "Quản Lý Hóa Đơn";
             tabPageQLHD.UseVisualStyleBackColor = true;
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Font = new Font("Sylfaen", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label12.Location = new Point(7, 266);
+            label12.Name = "label12";
+            label12.Size = new Size(134, 29);
+            label12.TabIndex = 51;
+            label12.Text = "Đơn đăng kí";
             // 
             // dataGridViewDangKyGTHD
             // 
@@ -338,6 +350,8 @@
             // 
             // tabPageQLCTHD
             // 
+            tabPageQLCTHD.Controls.Add(labelTongCong);
+            tabPageQLCTHD.Controls.Add(label13);
             tabPageQLCTHD.Controls.Add(label11);
             tabPageQLCTHD.Controls.Add(dataGridViewDangKyHDCT);
             tabPageQLCTHD.Controls.Add(textBoxSoLuong);
@@ -363,6 +377,36 @@
             tabPageQLCTHD.Text = "Quản Lý Chi Tiết Hóa Đơn";
             tabPageQLCTHD.UseVisualStyleBackColor = true;
             // 
+            // labelTongCong
+            // 
+            labelTongCong.AutoSize = true;
+            labelTongCong.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 163);
+            labelTongCong.Location = new Point(763, 378);
+            labelTongCong.Name = "labelTongCong";
+            labelTongCong.Size = new Size(23, 28);
+            labelTongCong.TabIndex = 52;
+            labelTongCong.Text = "0";
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 163);
+            label13.Location = new Point(651, 378);
+            label13.Name = "label13";
+            label13.Size = new Size(118, 28);
+            label13.TabIndex = 51;
+            label13.Text = "Tổng Cộng:";
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Font = new Font("Sylfaen", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label11.Location = new Point(6, 262);
+            label11.Name = "label11";
+            label11.Size = new Size(134, 29);
+            label11.TabIndex = 50;
+            label11.Text = "Đơn đăng kí";
+            // 
             // dataGridViewDangKyHDCT
             // 
             dataGridViewDangKyHDCT.AllowUserToAddRows = false;
@@ -383,7 +427,7 @@
             // 
             // textBoxSoLuong
             // 
-            textBoxSoLuong.Location = new Point(657, 371);
+            textBoxSoLuong.Location = new Point(653, 318);
             textBoxSoLuong.Name = "textBoxSoLuong";
             textBoxSoLuong.Size = new Size(172, 27);
             textBoxSoLuong.TabIndex = 48;
@@ -391,7 +435,7 @@
             // comboBoxmaDichVu
             // 
             comboBoxmaDichVu.FormattingEnabled = true;
-            comboBoxmaDichVu.Location = new Point(657, 279);
+            comboBoxmaDichVu.Location = new Point(653, 229);
             comboBoxmaDichVu.Name = "comboBoxmaDichVu";
             comboBoxmaDichVu.Size = new Size(172, 28);
             comboBoxmaDichVu.TabIndex = 47;
@@ -399,7 +443,7 @@
             // comboBoxMaGoiTap
             // 
             comboBoxMaGoiTap.FormattingEnabled = true;
-            comboBoxMaGoiTap.Location = new Point(655, 180);
+            comboBoxMaGoiTap.Location = new Point(651, 148);
             comboBoxMaGoiTap.Name = "comboBoxMaGoiTap";
             comboBoxMaGoiTap.Size = new Size(174, 28);
             comboBoxMaGoiTap.TabIndex = 46;
@@ -407,7 +451,7 @@
             // comboBoxMaHD
             // 
             comboBoxMaHD.FormattingEnabled = true;
-            comboBoxMaHD.Location = new Point(655, 95);
+            comboBoxMaHD.Location = new Point(651, 78);
             comboBoxMaHD.Name = "comboBoxMaHD";
             comboBoxMaHD.Size = new Size(174, 28);
             comboBoxMaHD.TabIndex = 45;
@@ -416,7 +460,7 @@
             // 
             label10.AutoSize = true;
             label10.Font = new Font("Goudy Old Style", 10.2F);
-            label10.Location = new Point(657, 347);
+            label10.Location = new Point(653, 294);
             label10.Name = "label10";
             label10.Size = new Size(166, 21);
             label10.TabIndex = 42;
@@ -426,7 +470,7 @@
             // 
             label9.AutoSize = true;
             label9.Font = new Font("Goudy Old Style", 10.2F);
-            label9.Location = new Point(657, 256);
+            label9.Location = new Point(653, 206);
             label9.Name = "label9";
             label9.Size = new Size(97, 21);
             label9.TabIndex = 41;
@@ -436,7 +480,7 @@
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Goudy Old Style", 10.2F);
-            label8.Location = new Point(655, 157);
+            label8.Location = new Point(651, 125);
             label8.Name = "label8";
             label8.Size = new Size(98, 21);
             label8.TabIndex = 40;
@@ -446,7 +490,7 @@
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Goudy Old Style", 10.2F);
-            label7.Location = new Point(655, 72);
+            label7.Location = new Point(651, 55);
             label7.Name = "label7";
             label7.Size = new Size(99, 21);
             label7.TabIndex = 39;
@@ -574,26 +618,6 @@
             // 
             guna2Elipse1.TargetControl = this;
             // 
-            // label11
-            // 
-            label11.AutoSize = true;
-            label11.Font = new Font("Sylfaen", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label11.Location = new Point(6, 262);
-            label11.Name = "label11";
-            label11.Size = new Size(134, 29);
-            label11.TabIndex = 50;
-            label11.Text = "Đơn đăng kí";
-            // 
-            // label12
-            // 
-            label12.AutoSize = true;
-            label12.Font = new Font("Sylfaen", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label12.Location = new Point(7, 266);
-            label12.Name = "label12";
-            label12.Size = new Size(134, 29);
-            label12.TabIndex = 51;
-            label12.Text = "Đơn đăng kí";
-            // 
             // UserControlQuanLyHoaDon
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -653,5 +677,7 @@
         private DataGridView dataGridViewDangKyHDCT;
         private Label label12;
         private Label label11;
+        private Label label13;
+        private Label labelTongCong;
     }
 }

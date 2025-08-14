@@ -235,7 +235,7 @@ namespace QuanLyPhongGym_nhom5.GUI
 
         private void guna2ButtonThemCTHD_Click(object sender, EventArgs e)
         {
-            if (comboBoxMaHD.SelectedItem == null|| string.IsNullOrEmpty(textBoxSoLuong.Text))
+            if (comboBoxMaHD.SelectedItem == null)
             {
                 MessageBox.Show("Vui lòng điền đầy đủ thông tin!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -243,6 +243,11 @@ namespace QuanLyPhongGym_nhom5.GUI
             if((int)comboBoxMaGoiTap.SelectedValue == 27 && (int)comboBoxmaDichVu.SelectedValue == 24)
             {
                 MessageBox.Show("Chọn Gói tập hoặc dịch vụ đã đăng kí");
+                return;
+            }
+            if((int)comboBoxMaGoiTap.SelectedValue == 27 && textBoxSoLuong.Text==null)
+            {
+                MessageBox.Show("Nhập Ngày thuê của dịch vụ");
                 return;
             }
 
@@ -261,7 +266,7 @@ namespace QuanLyPhongGym_nhom5.GUI
                 MaHd = (int?)comboBoxMaHD.SelectedValue,
                 MaGoiTap = (int?)comboBoxMaGoiTap.SelectedValue,
                 MaDv = (int?)comboBoxmaDichVu.SelectedValue,
-                SoLuong = int.TryParse(textBoxSoLuong.Text, out int soLuong) ? soLuong : (int?)null,
+                SoLuong = int.Parse(textBoxSoLuong.Text)
             };
 
             if (QuanLyChiTietHoaDon_DAL.AddChiTietHoaDon(hoaDonChiTiet))
@@ -299,7 +304,7 @@ namespace QuanLyPhongGym_nhom5.GUI
                 MaHd = (int?)comboBoxMaHD.SelectedValue,
                 MaGoiTap = (int?)comboBoxMaGoiTap.SelectedValue,
                 MaDv = (int?)comboBoxmaDichVu.SelectedValue,
-                SoLuong = int.TryParse(textBoxSoLuong.Text, out int soLuong) ? soLuong : (int?)null,
+                SoLuong = int.Parse(textBoxSoLuong.Text)
             };
 
             if (QuanLyChiTietHoaDon_DAL.DeleteChiTietHoaDon(hoaDonChiTiet))
@@ -320,6 +325,21 @@ namespace QuanLyPhongGym_nhom5.GUI
                 MessageBox.Show("Vui lòng chọn chi tiết hóa đơn để sửa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+            if (comboBoxMaHD.SelectedItem == null)
+            {
+                MessageBox.Show("Vui lòng điền đầy đủ thông tin!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if ((int)comboBoxMaGoiTap.SelectedValue == 27 && (int)comboBoxmaDichVu.SelectedValue == 24)
+            {
+                MessageBox.Show("Chọn Gói tập hoặc dịch vụ đã đăng kí");
+                return;
+            }
+            if ((int)comboBoxMaGoiTap.SelectedValue == 27 && textBoxSoLuong.Text == null)
+            {
+                MessageBox.Show("Nhập Ngày thuê của dịch vụ");
+                return;
+            }
 
             var confirm = MessageBox.Show(
                 "Bạn có chắc chắn muốn cập nhật chi tiết hóa đơn này?",
@@ -337,7 +357,7 @@ namespace QuanLyPhongGym_nhom5.GUI
                 MaHd = (int?)comboBoxMaHD.SelectedValue,
                 MaGoiTap = (int?)comboBoxMaGoiTap.SelectedValue,
                 MaDv = (int?)comboBoxmaDichVu.SelectedValue,
-                SoLuong = int.TryParse(textBoxSoLuong.Text, out int soLuong) ? soLuong : (int?)null,
+                SoLuong = int.Parse(textBoxSoLuong.Text)
             };
 
             if (QuanLyChiTietHoaDon_DAL.UpdateChiTietHoaDon(hoaDonChiTiet))
@@ -362,6 +382,8 @@ namespace QuanLyPhongGym_nhom5.GUI
                 comboBoxmaDichVu.SelectedValue = selectedRow.Cells["MaDv"].Value;
                 comboBoxMaGoiTap.SelectedValue = selectedRow.Cells["MaGoiTap"].Value;
                 textBoxSoLuong.Text = selectedRow.Cells["SoLuong"].Value?.ToString() ?? "";
+                int giaTien = Convert.ToInt32(selectedRow.Cells["ThanhTien"].Value);
+                labelTongCong.Text = $"{giaTien} VNĐ";
             }
             else
             {

@@ -26,9 +26,9 @@ namespace QuanLyPhongGym_nhom5.DAL
                                                   MaHd = h.MaHd,
                                                   MaGoiTap = h.MaGoiTap,
                                                   MaDv = h.MaDv,
-                                                   SoLuong = h.MaDvNavigation != null ? h.MaDvNavigation.SoBuoiDk : 0,
-                                                    DonGia = (h.MaGoiTapNavigation != null ? h.MaGoiTapNavigation.Gia : 0)+ (h.MaDvNavigation != null ? h.MaDvNavigation.Gia * (h.SoLuong) : 0),
-                                                    ThanhTien = (h.MaGoiTapNavigation != null ? h.MaGoiTapNavigation.Gia : 0)+ (h.MaDvNavigation != null ? h.MaDvNavigation.Gia * (h.SoLuong) : 0)
+                                                  SoLuong = h.SoLuong,
+                                                  DonGia = (h.MaGoiTapNavigation != null ? h.MaGoiTapNavigation.Gia : 0)+ (h.MaDvNavigation != null ? h.MaDvNavigation.Gia * (h.SoLuong) : 0),
+                                                  ThanhTien = (h.MaGoiTapNavigation != null ? h.MaGoiTapNavigation.Gia : 0)+ (h.MaDvNavigation != null ? h.MaDvNavigation.Gia * (h.SoLuong) : 0)
                                            }).ToList();
         }
         public bool AddChiTietHoaDon(HoaDonChiTiet hoaDonChiTiet)
@@ -87,7 +87,7 @@ namespace QuanLyPhongGym_nhom5.DAL
 
                     int giaGoiTap = 0;
                     int giaDv = 0;
-                    int soBuoi = 0;
+                    hdct.SoLuong = hoaDonChiTiet.SoLuong;
 
                     if (hoaDonChiTiet.MaGoiTap != null)
                     {
@@ -104,12 +104,9 @@ namespace QuanLyPhongGym_nhom5.DAL
                         if (dichVu != null)
                         {
                             giaDv = (int)dichVu.Gia;
-                            soBuoi = (int)dichVu.SoBuoiDk;
                         }
-                    }
-
-                    hdct.SoLuong = soBuoi; 
-                    hdct.DonGia = giaGoiTap + (giaDv * soBuoi);
+                    } 
+                    hdct.DonGia = giaGoiTap + (giaDv * hdct.SoLuong);
                     hdct.ThanhTien = hdct.DonGia;
 
                     _context.SaveChanges();
