@@ -28,6 +28,7 @@ namespace QuanLyPhongGym_nhom5.GUI
                 MessageBox.Show("Bạn chưa đăng nhập!");
                 return;
             }
+            labelhienthikh.Text = "Xin chào: " + NguoiDung.nguoidunghientai.TenTaiKhoan;
         }
         public void loadData()
         {
@@ -42,7 +43,7 @@ namespace QuanLyPhongGym_nhom5.GUI
             }
             else
             {
-                textBoxKH.Text = "Tai khoan chua duoc thay";
+                textBoxKH.Text = "Tài khoản chưa đăng kí";
             }
             dateTimePickerBDGT.Value = DateTime.Now;
             dateTimePickerBDDV.Value = DateTime.Now;

@@ -1,10 +1,11 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using QuanLyPhongGym_nhom5;
+using QuanLyPhongGym_nhom5.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
-using QuanLyPhongGym_nhom5.Models;
 
 namespace QuanLyPhongGym.DAL
 {
@@ -29,6 +30,7 @@ namespace QuanLyPhongGym.DAL
                     NgayVaoLam = nv.NgayVaoLam,
                     Luong = nv.Luong,
                     TenTaiKhoan = nv.TenTaiKhoan,
+                    TrangThai = (NguoiDung.nguoidunghientai != null&& nv.TenTaiKhoan == NguoiDung.nguoidunghientai.TenTaiKhoan)? "Online" : "Offline"
                 }).ToList();
         }
 
@@ -94,11 +96,59 @@ namespace QuanLyPhongGym.DAL
         }
         public List<NhanVien> timkiem(string searchText)
         {
-            return _context.NhanViens.Where(nv => nv.TenNhanVien.Contains(searchText) || nv.Sdt.Contains(searchText) || nv.Email.Contains(searchText)).ToList();
+            return _context.NhanViens.Where(nv => nv.TenNhanVien.Contains(searchText) 
+            || nv.Sdt.Contains(searchText) 
+            || nv.Email.Contains(searchText) 
+            || nv.TenTaiKhoan.Contains(searchText)).ToList();
         }
         public bool kiemtrataikhoan(string taikhoan)
         {
             return _context.NhanViens.Any(x => x.TenTaiKhoan == taikhoan);
         }
+        public List<NhanVien> HLV()
+        {
+            return _context.NhanViens
+                .Include(nv => nv.TenTaiKhoanNavigation)
+                .Where(nv => nv.TenTaiKhoanNavigation.MaVaiTro == 2)
+                .Select(nv => new NhanVien
+                {
+                    MaNv = nv.MaNv,
+                    TenNhanVien = nv.TenNhanVien,
+                    Sdt = nv.Sdt,
+                    Email = nv.Email,
+                    DiaChi = nv.DiaChi,
+                    NgayVaoLam = nv.NgayVaoLam,
+                    Luong = nv.Luong,
+                    TenTaiKhoan = nv.TenTaiKhoan,
+                    TrangThai = (NguoiDung.nguoidunghientai != null
+                                 && nv.TenTaiKhoan == NguoiDung.nguoidunghientai.TenTaiKhoan)
+                                ? "Online"
+                                : "Offline"
+                })
+                .ToList();
+        }
+
+        public List<NhanVien> ThuNgan()
+        {
+            return _context.NhanViens
+                .Include(nv => nv.TenTaiKhoanNavigation)
+                .Where(nv => nv.TenTaiKhoanNavigation.MaVaiTro == 3)
+                .Select(nv => new NhanVien
+                {
+                    MaNv = nv.MaNv,
+                    TenNhanVien = nv.TenNhanVien,
+                    Sdt = nv.Sdt,
+                    Email = nv.Email,
+                    DiaChi = nv.DiaChi,
+                    NgayVaoLam = nv.NgayVaoLam,
+                    Luong = nv.Luong,
+                    TenTaiKhoan = nv.TenTaiKhoan,
+                    TrangThai = (NguoiDung.nguoidunghientai != null
+                                 && nv.TenTaiKhoan == NguoiDung.nguoidunghientai.TenTaiKhoan)
+                                ? "Online"
+                                : "Offline"
+                }).ToList();
+        }
     }
 }
+

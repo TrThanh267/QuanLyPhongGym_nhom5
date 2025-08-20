@@ -22,7 +22,7 @@ namespace QuanLyPhongGym_nhom5.BLL
         public bool AddKhachHang(KhachHang khachHang)
         {
             return _khachhangDal.ThemKhachHang(khachHang);
-            
+
         }
         public bool UpdateKhachHang(KhachHang khachHang)
         {

@@ -22,7 +22,7 @@ namespace QuanLyPhongGym_nhom5.BLL
         public bool AddNhanVien(NhanVien nhanVien)
         {
             _nhanVienDal.them(nhanVien);
-            if(nhanVien.MaNv > 0) // Assuming MaNv is auto-incremented and greater than 0 if added successfully
+            if (nhanVien.MaNv > 0) 
             {
                 MessageBox.Show("Thêm nhân viên thành công!");
                 return true;
@@ -36,12 +36,12 @@ namespace QuanLyPhongGym_nhom5.BLL
         public bool UpdateNhanVien(NhanVien nhanVien)
         {
             return _nhanVienDal.sua(nhanVien);
-            
+
         }
         public bool DeleteNhanVien(NhanVien nhanVien)
         {
             _nhanVienDal.xoa(nhanVien);
-            if (nhanVien.MaNv > 0) // Assuming MaNv is auto-incremented and greater than 0 if deleted successfully
+            if (nhanVien.MaNv > 0)
             {
                 MessageBox.Show("Xóa nhân viên thành công!");
                 return true;
@@ -54,12 +54,19 @@ namespace QuanLyPhongGym_nhom5.BLL
         }
         public bool KiemTraTaiKhoanDaSuDung(string tenTaiKhoan)
         {
-            return  _nhanVienDal.kiemtrataikhoan(tenTaiKhoan);
+            return _nhanVienDal.kiemtrataikhoan(tenTaiKhoan);
         }
         public List<NhanVien> timkiem(string tenNhanVien)
         {
             return _nhanVienDal.timkiem(tenNhanVien);
         }
-        
+        public List<NhanVien> ListHLV()
+        {
+            return _nhanVienDal.HLV();
+        }
+        public List<NhanVien> ListThuNgan()
+        {
+            return _nhanVienDal.ThuNgan();
+        }
     }
 }

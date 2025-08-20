@@ -99,5 +99,33 @@ namespace QuanLyPhongGym_nhom5.DAL
         {
             return _context.TaiKhoans.Where(x => x.TenTaiKhoan.Contains(taikohan)).ToList();
         }
+        public int DemTaiKhoanDangKy()
+        {
+            return _context.TaiKhoans
+                .Count(tk =>
+                tk.MaVaiTroNavigation.TenVaiTro == "KhachHang" &&
+                !_context.KhachHangs.Any(kh => kh.TenTaiKhoanNavigation.TenTaiKhoan == tk.TenTaiKhoan));
+        }
+        public int TaikhoanDangKyHLV()
+        {
+            return _context.TaiKhoans
+                .Count(tk =>
+                tk.MaVaiTroNavigation.TenVaiTro == "HLV" &&
+                _context.NhanViens.Any(nv => nv.TenTaiKhoanNavigation.TenTaiKhoan == tk.TenTaiKhoan));
+        }
+        public int TaikhoanDangKyThuNgan()
+        {
+            return _context.TaiKhoans
+                .Count(tk =>
+                tk.MaVaiTroNavigation.TenVaiTro == "ThuNgan" &&
+                _context.NhanViens.Any(nv => nv.TenTaiKhoanNavigation.TenTaiKhoan == tk.TenTaiKhoan));
+        }
+        public bool kiemtrasuaVaitro(string TaiKhoan)
+        {
+
+            var kh = _context.KhachHangs.Any(kh=>kh.TenTaiKhoan==TaiKhoan);
+            var nv = _context.NhanViens.Any(kh => kh.TenTaiKhoan == TaiKhoan);
+            return (kh || nv);
+        }
     }
 }

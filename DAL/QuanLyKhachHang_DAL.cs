@@ -19,6 +19,8 @@ namespace QuanLyPhongGym_nhom5.DAL
         {
             return _context.KhachHangs
                 .Include(kh => kh.TenTaiKhoanNavigation)
+                .Include(kh => kh.DangKyGoiTaps)
+                .Include(kh => kh.DangKyDichVus)
                 .Select(kh => new KhachHang
                 {
                     MaKh = kh.MaKh,
@@ -26,14 +28,21 @@ namespace QuanLyPhongGym_nhom5.DAL
                     Sdt = kh.Sdt,
                     Email = kh.Email,
                     DiaChi = kh.DiaChi,
-                    NgayDangKy = kh.NgayDangKy,
-                    NgayHetHan = kh.NgayHetHan,
+                    NgayDangKy = kh.DangKyGoiTaps
+                            .Select(dk => (DateOnly?)dk.NgayBatDau)
+                            .Concat(kh.DangKyDichVus.Select(dk => (DateOnly?)dk.NgayBatDau))
+                            .Max(),
+                    NgayHetHan = kh.DangKyGoiTaps
+                            .Select(dk => (DateOnly?)dk.NgayKetThuc)
+                            .Concat(kh.DangKyDichVus.Select(dk => (DateOnly?)dk.NgayKetThuc))
+                            .Max(),
                     TrangThai = kh.TrangThai,
                     GioiTinh = kh.GioiTinh,
                     TenTaiKhoan = kh.TenTaiKhoan,
                 })
                 .ToList();
         }
+
         public bool ThemKhachHang(KhachHang khachHang)
         {
             try
@@ -84,12 +93,10 @@ namespace QuanLyPhongGym_nhom5.DAL
                 var kh = _context.KhachHangs.FirstOrDefault(x => x.MaKh == khachHang.MaKh);
                 if (kh != null)
                 {
-                    kh.HoTen = khachHang.HoTen==null?kh.HoTen:khachHang.HoTen;
-                    kh.Sdt = khachHang.Sdt==null?kh.Sdt:khachHang.Sdt;
+                    kh.HoTen = khachHang.HoTen == null ? kh.HoTen : khachHang.HoTen;
+                    kh.Sdt = khachHang.Sdt == null ? kh.Sdt : khachHang.Sdt;
                     kh.Email = khachHang.Email == null ? kh.Email : khachHang.Email;
                     kh.DiaChi = khachHang.DiaChi == null ? kh.DiaChi : khachHang.DiaChi;
-                    kh.NgayDangKy = khachHang.NgayDangKy == null ? kh.NgayDangKy : khachHang.NgayDangKy;
-                    kh.NgayHetHan = khachHang.NgayHetHan == null ? kh.NgayHetHan : khachHang.NgayHetHan;
                     kh.TrangThai = khachHang.TrangThai == null ? kh.TrangThai : khachHang.TrangThai;
                     kh.GioiTinh = khachHang.GioiTinh == null ? kh.GioiTinh : khachHang.GioiTinh;
                     kh.TenTaiKhoan = khachHang.TenTaiKhoan == null ? kh.TenTaiKhoan : khachHang.TenTaiKhoan;
@@ -112,18 +119,22 @@ namespace QuanLyPhongGym_nhom5.DAL
         public List<KhachHang> timkiemKH(string khachhang)
         {
             var nv = _context.KhachHangs
-                .Where(x => x.HoTen.Contains(khachhang) || x.Email.Contains(khachhang) || x.TenTaiKhoan.Contains(khachhang) || x.MaKh.ToString().ToLower()==khachhang)
+                .Where(x => x.HoTen.Contains(khachhang) 
+                || x.Email.Contains(khachhang) 
+                || x.TenTaiKhoan.Contains(khachhang) 
+                || x.MaKh.ToString().ToLower() == khachhang)
                 .ToList();
             return nv;
         }
         public bool taikhoandadung(string khachHang)
         {
-            return _context.KhachHangs.Any(x=> x.TenTaiKhoan == khachHang);
+            return _context.KhachHangs.Any(x => x.TenTaiKhoan == khachHang);
         }
         public bool KiemTraTaiKhoanDaSuDungChoKhac(string tenTaiKhoan, int maKhachHang)
         {
             return _context.KhachHangs
                 .Any(kh => kh.TenTaiKhoan == tenTaiKhoan && kh.MaKh != maKhachHang);
         }
+
     }
 }

@@ -45,11 +45,13 @@
             ButtonQuenMK = new Guna.UI2.WinForms.Guna2CircleButton();
             guna2PictureBox2 = new Guna.UI2.WinForms.Guna2PictureBox();
             labelhienthi = new Label();
+            checkBoxHienMatKhau = new CheckBox();
             ((System.ComponentModel.ISupportInitialize)guna2PictureBox2).BeginInit();
             SuspendLayout();
             // 
             // label3
             // 
+            label3.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             label3.AutoSize = true;
             label3.Font = new Font("Algerian", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label3.Location = new Point(542, 57);
@@ -60,6 +62,7 @@
             // 
             // guna2Buttondangnnhap
             // 
+            guna2Buttondangnnhap.Anchor = AnchorStyles.Right;
             guna2Buttondangnnhap.BorderRadius = 18;
             guna2Buttondangnnhap.CustomizableEdges = customizableEdges1;
             guna2Buttondangnnhap.DisabledState.BorderColor = Color.DarkGray;
@@ -71,7 +74,7 @@
             guna2Buttondangnnhap.ForeColor = Color.White;
             guna2Buttondangnnhap.HoverState.BorderColor = Color.Transparent;
             guna2Buttondangnnhap.HoverState.FillColor = Color.FromArgb(0, 192, 0);
-            guna2Buttondangnnhap.Location = new Point(466, 295);
+            guna2Buttondangnnhap.Location = new Point(466, 319);
             guna2Buttondangnnhap.Name = "guna2Buttondangnnhap";
             guna2Buttondangnnhap.ShadowDecoration.CustomizableEdges = customizableEdges2;
             guna2Buttondangnnhap.Size = new Size(225, 56);
@@ -81,6 +84,7 @@
             // 
             // guna2TextBoxTaiKhoan
             // 
+            guna2TextBoxTaiKhoan.Anchor = AnchorStyles.Right;
             guna2TextBoxTaiKhoan.BorderRadius = 18;
             guna2TextBoxTaiKhoan.CustomizableEdges = customizableEdges3;
             guna2TextBoxTaiKhoan.DefaultText = "";
@@ -104,6 +108,7 @@
             // 
             // guna2TextBoxMatKhau
             // 
+            guna2TextBoxMatKhau.Anchor = AnchorStyles.Right;
             guna2TextBoxMatKhau.BorderRadius = 18;
             guna2TextBoxMatKhau.CustomizableEdges = customizableEdges5;
             guna2TextBoxMatKhau.DefaultText = "";
@@ -119,7 +124,6 @@
             guna2TextBoxMatKhau.Location = new Point(439, 208);
             guna2TextBoxMatKhau.Margin = new Padding(3, 4, 3, 4);
             guna2TextBoxMatKhau.Name = "guna2TextBoxMatKhau";
-            guna2TextBoxMatKhau.PasswordChar = '*';
             guna2TextBoxMatKhau.PlaceholderText = "Enter Password";
             guna2TextBoxMatKhau.SelectedText = "";
             guna2TextBoxMatKhau.ShadowDecoration.CustomizableEdges = customizableEdges6;
@@ -147,6 +151,7 @@
             // 
             // guna2PictureBox2
             // 
+            guna2PictureBox2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             guna2PictureBox2.CustomizableEdges = customizableEdges8;
             guna2PictureBox2.Image = (Image)resources.GetObject("guna2PictureBox2.Image");
             guna2PictureBox2.ImageRotate = 0F;
@@ -160,13 +165,26 @@
             // 
             // labelhienthi
             // 
+            labelhienthi.Anchor = AnchorStyles.Right;
             labelhienthi.AutoSize = true;
             labelhienthi.ForeColor = Color.Red;
-            labelhienthi.Location = new Point(471, 371);
+            labelhienthi.Location = new Point(471, 394);
             labelhienthi.Name = "labelhienthi";
             labelhienthi.Size = new Size(220, 20);
             labelhienthi.TabIndex = 10;
             labelhienthi.Text = "Sai tên tài khoản hoặc mật khẩu";
+            // 
+            // checkBoxHienMatKhau
+            // 
+            checkBoxHienMatKhau.Anchor = AnchorStyles.Right;
+            checkBoxHienMatKhau.AutoSize = true;
+            checkBoxHienMatKhau.Location = new Point(451, 281);
+            checkBoxHienMatKhau.Name = "checkBoxHienMatKhau";
+            checkBoxHienMatKhau.Size = new Size(127, 24);
+            checkBoxHienMatKhau.TabIndex = 11;
+            checkBoxHienMatKhau.Text = "Hiện mật khẩu";
+            checkBoxHienMatKhau.UseVisualStyleBackColor = true;
+            checkBoxHienMatKhau.CheckedChanged += checkBoxHienMatKhau_CheckedChanged;
             // 
             // FormdangNhap
             // 
@@ -174,6 +192,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlLightLight;
             ClientSize = new Size(855, 436);
+            Controls.Add(checkBoxHienMatKhau);
             Controls.Add(labelhienthi);
             Controls.Add(guna2PictureBox2);
             Controls.Add(ButtonQuenMK);
@@ -199,5 +218,6 @@
         private Guna.UI2.WinForms.Guna2TextBox guna2TextBoxMatKhau;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox2;
         private Label labelhienthi;
+        private CheckBox checkBoxHienMatKhau;
     }
 }

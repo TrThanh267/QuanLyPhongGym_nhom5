@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace QuanLyPhongGym_nhom5.Models;
 
@@ -26,4 +27,6 @@ public partial class NhanVien
     public virtual ICollection<HoaDon> HoaDons { get; set; } = new List<HoaDon>();
     [Browsable(false)]
     public virtual TaiKhoan? TenTaiKhoanNavigation { get; set; }
+    [NotMapped]
+    public string TrangThai { get; set; }
 }

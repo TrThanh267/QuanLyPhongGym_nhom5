@@ -27,6 +27,7 @@ namespace QuanLyPhongGym.GUI
         public void loadForm()
         {
             labelhienthi.Visible = false;
+            guna2TextBoxMatKhau.UseSystemPasswordChar = true;
         }
 
 
@@ -52,10 +53,11 @@ namespace QuanLyPhongGym.GUI
                 }
                 else
                 {
-                    if(NguoiDung.nguoidunghientai.MaVaiTroNavigation.TenVaiTro == "QuanLy")
+                    if (NguoiDung.nguoidunghientai.MaVaiTroNavigation.TenVaiTro == "QuanLy")
                     {
                         MessageBox.Show("Bạn đã đăng nhập với vai trò là Quản Lý");
-                    }else if (NguoiDung.nguoidunghientai.MaVaiTroNavigation.TenVaiTro == "HLV")
+                    }
+                    else if (NguoiDung.nguoidunghientai.MaVaiTroNavigation.TenVaiTro == "HLV")
                     {
                         MessageBox.Show("Bạn đã đăng nhập với vai trò là Huấn Luyện Viên");
                     }
@@ -79,9 +81,21 @@ namespace QuanLyPhongGym.GUI
         private void ButtonQuenMK_Click(object sender, EventArgs e)
         {
             FormDoiMatKhau formDoiMatKhau = new FormDoiMatKhau();
-            this.Hide(); 
+            this.Hide();
             formDoiMatKhau.ShowDialog();
             this.Show();
+        }
+
+        private void checkBoxHienMatKhau_CheckedChanged(object sender, EventArgs e)
+        {
+            if(checkBoxHienMatKhau.Checked)
+            {
+                guna2TextBoxMatKhau.UseSystemPasswordChar = false;
+            }
+            else
+            {
+                guna2TextBoxMatKhau.UseSystemPasswordChar = true;
+            }
         }
     }
 }

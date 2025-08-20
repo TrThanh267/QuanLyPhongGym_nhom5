@@ -30,11 +30,12 @@ namespace QuanLyPhongGym.GUI
             userControlPhongTap1.Visible = false;
             userControlQuanLyTaiKhoan1.Visible = false;
             userControlDichVu1.Visible = false;
+            labelTenDangNhap.Text = "Xin chào: " + NguoiDung.nguoidunghientai.TenTaiKhoan;
         }
         private void guna2ButtonQLNV_Click(object sender, EventArgs e)
         {
             var quyen = NguoiDung.nguoidunghientai.MaVaiTroNavigation.TenVaiTro;
-            if (quyen == "QuanLy" )
+            if (quyen == "QuanLy")
             {
                 userControlQuanLyNhanVien1.Visible = true;
                 userControlQuanLyNhanVien1.BringToFront();
@@ -43,6 +44,7 @@ namespace QuanLyPhongGym.GUI
                 userControlPhongTap1.Visible = false;
                 userControlQuanLyTaiKhoan1.Visible = false;
                 userControlDichVu1.Visible = false;
+                buttonmoving.Visible = true;
                 buttonmoving.Left = guna2ButtonQLNV.Left + 0;
             }
             else
@@ -54,7 +56,7 @@ namespace QuanLyPhongGym.GUI
 
         private void FormMain_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         private void guna2CircleButtonX_Click(object sender, EventArgs e)
@@ -70,7 +72,8 @@ namespace QuanLyPhongGym.GUI
         private void ButtonQLKhachHang_Click(object sender, EventArgs e)
         {
             var quyen = NguoiDung.nguoidunghientai.MaVaiTroNavigation.TenVaiTro;
-            {   if (quyen == "QuanLy" || quyen == "ThuNgan")
+            {
+                if (quyen == "QuanLy" || quyen == "ThuNgan")
                 {
                     userControlQuanLyKhachHang1.Visible = true;
                     userControlQuanLyKhachHang1.BringToFront();
@@ -79,14 +82,15 @@ namespace QuanLyPhongGym.GUI
                     userControlPhongTap1.Visible = false;
                     userControlQuanLyTaiKhoan1.Visible = false;
                     userControlDichVu1.Visible = false;
+                    buttonmoving.Visible = true;
                     buttonmoving.Left = ButtonQLKhachHang.Left + 0;
                 }
-                else 
-                { 
+                else
+                {
                     MessageBox.Show("Bạn không có quyền truy cập vào chức năng này!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
-            
+
         }
 
         private void guna2ButtonHD_Click(object sender, EventArgs e)
@@ -101,6 +105,7 @@ namespace QuanLyPhongGym.GUI
                 userControlPhongTap1.Visible = false;
                 userControlQuanLyTaiKhoan1.Visible = false;
                 userControlDichVu1.Visible = false;
+                buttonmoving.Visible = true;
                 buttonmoving.Left = guna2ButtonHD.Left + 0;
             }
             else
@@ -123,6 +128,7 @@ namespace QuanLyPhongGym.GUI
                 userControlQuanLyNhanVien1.Visible = false;
                 userControlQuanLyTaiKhoan1.Visible = false;
                 userControlDichVu1.Visible = false;
+                buttonmoving.Visible = true;
                 buttonmoving.Left = guna2Button5.Left + 0;
             }
             else
@@ -143,6 +149,7 @@ namespace QuanLyPhongGym.GUI
                 userControlQuanLyNhanVien1.Visible = false;
                 userControlPhongTap1.Visible = false;
                 userControlDichVu1.Visible = false;
+                buttonmoving.Visible = true;
                 buttonmoving.Left = buttonTaiKhoan.Left + 0;
             }
             else
@@ -164,6 +171,7 @@ namespace QuanLyPhongGym.GUI
                 userControlQuanLyNhanVien1.Visible = false;
                 userControlPhongTap1.Visible = false;
                 userControlDichVu1.BringToFront();
+                buttonmoving.Visible = true;
                 buttonmoving.Left = guna2ButtonDV.Left + 0;
             }
             else
@@ -176,6 +184,18 @@ namespace QuanLyPhongGym.GUI
         private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void guna2CircleButtonZoom_Click(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Normal)
+            {
+                this.WindowState = FormWindowState.Maximized; 
+            }
+            else
+            {
+                this.WindowState = FormWindowState.Normal; 
+            }
         }
     }
 }

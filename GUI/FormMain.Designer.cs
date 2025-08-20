@@ -47,6 +47,7 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges17 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges18 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             buttonTaiKhoan = new Guna.UI2.WinForms.Guna2Button();
             ButtonQLKhachHang = new Guna.UI2.WinForms.Guna2Button();
@@ -68,6 +69,8 @@
             guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(components);
             guna2Elipse2 = new Guna.UI2.WinForms.Guna2Elipse(components);
             guna2Elipse3 = new Guna.UI2.WinForms.Guna2Elipse(components);
+            labelTenDangNhap = new Label();
+            guna2CircleButtonZoom = new Guna.UI2.WinForms.Guna2CircleButton();
             ((System.ComponentModel.ISupportInitialize)guna2PictureBox1).BeginInit();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
@@ -75,6 +78,7 @@
             // 
             // guna2PictureBox1
             // 
+            guna2PictureBox1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             guna2PictureBox1.BackColor = Color.Transparent;
             guna2PictureBox1.CustomizableEdges = customizableEdges1;
             guna2PictureBox1.Image = (Image)resources.GetObject("guna2PictureBox1.Image");
@@ -89,6 +93,7 @@
             // 
             // buttonTaiKhoan
             // 
+            buttonTaiKhoan.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             buttonTaiKhoan.BackColor = Color.Transparent;
             buttonTaiKhoan.BorderColor = Color.FromArgb(255, 128, 255);
             buttonTaiKhoan.BorderRadius = 18;
@@ -205,6 +210,7 @@
             // 
             // guna2Button5
             // 
+            guna2Button5.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             guna2Button5.BackColor = Color.Transparent;
             guna2Button5.BorderColor = Color.FromArgb(255, 128, 255);
             guna2Button5.BorderRadius = 18;
@@ -229,11 +235,12 @@
             guna2Button5.ShadowDecoration.CustomizableEdges = customizableEdges12;
             guna2Button5.Size = new Size(150, 59);
             guna2Button5.TabIndex = 5;
-            guna2Button5.Text = "Quản Lý Phòng Tập";
+            guna2Button5.Text = "Quản Lý Phòng Tập Và Thiết Bị";
             guna2Button5.Click += guna2Button5_Click;
             // 
             // panel1
             // 
+            panel1.Anchor = AnchorStyles.None;
             panel1.BackColor = Color.FromArgb(128, 128, 255);
             panel1.BackgroundImageLayout = ImageLayout.Stretch;
             panel1.BorderStyle = BorderStyle.Fixed3D;
@@ -252,6 +259,7 @@
             // 
             // buttonmoving
             // 
+            buttonmoving.Anchor = AnchorStyles.Top;
             buttonmoving.BackColor = Color.FromArgb(128, 255, 255);
             buttonmoving.CustomizableEdges = customizableEdges13;
             buttonmoving.Location = new Point(3, 77);
@@ -259,9 +267,11 @@
             buttonmoving.ShadowDecoration.CustomizableEdges = customizableEdges14;
             buttonmoving.Size = new Size(150, 5);
             buttonmoving.TabIndex = 9;
+            buttonmoving.Visible = false;
             // 
             // guna2ButtonDV
             // 
+            guna2ButtonDV.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             guna2ButtonDV.BackColor = Color.Transparent;
             guna2ButtonDV.BorderColor = Color.FromArgb(255, 128, 255);
             guna2ButtonDV.BorderRadius = 25;
@@ -284,11 +294,12 @@
             guna2ButtonDV.ShadowDecoration.CustomizableEdges = customizableEdges16;
             guna2ButtonDV.Size = new Size(150, 59);
             guna2ButtonDV.TabIndex = 6;
-            guna2ButtonDV.Text = "Quản lý Dịch Vụ";
+            guna2ButtonDV.Text = "Quản lý Dịch Vụ Và Gói Tập";
             guna2ButtonDV.Click += guna2ButtonDV_Click;
             // 
             // guna2CircleButtonX
             // 
+            guna2CircleButtonX.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             guna2CircleButtonX.BackColor = Color.Transparent;
             guna2CircleButtonX.DisabledState.BorderColor = Color.DarkGray;
             guna2CircleButtonX.DisabledState.CustomBorderColor = Color.DarkGray;
@@ -309,6 +320,7 @@
             // 
             // panel2
             // 
+            panel2.Anchor = AnchorStyles.None;
             panel2.Controls.Add(userControlDichVu1);
             panel2.Controls.Add(labelhienthi);
             panel2.Controls.Add(userControlQuanLyTaiKhoan1);
@@ -316,7 +328,7 @@
             panel2.Controls.Add(userControlQuanLyHoaDon1);
             panel2.Controls.Add(userControlQuanLyKhachHang1);
             panel2.Controls.Add(userControlQuanLyNhanVien1);
-            panel2.Location = new Point(30, 112);
+            panel2.Location = new Point(33, 120);
             panel2.Name = "panel2";
             panel2.Size = new Size(1051, 561);
             panel2.TabIndex = 7;
@@ -397,12 +409,45 @@
             guna2Elipse3.BorderRadius = 18;
             guna2Elipse3.TargetControl = this;
             // 
+            // labelTenDangNhap
+            // 
+            labelTenDangNhap.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            labelTenDangNhap.AutoSize = true;
+            labelTenDangNhap.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 163);
+            labelTenDangNhap.ForeColor = Color.White;
+            labelTenDangNhap.Location = new Point(12, 686);
+            labelTenDangNhap.Name = "labelTenDangNhap";
+            labelTenDangNhap.Size = new Size(0, 31);
+            labelTenDangNhap.TabIndex = 9;
+            // 
+            // guna2CircleButtonZoom
+            // 
+            guna2CircleButtonZoom.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            guna2CircleButtonZoom.DisabledState.BorderColor = Color.DarkGray;
+            guna2CircleButtonZoom.DisabledState.CustomBorderColor = Color.DarkGray;
+            guna2CircleButtonZoom.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            guna2CircleButtonZoom.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            guna2CircleButtonZoom.FillColor = Color.FromArgb(192, 192, 255);
+            guna2CircleButtonZoom.Font = new Font("Segoe UI", 9F);
+            guna2CircleButtonZoom.ForeColor = Color.White;
+            guna2CircleButtonZoom.Image = (Image)resources.GetObject("guna2CircleButtonZoom.Image");
+            guna2CircleButtonZoom.ImageSize = new Size(40, 40);
+            guna2CircleButtonZoom.Location = new Point(1090, 67);
+            guna2CircleButtonZoom.Name = "guna2CircleButtonZoom";
+            guna2CircleButtonZoom.ShadowDecoration.CustomizableEdges = customizableEdges18;
+            guna2CircleButtonZoom.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            guna2CircleButtonZoom.Size = new Size(46, 47);
+            guna2CircleButtonZoom.TabIndex = 10;
+            guna2CircleButtonZoom.Click += guna2CircleButtonZoom_Click;
+            // 
             // FormMain
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(0, 0, 192);
             ClientSize = new Size(1138, 725);
+            Controls.Add(guna2CircleButtonZoom);
+            Controls.Add(labelTenDangNhap);
             Controls.Add(guna2CircleButtonX);
             Controls.Add(panel2);
             Controls.Add(panel1);
@@ -415,6 +460,7 @@
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -441,5 +487,7 @@
         private Label labelhienthi;
         private QuanLyPhongGym_nhom5.GUI.UserControlDichVu userControlDichVu1;
         private Guna.UI2.WinForms.Guna2Panel buttonmoving;
+        private Label labelTenDangNhap;
+        private Guna.UI2.WinForms.Guna2CircleButton guna2CircleButtonZoom;
     }
 }

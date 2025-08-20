@@ -61,6 +61,7 @@
             label10 = new Label();
             guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(components);
             textBoxKH = new TextBox();
+            labelhienthikh = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridViewDKDV).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridViewDKGT).BeginInit();
             SuspendLayout();
@@ -324,11 +325,20 @@
             textBoxKH.Size = new Size(108, 27);
             textBoxKH.TabIndex = 30;
             // 
+            // labelhienthikh
+            // 
+            labelhienthikh.AutoSize = true;
+            labelhienthikh.Location = new Point(491, 6);
+            labelhienthikh.Name = "labelhienthikh";
+            labelhienthikh.Size = new Size(0, 20);
+            labelhienthikh.TabIndex = 31;
+            // 
             // UserControlDKDichvu_GoiTap
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(192, 192, 255);
+            Controls.Add(labelhienthikh);
             Controls.Add(textBoxKH);
             Controls.Add(label10);
             Controls.Add(label5);
@@ -384,5 +394,6 @@
         private Label label10;
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
         private TextBox textBoxKH;
+        private Label labelhienthikh;
     }
 }
